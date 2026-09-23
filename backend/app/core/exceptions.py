@@ -1,0 +1,2 @@
+class MysteryOSError(Exception):
+    pass

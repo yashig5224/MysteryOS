@@ -1,0 +1,5796 @@
+{
+  "dataset_id": "35af38ef-0ff0-435a-9942-66cc40371019",
+  "status": "completed",
+  "total_evidence": 54,
+  "strong_evidence": 49,
+  "moderate_evidence": 4,
+  "weak_evidence": 1,
+  "total_hypotheses": 14,
+  "total_investigation_threads": 5,
+  "top_threads": [
+    {
+      "thread_id": "thr_2f4afb23",
+      "dataset_id": "35af38ef-0ff0-435a-9942-66cc40371019",
+      "title": "Investigation: Temporal Transition Association: Finding: customer_complaints (2026-02-10) &rarr; Finding: return_rate (2026-02-10)",
+      "priority": 95,
+      "status": "open",
+      "summary": "Candidate explanation: The shift observed in 'Finding: customer_complaints (2026-02-10)' occurred prior to 'Finding: return_rate (2026-02-10)', suggesting a possible chronological progression or downstream operational response. Grounded by 5 empirical evidence item(s), 0 structural pattern(s), and 5 investigative anomalies.",
+      "hypothesis_ids": [
+        "hyp_temp_74861cff"
+      ],
+      "evidence_ids": [
+        "evd_anom_c9fff8c5",
+        "evd_anom_f439885e",
+        "evd_anom_122a1a33",
+        "evd_anom_f2d47135",
+        "evd_anom_0f885857"
+      ],
+      "pattern_ids": [],
+      "finding_ids": [
+        "iqr_230114fe",
+        "iqr_0692609f",
+        "iqr_e82f5a34",
+        "iqr_86294871",
+        "iqr_4f7e9cc6"
+      ],
+      "timeline_event_ids": [
+        "evt_fnd_a0829531",
+        "evt_fnd_956ace10",
+        "evt_fnd_ad1c6f1b",
+        "evt_fnd_494a8ef6",
+        "evt_fnd_2bab731a"
+      ],
+      "primary_columns": []
+    },
+    {
+      "thread_id": "thr_a6f7cfa5",
+      "dataset_id": "35af38ef-0ff0-435a-9942-66cc40371019",
+      "title": "Investigation: Systemic Coupling between 'customer_complaints' & 'return_rate'",
+      "priority": 91,
+      "status": "open",
+      "summary": "Candidate explanation: A strong positive linear association (r = +1.00) suggests that 'customer_complaints' and 'return_rate' share common driving mechanisms or feedback loops. Grounded by 5 empirical evidence item(s), 1 structural pattern(s), and 5 investigative anomalies.",
+      "hypothesis_ids": [
+        "hyp_corr_9f49cc3a"
+      ],
+      "evidence_ids": [
+        "evd_anom_c9fff8c5",
+        "evd_anom_f439885e",
+        "evd_anom_122a1a33",
+        "evd_anom_f2d47135",
+        "evd_anom_0f885857"
+      ],
+      "pattern_ids": [
+        "pat_corr_6481fc5c"
+      ],
+      "finding_ids": [
+        "iqr_230114fe",
+        "iqr_0692609f",
+        "iqr_e82f5a34",
+        "iqr_86294871",
+        "iqr_4f7e9cc6"
+      ],
+      "timeline_event_ids": [
+        "evt_fnd_a0829531",
+        "evt_fnd_956ace10",
+        "evt_fnd_ad1c6f1b",
+        "evt_fnd_494a8ef6",
+        "evt_fnd_2bab731a"
+      ],
+      "primary_columns": [
+        "customer_complaints",
+        "return_rate"
+      ]
+    },
+    {
+      "thread_id": "thr_1ff4d880",
+      "dataset_id": "35af38ef-0ff0-435a-9942-66cc40371019",
+      "title": "Investigation: Systemic Coupling between 'price' & 'return_rate'",
+      "priority": 90,
+      "status": "open",
+      "summary": "Candidate explanation: A strong positive linear association (r = +0.99) suggests that 'price' and 'return_rate' share common driving mechanisms or feedback loops. Grounded by 5 empirical evidence item(s), 1 structural pattern(s), and 5 investigative anomalies.",
+      "hypothesis_ids": [
+        "hyp_corr_15918347"
+      ],
+      "evidence_ids": [
+        "evd_anom_93485289",
+        "evd_anom_10b47b76",
+        "evd_anom_fa5c170f",
+        "evd_anom_033d4995",
+        "evd_anom_8fa4f488"
+      ],
+      "pattern_ids": [
+        "pat_corr_1b1a26c3"
+      ],
+      "finding_ids": [
+        "iqr_83bfbd04",
+        "iqr_d1619781",
+        "iqr_5918dcae",
+        "iqr_31c462e8",
+        "iqr_1a8d58e9"
+      ],
+      "timeline_event_ids": [
+        "evt_fnd_5a122a84",
+        "evt_fnd_bc8ceec1",
+        "evt_fnd_64749378",
+        "evt_fnd_11bade7e",
+        "evt_fnd_12670ce5"
+      ],
+      "primary_columns": [
+        "price",
+        "return_rate"
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "evidence_id": "evd_anom_93485289",
+      "dataset_id": "35af38ef-0ff0-435a-9942-66cc40371019",
+      "title": "High-Severity Anomaly: Potential Outlier in 'price' (above upper threshold)",
+      "description": "Observed value of 115.00 in column 'price' (Row 9) is statistically unusual and falls outside the expected IQR boundary [47.38, 54.38].",
+      "evidence_type": "ANOMALY_EVIDENCE",
+      "strength": 100,
+      "polarity": "support",
+      "supports_pattern_ids": [],
+      "related_finding_ids": [
+        "iqr_83bfbd04"
+      ],
+      "related_relationship_ids": [],
+      "related_event_ids": [],
+      "columns": [
+        "price"
+      ],
+      "source_metadata": {
+        "observed_value": 115.0,
+        "expected_range": {
+          "lower": 47.38,
+          "upper": 54.38
+        },
+        "detected_by": [
+          "IQR",
+          "Isolation Forest",
+          "Frequency Analysis"
+        ],
+        "row": 9
+      }
+    },
+    {
+      "evidence_id": "evd_anom_10b47b76",
+      "dataset_id": "35af38ef-0ff0-435a-9942-66cc40371019",
+      "title": "High-Severity Anomaly: Potential Outlier in 'price' (above upper threshold)",
+      "description": "Observed value of 120.00 in column 'price' (Row 10) is statistically unusual and falls outside the expected IQR boundary [47.38, 54.38].",
+      "evidence_type": "ANOMALY_EVIDENCE",
+      "strength": 100,
+      "polarity": "support",
+      "supports_pattern_ids": [],
+      "related_finding_ids": [
+        "iqr_1a8d58e9"
+      ],
+      "related_relationship_ids": [],
+      "related_event_ids": [],
+      "columns": [
+        "price"
+      ],
+      "source_metadata": {
+        "observed_value": 120.0,
+        "expected_range": {
+          "lower": 47.38,
+          "upper": 54.38
+        },
+        "detected_by": [
+          "IQR",
+          "Frequency Analysis"
+        ],
+        "row": 10
+      }
+    },
+    {
+      "evidence_id": "evd_anom_fa5c170f",
+      "dataset_id": "35af38ef-0ff0-435a-9942-66cc40371019",
+      "title": "High-Severity Anomaly: Potential Outlier in 'price' (above upper threshold)",
+      "description": "Observed value of 125.00 in column 'price' (Row 11) is statistically unusual and falls outside the expected IQR boundary [47.38, 54.38].",
+      "evidence_type": "ANOMALY_EVIDENCE",
+      "strength": 100,
+      "polarity": "support",
+      "supports_pattern_ids": [],
+      "related_finding_ids": [
+        "iqr_5918dcae"
+      ],
+      "related_relationship_ids": [],
+      "related_event_ids": [],
+      "columns": [
+        "price"
+      ],
+      "source_metadata": {
+        "observed_value": 125.0,
+        "expected_range": {
+          "lower": 47.38,
+          "upper": 54.38
+        },
+        "detected_by": [
+          "IQR",
+          "Frequency Analysis"
+        ],
+        "row": 11
+      }
+    },
+    {
+      "evidence_id": "evd_anom_033d4995",
+      "dataset_id": "35af38ef-0ff0-435a-9942-66cc40371019",
+      "title": "High-Severity Anomaly: Potential Outlier in 'price' (above upper threshold)",
+      "description": "Observed value of 122.00 in column 'price' (Row 12) is statistically unusual and falls outside the expected IQR boundary [47.38, 54.38].",
+      "evidence_type": "ANOMALY_EVIDENCE",
+      "strength": 100,
+      "polarity": "support",
+      "supports_pattern_ids": [],
+      "related_finding_ids": [
+        "iqr_31c462e8"
+      ],
+      "related_relationship_ids": [],
+      "related_event_ids": [],
+      "columns": [
+        "price"
+      ],
+      "source_metadata": {
+        "observed_value": 122.0,
+        "expected_range": {
+          "lower": 47.38,
+          "upper": 54.38
+        },
+        "detected_by": [
+          "IQR",
+          "Frequency Analysis"
+        ],
+        "row": 12
+      }
+    },
+    {
+      "evidence_id": "evd_anom_8fa4f488",
+      "dataset_id": "35af38ef-0ff0-435a-9942-66cc40371019",
+      "title": "High-Severity Anomaly: Potential Outlier in 'price' (above upper threshold)",
+      "description": "Observed value of 128.00 in column 'price' (Row 13) is statistically unusual and falls outside the expected IQR boundary [47.38, 54.38].",
+      "evidence_type": "ANOMALY_EVIDENCE",
+      "strength": 100,
+      "polarity": "support",
+      "supports_pattern_ids": [],
+      "related_finding_ids": [
+        "iqr_d1619781"
+      ],
+      "related_relationship_ids": [],
+      "related_event_ids": [],
+      "columns": [
+        "price"
+      ],
+      "source_metadata": {
+        "observed_value": 128.0,
+        "expected_range": {
+          "lower": 47.38,
+          "upper": 54.38
+        },
+        "detected_by": [
+          "IQR",
+          "Frequency Analysis"
+        ],
+        "row": 13
+      }
+    },
+    {
+      "evidence_id": "evd_anom_44693fc6",
+      "dataset_id": "35af38ef-0ff0-435a-9942-66cc40371019",
+      "title": "High-Severity Anomaly: Potential Outlier in 'price' (above upper threshold)",
+      "description": "Observed value of 130.00 in column 'price' (Row 14) is statistically unusual and falls outside the expected IQR boundary [47.38, 54.38].",
+      "evidence_type": "ANOMALY_EVIDENCE",
+      "strength": 100,
+      "polarity": "support",
+      "supports_pattern_ids": [],
+      "related_finding_ids": [
+        "iqr_8a4766bf"
+      ],
+      "related_relationship_ids": [],
+      "related_event_ids": [],
+      "columns": [
+        "price"
+      ],
+      "source_metadata": {
+        "observed_value": 130.0,
+        "expected_range": {
+          "lower": 47.38,
+          "upper": 54.38
+        },
+        "detected_by": [
+          "IQR",
+          "Frequency Analysis"
+        ],
+        "row": 14
+      }
+    },
+    {
+      "evidence_id": "evd_anom_c9fff8c5",
+      "dataset_id": "35af38ef-0ff0-435a-9942-66cc40371019",
+      "title": "High-Severity Anomaly: Potential Outlier in 'customer_complaints' (above upper threshold)",
+      "description": "Observed value of 48.00 in column 'customer_complaints' (Row 9) is statistically unusual and falls outside the expected IQR boundary [1.38, 8.38].",
+      "evidence_type": "ANOMALY_EVIDENCE",
+      "strength": 100,
+      "polarity": "support",
+      "supports_pattern_ids": [],
+      "related_finding_ids": [
+        "iqr_230114fe"
+      ],
+      "related_relationship_ids": [],
+      "related_event_ids": [],
+      "columns": [
+        "customer_complaints"
+      ],
+      "source_metadata": {
+        "observed_value": 48.0,
+        "expected_range": {
+          "lower": 1.38,
+          "upper": 8.38
+        },
+        "detected_by": [
+          "IQR",
+          "Frequency Analysis"
+        ],
+        "row": 9
+      }
+    },
+    {
+      "evidence_id": "evd_anom_f439885e",
+      "dataset_id": "35af38ef-0ff0-435a-9942-66cc40371019",
+      "title": "High-Severity Anomaly: Potential Outlier in 'customer_complaints' (above upper threshold)",
+      "description": "Observed value of 62.00 in column 'customer_complaints' (Row 10) is statistically unusual and falls outside the expected IQR boundary [1.38, 8.38].",
+      "evidence_type": "ANOMALY_EVIDENCE",
+      "strength": 100,
+      "polarity": "support",
+      "supports_pattern_ids": [],
+      "related_finding_ids": [
+        "iqr_4f7e9cc6"
+      ],
+      "related_relationship_ids": [],
+      "related_event_ids": [],
+      "columns": [
+        "customer_complaints"
+      ],
+      "source_metadata": {
+        "observed_value": 62.0,
+        "expected_range": {
+          "lower": 1.38,
+          "upper": 8.38
+        },
+        "detected_by": [
+          "IQR",
+          "Frequency Analysis"
+        ],
+        "row": 10
+      }
+    },
+    {
+      "evidence_id": "evd_anom_122a1a33",
+      "dataset_id": "35af38ef-0ff0-435a-9942-66cc40371019",
+      "title": "High-Severity Anomaly: Potential Outlier in 'customer_complaints' (above upper threshold)",
+      "description": "Observed value of 75.00 in column 'customer_complaints' (Row 11) is statistically unusual and falls outside the expected IQR boundary [1.38, 8.38].",
+      "evidence_type": "ANOMALY_EVIDENCE",
+      "strength": 100,
+      "polarity": "support",
+      "supports_pattern_ids": [],
+      "related_finding_ids": [
+        "iqr_e82f5a34"
+      ],
+      "related_relationship_ids": [],
+      "related_event_ids": [],
+      "columns": [
+        "customer_complaints"
+      ],
+      "source_metadata": {
+        "observed_value": 75.0,
+        "expected_range": {
+          "lower": 1.38,
+          "upper": 8.38
+        },
+        "detected_by": [
+          "IQR",
+          "Frequency Analysis"
+        ],
+        "row": 11
+      }
+    },
+    {
+      "evidence_id": "evd_anom_f2d47135",
+      "dataset_id": "35af38ef-0ff0-435a-9942-66cc40371019",
+      "title": "High-Severity Anomaly: Potential Outlier in 'customer_complaints' (above upper threshold)",
+      "description": "Observed value of 68.00 in column 'customer_complaints' (Row 12) is statistically unusual and falls outside the expected IQR boundary [1.38, 8.38].",
+      "evidence_type": "ANOMALY_EVIDENCE",
+      "strength": 100,
+      "polarity": "support",
+      "supports_pattern_ids": [],
+      "related_finding_ids": [
+        "iqr_86294871"
+      ],
+      "related_relationship_ids": [],
+      "related_event_ids": [],
+      "columns": [
+        "customer_complaints"
+      ],
+      "source_metadata": {
+        "observed_value": 68.0,
+        "expected_range": {
+          "lower": 1.38,
+          "upper": 8.38
+        },
+        "detected_by": [
+          "IQR",
+          "Frequency Analysis"
+        ],
+        "row": 12
+      }
+    },
+    {
+      "evidence_id": "evd_anom_0f885857",
+      "dataset_id": "35af38ef-0ff0-435a-9942-66cc40371019",
+      "title": "High-Severity Anomaly: Potential Outlier in 'customer_complaints' (above upper threshold)",
+      "description": "Observed value of 80.00 in column 'customer_complaints' (Row 13) is statistically unusual and falls outside the expected IQR boundary [1.38, 8.38].",
+      "evidence_type": "ANOMALY_EVIDENCE",
+      "strength": 100,
+      "polarity": "support",
+      "supports_pattern_ids": [],
+      "related_finding_ids": [
+        "iqr_0692609f"
+      ],
+      "related_relationship_ids": [],
+      "related_event_ids": [],
+      "columns": [
+        "customer_complaints"
+      ],
+      "source_metadata": {
+        "observed_value": 80.0,
+        "expected_range": {
+          "lower": 1.38,
+          "upper": 8.38
+        },
+        "detected_by": [
+          "IQR",
+          "Frequency Analysis"
+        ],
+        "row": 13
+      }
+    },
+    {
+      "evidence_id": "evd_anom_e0c16ae4",
+      "dataset_id": "35af38ef-0ff0-435a-9942-66cc40371019",
+      "title": "High-Severity Anomaly: Potential Outlier in 'customer_complaints' (above upper threshold)",
+      "description": "Observed value of 85.00 in column 'customer_complaints' (Row 14) is statistically unusual and falls outside the expected IQR boundary [1.38, 8.38].",
+      "evidence_type": "ANOMALY_EVIDENCE",
+      "strength": 100,
+      "polarity": "support",
+      "supports_pattern_ids": [],
+      "related_finding_ids": [
+        "iqr_2feb7790"
+      ],
+      "related_relationship_ids": [],
+      "related_event_ids": [],
+      "columns": [
+        "customer_complaints"
+      ],
+      "source_metadata": {
+        "observed_value": 85.0,
+        "expected_range": {
+          "lower": 1.38,
+          "upper": 8.38
+        },
+        "detected_by": [
+          "IQR",
+          "Isolation Forest",
+          "Frequency Analysis"
+        ],
+        "row": 14
+      }
+    },
+    {
+      "evidence_id": "evd_anom_6853fe82",
+      "dataset_id": "35af38ef-0ff0-435a-9942-66cc40371019",
+      "title": "High-Severity Anomaly: Potential Outlier in 'revenue' (below lower threshold)",
+      "description": "Observed value of 32,000.00 in column 'revenue' (Row 10) is statistically unusual and falls outside the expected IQR boundary [71,500.00, 121,500.00].",
+      "evidence_type": "ANOMALY_EVIDENCE",
+      "strength": 100,
+      "polarity": "support",
+      "supports_pattern_ids": [],
+      "related_finding_ids": [
+        "iqr_c23f5d6f"
+      ],
+      "related_relationship_ids": [],
+      "related_event_ids": [],
+      "columns": [
+        "revenue"
+      ],
+      "source_metadata": {
+        "observed_value": 32000.0,
+        "expected_range": {
+          "lower": 71500.0,
+          "upper": 121500.0
+        },
+        "detected_by": [
+          "IQR"
+        ],
+        "row": 10
+      }
+    },
+    {
+      "evidence_id": "evd_anom_169d7eef",
+      "dataset_id": "35af38ef-0ff0-435a-9942-66cc40371019",
+      "title": "High-Severity Anomaly: Potential Outlier in 'revenue' (below lower threshold)",
+      "description": "Observed value of 21,000.00 in column 'revenue' (Row 11) is statistically unusual and falls outside the expected IQR boundary [71,500.00, 121,500.00].",
+      "evidence_type": "ANOMALY_EVIDENCE",
+      "strength": 100,
+      "polarity": "support",
+      "supports_pattern_ids": [],
+      "related_finding_ids": [
+        "iqr_725e7f46"
+      ],
+      "related_relationship_ids": [],
+      "related_event_ids": [],
+      "columns": [
+        "revenue"
+      ],
+      "source_metadata": {
+        "observed_value": 21000.0,
+        "expected_range": {
+          "lower": 71500.0,
+          "upper": 121500.0
+        },
+        "detected_by": [
+          "IQR"
+        ],
+        "row": 11
+      }
+    },
+    {
+      "evidence_id": "evd_anom_e9287e43",
+      "dataset_id": "35af38ef-0ff0-435a-9942-66cc40371019",
+      "title": "High-Severity Anomaly: Potential Outlier in 'revenue' (below lower threshold)",
+      "description": "Observed value of 24,000.00 in column 'revenue' (Row 12) is statistically unusual and falls outside the expected IQR boundary [71,500.00, 121,500.00].",
+      "evidence_type": "ANOMALY_EVIDENCE",
+      "strength": 100,
+      "polarity": "support",
+      "supports_pattern_ids": [],
+      "related_finding_ids": [
+        "iqr_b847f2e6"
+      ],
+      "related_relationship_ids": [],
+      "related_event_ids": [],
+      "columns": [
+        "revenue"
+      ],
+      "source_metadata": {
+        "observed_value": 24000.0,
+        "expected_range": {
+          "lower": 71500.0,
+          "upper": 121500.0
+        },
+        "detected_by": [
+          "IQR"
+        ],
+        "row": 12
+      }
+    },
+    {
+      "evidence_id": "evd_anom_40e13b33",
+      "dataset_id": "35af38ef-0ff0-435a-9942-66cc40371019",
+      "title": "High-Severity Anomaly: Potential Outlier in 'revenue' (below lower threshold)",
+      "description": "Observed value of 18,000.00 in column 'revenue' (Row 13) is statistically unusual and falls outside the expected IQR boundary [71,500.00, 121,500.00].",
+      "evidence_type": "ANOMALY_EVIDENCE",
+      "strength": 100,
+      "polarity": "support",
+      "supports_pattern_ids": [],
+      "related_finding_ids": [
+        "iqr_2d48240c"
+      ],
+      "related_relationship_ids": [],
+      "related_event_ids": [],
+      "columns": [
+        "revenue"
+      ],
+      "source_metadata": {
+        "observed_value": 18000.0,
+        "expected_range": {
+          "lower": 71500.0,
+          "upper": 121500.0
+        },
+        "detected_by": [
+          "IQR"
+        ],
+        "row": 13
+      }
+    },
+    {
+      "evidence_id": "evd_anom_6427f4b5",
+      "dataset_id": "35af38ef-0ff0-435a-9942-66cc40371019",
+      "title": "High-Severity Anomaly: Potential Outlier in 'revenue' (below lower threshold)",
+      "description": "Observed value of 15,000.00 in column 'revenue' (Row 14) is statistically unusual and falls outside the expected IQR boundary [71,500.00, 121,500.00].",
+      "evidence_type": "ANOMALY_EVIDENCE",
+      "strength": 100,
+      "polarity": "support",
+      "supports_pattern_ids": [],
+      "related_finding_ids": [
+        "iqr_c924bfd7"
+      ],
+      "related_relationship_ids": [],
+      "related_event_ids": [],
+      "columns": [
+        "revenue"
+      ],
+      "source_metadata": {
+        "observed_value": 15000.0,
+        "expected_range": {
+          "lower": 71500.0,
+          "upper": 121500.0
+        },
+        "detected_by": [
+          "IQR"
+        ],
+        "row": 14
+      }
+    },
+    {
+      "evidence_id": "evd_anom_234f3da6",
+      "dataset_id": "35af38ef-0ff0-435a-9942-66cc40371019",
+      "title": "High-Severity Anomaly: Potential Outlier in 'return_rate' (above upper threshold)",
+      "description": "Observed value of 0.18 in column 'return_rate' (Row 9) is statistically unusual and falls outside the expected IQR boundary [0.01, 0.04].",
+      "evidence_type": "ANOMALY_EVIDENCE",
+      "strength": 100,
+      "polarity": "support",
+      "supports_pattern_ids": [],
+      "related_finding_ids": [
+        "iqr_1af02630"
+      ],
+      "related_relationship_ids": [],
+      "related_event_ids": [],
+      "columns": [
+        "return_rate"
+      ],
+      "source_metadata": {
+        "observed_value": 0.18,
+        "expected_range": {
+          "lower": 0.01,
+          "upper": 0.04
+        },
+        "detected_by": [
+          "IQR",
+          "Frequency Analysis"
+        ],
+        "row": 9
+      }
+    },
+    {
+      "evidence_id": "evd_anom_fcddc433",
+      "dataset_id": "35af38ef-0ff0-435a-9942-66cc40371019",
+      "title": "High-Severity Anomaly: Potential Outlier in 'return_rate' (above upper threshold)",
+      "description": "Observed value of 0.22 in column 'return_rate' (Row 10) is statistically unusual and falls outside the expected IQR boundary [0.01, 0.04].",
+      "evidence_type": "ANOMALY_EVIDENCE",
+      "strength": 100,
+      "polarity": "support",
+      "supports_pattern_ids": [],
+      "related_finding_ids": [
+        "iqr_6c7c935a"
+      ],
+      "related_relationship_ids": [],
+      "related_event_ids": [],
+      "columns": [
+        "return_rate"
+      ],
+      "source_metadata": {
+        "observed_value": 0.22,
+        "expected_range": {
+          "lower": 0.01,
+          "upper": 0.04
+        },
+        "detected_by": [
+          "IQR",
+          "Frequency Analysis"
+        ],
+        "row": 10
+      }
+    },
+    {
+      "evidence_id": "evd_anom_3d7f0370",
+      "dataset_id": "35af38ef-0ff0-435a-9942-66cc40371019",
+      "title": "High-Severity Anomaly: Potential Outlier in 'return_rate' (above upper threshold)",
+      "description": "Observed value of 0.26 in column 'return_rate' (Row 11) is statistically unusual and falls outside the expected IQR boundary [0.01, 0.04].",
+      "evidence_type": "ANOMALY_EVIDENCE",
+      "strength": 100,
+      "polarity": "support",
+      "supports_pattern_ids": [],
+      "related_finding_ids": [
+        "iqr_2138a67e"
+      ],
+      "related_relationship_ids": [],
+      "related_event_ids": [],
+      "columns": [
+        "return_rate"
+      ],
+      "source_metadata": {
+        "observed_value": 0.26,
+        "expected_range": {
+          "lower": 0.01,
+          "upper": 0.04
+        },
+        "detected_by": [
+          "IQR",
+          "Frequency Analysis"
+        ],
+        "row": 11
+      }
+    },
+    {
+      "evidence_id": "evd_anom_2d9ac6d9",
+      "dataset_id": "35af38ef-0ff0-435a-9942-66cc40371019",
+      "title": "High-Severity Anomaly: Potential Outlier in 'return_rate' (above upper threshold)",
+      "description": "Observed value of 0.25 in column 'return_rate' (Row 12) is statistically unusual and falls outside the expected IQR boundary [0.01, 0.04].",
+      "evidence_type": "ANOMALY_EVIDENCE",
+      "strength": 100,
+      "polarity": "support",
+      "supports_pattern_ids": [],
+      "related_finding_ids": [
+        "iqr_95c541a2"
+      ],
+      "related_relationship_ids": [],
+      "related_event_ids": [],
+      "columns": [
+        "return_rate"
+      ],
+      "source_metadata": {
+        "observed_value": 0.25,
+        "expected_range": {
+          "lower": 0.01,
+          "upper": 0.04
+        },
+        "detected_by": [
+          "IQR",
+          "Frequency Analysis"
+        ],
+        "row": 12
+      }
+    },
+    {
+      "evidence_id": "evd_anom_c2ef165b",
+      "dataset_id": "35af38ef-0ff0-435a-9942-66cc40371019",
+      "title": "High-Severity Anomaly: Potential Outlier in 'return_rate' (above upper threshold)",
+      "description": "Observed value of 0.29 in column 'return_rate' (Row 13) is statistically unusual and falls outside the expected IQR boundary [0.01, 0.04].",
+      "evidence_type": "ANOMALY_EVIDENCE",
+      "strength": 100,
+      "polarity": "support",
+      "supports_pattern_ids": [],
+      "related_finding_ids": [
+        "iqr_bf6f8348"
+      ],
+      "related_relationship_ids": [],
+      "related_event_ids": [],
+      "columns": [
+        "return_rate"
+      ],
+      "source_metadata": {
+        "observed_value": 0.29,
+        "expected_range": {
+          "lower": 0.01,
+          "upper": 0.04
+        },
+        "detected_by": [
+          "IQR",
+          "Isolation Forest",
+          "Frequency Analysis"
+        ],
+        "row": 13
+      }
+    },
+    {
+      "evidence_id": "evd_anom_5c37956d",
+      "dataset_id": "35af38ef-0ff0-435a-9942-66cc40371019",
+      "title": "High-Severity Anomaly: Potential Outlier in 'return_rate' (above upper threshold)",
+      "description": "Observed value of 0.30 in column 'return_rate' (Row 14) is statistically unusual and falls outside the expected IQR boundary [0.01, 0.04].",
+      "evidence_type": "ANOMALY_EVIDENCE",
+      "strength": 100,
+      "polarity": "support",
+      "supports_pattern_ids": [],
+      "related_finding_ids": [
+        "iqr_a55d313e"
+      ],
+      "related_relationship_ids": [],
+      "related_event_ids": [],
+      "columns": [
+        "return_rate"
+      ],
+      "source_metadata": {
+        "observed_value": 0.3,
+        "expected_range": {
+          "lower": 0.01,
+          "upper": 0.04
+        },
+        "detected_by": [
+          "IQR",
+          "Frequency Analysis"
+        ],
+        "row": 14
+      }
+    },
+    {
+      "evidence_id": "evd_anom_f2754b7a",
+      "dataset_id": "35af38ef-0ff0-435a-9942-66cc40371019",
+      "title": "High-Severity Anomaly: Primary Anomaly Driver: 'price' (Score: 100)",
+      "description": "The strongest unusual pattern in this dataset was identified in column 'price' with anomaly score 100/100, confirmed by IQR + Isolation Forest + Frequency Analysis.",
+      "evidence_type": "ANOMALY_EVIDENCE",
+      "strength": 100,
+      "polarity": "support",
+      "supports_pattern_ids": [],
+      "related_finding_ids": [
+        "ins_top_9235a1a4"
+      ],
+      "related_relationship_ids": [],
+      "related_event_ids": [],
+      "columns": [
+        "price"
+      ],
+      "source_metadata": {
+        "observed_value": 115.0,
+        "expected_range": null,
+        "detected_by": [
+          "Synthesis"
+        ],
+        "row": 9
+      }
+    },
+    {
+      "evidence_id": "evd_temp_2152f00c",
+      "dataset_id": "35af38ef-0ff0-435a-9942-66cc40371019",
+      "title": "Chronological Precedence: Finding: customer_complaints (2026-02-10) preceded Finding: return_rate (2026-02-10)",
+      "description": "Anomaly in 'customer_complaints' observed on 2026-02-10 00:00:00 occurred prior to anomaly in 'return_rate' on 2026-02-10 00:00:00.",
+      "evidence_type": "TEMPORAL_EVIDENCE",
+      "strength": 95,
+      "polarity": "support",
+      "supports_pattern_ids": [],
+      "related_finding_ids": [
+        "temp_spike_b579d013",
+        "temp_spike_a6befd25"
+      ],
+      "related_relationship_ids": [
+        "rel_temp_8e74b53d"
+      ],
+      "related_event_ids": [],
+      "columns": [],
+      "source_metadata": {
+        "time1": "2026-02-10 00:00:00",
+        "time2": "2026-02-10 00:00:00"
+      }
+    },
+    {
+      "evidence_id": "evd_anom_d6ba3f66",
+      "dataset_id": "35af38ef-0ff0-435a-9942-66cc40371019",
+      "title": "High-Severity Anomaly: Sudden Metric Spike in 'customer_complaints' (+860.0%)",
+      "description": "At timestamp 2026-02-10 00:00:00 (Row 9), metric 'customer_complaints' surged by +860.0% from previous period value of 5.00 to 48.00.",
+      "evidence_type": "ANOMALY_EVIDENCE",
+      "strength": 95,
+      "polarity": "support",
+      "supports_pattern_ids": [],
+      "related_finding_ids": [
+        "temp_spike_b579d013"
+      ],
+      "related_relationship_ids": [],
+      "related_event_ids": [],
+      "columns": [
+        "customer_complaints"
+      ],
+      "source_metadata": {
+        "observed_value": 48.0,
+        "expected_range": null,
+        "detected_by": [
+          "Temporal Differencing"
+        ],
+        "row": 9
+      }
+    },
+    {
+      "evidence_id": "evd_anom_638e6c37",
+      "dataset_id": "35af38ef-0ff0-435a-9942-66cc40371019",
+      "title": "High-Severity Anomaly: Sudden Metric Spike in 'customer_complaints' (+1966.7%)",
+      "description": "At timestamp 2026-02-11 00:00:00 (Row 10), metric 'customer_complaints' surged by +1966.7% from previous period value of 3.00 to 62.00.",
+      "evidence_type": "ANOMALY_EVIDENCE",
+      "strength": 95,
+      "polarity": "support",
+      "supports_pattern_ids": [],
+      "related_finding_ids": [
+        "temp_spike_a93f549c"
+      ],
+      "related_relationship_ids": [],
+      "related_event_ids": [],
+      "columns": [
+        "customer_complaints"
+      ],
+      "source_metadata": {
+        "observed_value": 62.0,
+        "expected_range": null,
+        "detected_by": [
+          "Temporal Differencing"
+        ],
+        "row": 10
+      }
+    },
+    {
+      "evidence_id": "evd_anom_5d7972fe",
+      "dataset_id": "35af38ef-0ff0-435a-9942-66cc40371019",
+      "title": "High-Severity Anomaly: Sudden Metric Spike in 'customer_complaints' (+1400.0%)",
+      "description": "At timestamp 2026-02-12 00:00:00 (Row 11), metric 'customer_complaints' surged by +1400.0% from previous period value of 5.00 to 75.00.",
+      "evidence_type": "ANOMALY_EVIDENCE",
+      "strength": 95,
+      "polarity": "support",
+      "supports_pattern_ids": [],
+      "related_finding_ids": [
+        "temp_spike_e9c9b708"
+      ],
+      "related_relationship_ids": [],
+      "related_event_ids": [],
+      "columns": [
+        "customer_complaints"
+      ],
+      "source_metadata": {
+        "observed_value": 75.0,
+        "expected_range": null,
+        "detected_by": [
+          "Temporal Differencing"
+        ],
+        "row": 11
+      }
+    },
+    {
+      "evidence_id": "evd_anom_c4f9ae11",
+      "dataset_id": "35af38ef-0ff0-435a-9942-66cc40371019",
+      "title": "High-Severity Anomaly: Sudden Metric Spike in 'customer_complaints' (+1600.0%)",
+      "description": "At timestamp 2026-02-13 00:00:00 (Row 12), metric 'customer_complaints' surged by +1600.0% from previous period value of 4.00 to 68.00.",
+      "evidence_type": "ANOMALY_EVIDENCE",
+      "strength": 95,
+      "polarity": "support",
+      "supports_pattern_ids": [],
+      "related_finding_ids": [
+        "temp_spike_baa7abb2"
+      ],
+      "related_relationship_ids": [],
+      "related_event_ids": [],
+      "columns": [
+        "customer_complaints"
+      ],
+      "source_metadata": {
+        "observed_value": 68.0,
+        "expected_range": null,
+        "detected_by": [
+          "Temporal Differencing"
+        ],
+        "row": 12
+      }
+    },
+    {
+      "evidence_id": "evd_anom_9a0c32f7",
+      "dataset_id": "35af38ef-0ff0-435a-9942-66cc40371019",
+      "title": "High-Severity Anomaly: Sudden Metric Spike in 'customer_complaints' (+2566.7%)",
+      "description": "At timestamp 2026-02-14 00:00:00 (Row 13), metric 'customer_complaints' surged by +2566.7% from previous period value of 3.00 to 80.00.",
+      "evidence_type": "ANOMALY_EVIDENCE",
+      "strength": 95,
+      "polarity": "support",
+      "supports_pattern_ids": [],
+      "related_finding_ids": [
+        "temp_spike_f6fa5fb5"
+      ],
+      "related_relationship_ids": [],
+      "related_event_ids": [],
+      "columns": [
+        "customer_complaints"
+      ],
+      "source_metadata": {
+        "observed_value": 80.0,
+        "expected_range": null,
+        "detected_by": [
+          "Temporal Differencing"
+        ],
+        "row": 13
+      }
+    },
+    {
+      "evidence_id": "evd_anom_825e2e6a",
+      "dataset_id": "35af38ef-0ff0-435a-9942-66cc40371019",
+      "title": "High-Severity Anomaly: Sudden Metric Spike in 'revenue' (+352.4%)",
+      "description": "At timestamp 2026-02-13 00:00:00 (Row 27), metric 'revenue' surged by +352.4% from previous period value of 21,000.00 to 95,000.00.",
+      "evidence_type": "ANOMALY_EVIDENCE",
+      "strength": 95,
+      "polarity": "support",
+      "supports_pattern_ids": [],
+      "related_finding_ids": [
+        "temp_spike_c6024f6d"
+      ],
+      "related_relationship_ids": [],
+      "related_event_ids": [],
+      "columns": [
+        "revenue"
+      ],
+      "source_metadata": {
+        "observed_value": 95000.0,
+        "expected_range": null,
+        "detected_by": [
+          "Temporal Differencing"
+        ],
+        "row": 27
+      }
+    },
+    {
+      "evidence_id": "evd_anom_75b1df82",
+      "dataset_id": "35af38ef-0ff0-435a-9942-66cc40371019",
+      "title": "High-Severity Anomaly: Sudden Metric Spike in 'revenue' (+308.3%)",
+      "description": "At timestamp 2026-02-14 00:00:00 (Row 28), metric 'revenue' surged by +308.3% from previous period value of 24,000.00 to 98,000.00.",
+      "evidence_type": "ANOMALY_EVIDENCE",
+      "strength": 95,
+      "polarity": "support",
+      "supports_pattern_ids": [],
+      "related_finding_ids": [
+        "temp_spike_c215f677"
+      ],
+      "related_relationship_ids": [],
+      "related_event_ids": [],
+      "columns": [
+        "revenue"
+      ],
+      "source_metadata": {
+        "observed_value": 98000.0,
+        "expected_range": null,
+        "detected_by": [
+          "Temporal Differencing"
+        ],
+        "row": 28
+      }
+    },
+    {
+      "evidence_id": "evd_anom_d76ddd5c",
+      "dataset_id": "35af38ef-0ff0-435a-9942-66cc40371019",
+      "title": "High-Severity Anomaly: Sudden Metric Spike in 'revenue' (+560.0%)",
+      "description": "At timestamp 2026-02-15 00:00:00 (Row 29), metric 'revenue' surged by +560.0% from previous period value of 15,000.00 to 99,000.00.",
+      "evidence_type": "ANOMALY_EVIDENCE",
+      "strength": 95,
+      "polarity": "support",
+      "supports_pattern_ids": [],
+      "related_finding_ids": [
+        "temp_spike_a1dcbf76"
+      ],
+      "related_relationship_ids": [],
+      "related_event_ids": [],
+      "columns": [
+        "revenue"
+      ],
+      "source_metadata": {
+        "observed_value": 99000.0,
+        "expected_range": null,
+        "detected_by": [
+          "Temporal Differencing"
+        ],
+        "row": 29
+      }
+    },
+    {
+      "evidence_id": "evd_anom_43b7e237",
+      "dataset_id": "35af38ef-0ff0-435a-9942-66cc40371019",
+      "title": "High-Severity Anomaly: Sudden Metric Spike in 'return_rate' (+800.0%)",
+      "description": "At timestamp 2026-02-10 00:00:00 (Row 9), metric 'return_rate' surged by +800.0% from previous period value of 0.02 to 0.18.",
+      "evidence_type": "ANOMALY_EVIDENCE",
+      "strength": 95,
+      "polarity": "support",
+      "supports_pattern_ids": [],
+      "related_finding_ids": [
+        "temp_spike_a6befd25"
+      ],
+      "related_relationship_ids": [],
+      "related_event_ids": [],
+      "columns": [
+        "return_rate"
+      ],
+      "source_metadata": {
+        "observed_value": 0.18,
+        "expected_range": null,
+        "detected_by": [
+          "Temporal Differencing"
+        ],
+        "row": 9
+      }
+    },
+    {
+      "evidence_id": "evd_anom_3c8aaccb",
+      "dataset_id": "35af38ef-0ff0-435a-9942-66cc40371019",
+      "title": "High-Severity Anomaly: Sudden Metric Spike in 'return_rate' (+1000.0%)",
+      "description": "At timestamp 2026-02-11 00:00:00 (Row 10), metric 'return_rate' surged by +1000.0% from previous period value of 0.02 to 0.22.",
+      "evidence_type": "ANOMALY_EVIDENCE",
+      "strength": 95,
+      "polarity": "support",
+      "supports_pattern_ids": [],
+      "related_finding_ids": [
+        "temp_spike_f3af25b6"
+      ],
+      "related_relationship_ids": [],
+      "related_event_ids": [],
+      "columns": [
+        "return_rate"
+      ],
+      "source_metadata": {
+        "observed_value": 0.22,
+        "expected_range": null,
+        "detected_by": [
+          "Temporal Differencing"
+        ],
+        "row": 10
+      }
+    },
+    {
+      "evidence_id": "evd_anom_9a4ebe97",
+      "dataset_id": "35af38ef-0ff0-435a-9942-66cc40371019",
+      "title": "High-Severity Anomaly: Sudden Metric Spike in 'return_rate' (+1200.0%)",
+      "description": "At timestamp 2026-02-12 00:00:00 (Row 11), metric 'return_rate' surged by +1200.0% from previous period value of 0.02 to 0.26.",
+      "evidence_type": "ANOMALY_EVIDENCE",
+      "strength": 95,
+      "polarity": "support",
+      "supports_pattern_ids": [],
+      "related_finding_ids": [
+        "temp_spike_4fc8e089"
+      ],
+      "related_relationship_ids": [],
+      "related_event_ids": [],
+      "columns": [
+        "return_rate"
+      ],
+      "source_metadata": {
+        "observed_value": 0.26,
+        "expected_range": null,
+        "detected_by": [
+          "Temporal Differencing"
+        ],
+        "row": 11
+      }
+    },
+    {
+      "evidence_id": "evd_anom_bca31a4d",
+      "dataset_id": "35af38ef-0ff0-435a-9942-66cc40371019",
+      "title": "High-Severity Anomaly: Sudden Metric Spike in 'return_rate' (+1150.0%)",
+      "description": "At timestamp 2026-02-13 00:00:00 (Row 12), metric 'return_rate' surged by +1150.0% from previous period value of 0.02 to 0.25.",
+      "evidence_type": "ANOMALY_EVIDENCE",
+      "strength": 95,
+      "polarity": "support",
+      "supports_pattern_ids": [],
+      "related_finding_ids": [
+        "temp_spike_693469e3"
+      ],
+      "related_relationship_ids": [],
+      "related_event_ids": [],
+      "columns": [
+        "return_rate"
+      ],
+      "source_metadata": {
+        "observed_value": 0.25,
+        "expected_range": null,
+        "detected_by": [
+          "Temporal Differencing"
+        ],
+        "row": 12
+      }
+    },
+    {
+      "evidence_id": "evd_anom_7f82cfb5",
+      "dataset_id": "35af38ef-0ff0-435a-9942-66cc40371019",
+      "title": "High-Severity Anomaly: Sudden Metric Spike in 'return_rate' (+1350.0%)",
+      "description": "At timestamp 2026-02-14 00:00:00 (Row 13), metric 'return_rate' surged by +1350.0% from previous period value of 0.02 to 0.29.",
+      "evidence_type": "ANOMALY_EVIDENCE",
+      "strength": 95,
+      "polarity": "support",
+      "supports_pattern_ids": [],
+      "related_finding_ids": [
+        "temp_spike_4d58088a"
+      ],
+      "related_relationship_ids": [],
+      "related_event_ids": [],
+      "columns": [
+        "return_rate"
+      ],
+      "source_metadata": {
+        "observed_value": 0.29,
+        "expected_range": null,
+        "detected_by": [
+          "Temporal Differencing"
+        ],
+        "row": 13
+      }
+    },
+    {
+      "evidence_id": "evd_grp_99985702",
+      "dataset_id": "35af38ef-0ff0-435a-9942-66cc40371019",
+      "title": "Segmental Disparity: Significant Segment Disparity in 'customer_complaints' by 'region' (740.0% gap)",
+      "description": "A large performance difference was observed across 'region' segments for metric 'customer_complaints'. 'North' averaged 30.80, compared to 3.67 for 'South' (a 740.0% disparity).",
+      "evidence_type": "GROUP_DIFFERENCE_EVIDENCE",
+      "strength": 94,
+      "polarity": "support",
+      "supports_pattern_ids": [
+        "pat_grp_21303314"
+      ],
+      "related_finding_ids": [
+        "iqr_230114fe",
+        "iqr_4f7e9cc6",
+        "iqr_e82f5a34",
+        "iqr_86294871",
+        "iqr_0692609f"
+      ],
+      "related_relationship_ids": [],
+      "related_event_ids": [],
+      "columns": [
+        "region",
+        "customer_complaints"
+      ],
+      "source_metadata": {
+        "category_column": "region",
+        "metric_column": "customer_complaints",
+        "highest_group": "North",
+        "highest_mean": 30.8,
+        "lowest_group": "South",
+        "lowest_mean": 3.67,
+        "disparity_percentage": 740.0
+      }
+    },
+    {
+      "evidence_id": "evd_grp_8a1f174c",
+      "dataset_id": "35af38ef-0ff0-435a-9942-66cc40371019",
+      "title": "Segmental Disparity: Significant Segment Disparity in 'return_rate' by 'region' (486.2% gap)",
+      "description": "A large performance difference was observed across 'region' segments for metric 'return_rate'. 'North' averaged 0.11, compared to 0.02 for 'South' (a 486.2% disparity).",
+      "evidence_type": "GROUP_DIFFERENCE_EVIDENCE",
+      "strength": 94,
+      "polarity": "support",
+      "supports_pattern_ids": [
+        "pat_grp_09a73965"
+      ],
+      "related_finding_ids": [
+        "iqr_1af02630",
+        "iqr_6c7c935a",
+        "iqr_2138a67e",
+        "iqr_95c541a2",
+        "iqr_bf6f8348"
+      ],
+      "related_relationship_ids": [],
+      "related_event_ids": [],
+      "columns": [
+        "region",
+        "return_rate"
+      ],
+      "source_metadata": {
+        "category_column": "region",
+        "metric_column": "return_rate",
+        "highest_group": "North",
+        "highest_mean": 0.11,
+        "lowest_group": "South",
+        "lowest_mean": 0.02,
+        "disparity_percentage": 486.21
+      }
+    },
+    {
+      "evidence_id": "evd_anom_867b6c56",
+      "dataset_id": "35af38ef-0ff0-435a-9942-66cc40371019",
+      "title": "High-Severity Anomaly: Sudden Metric Spike in 'revenue' (+203.1%)",
+      "description": "At timestamp 2026-02-12 00:00:00 (Row 26), metric 'revenue' surged by +203.1% from previous period value of 32,000.00 to 97,000.00.",
+      "evidence_type": "ANOMALY_EVIDENCE",
+      "strength": 93,
+      "polarity": "support",
+      "supports_pattern_ids": [],
+      "related_finding_ids": [
+        "temp_spike_27f1125d"
+      ],
+      "related_relationship_ids": [],
+      "related_event_ids": [],
+      "columns": [
+        "revenue"
+      ],
+      "source_metadata": {
+        "observed_value": 97000.0,
+        "expected_range": null,
+        "detected_by": [
+          "Temporal Differencing"
+        ],
+        "row": 26
+      }
+    },
+    {
+      "evidence_id": "evd_anom_80ff54e8",
+      "dataset_id": "35af38ef-0ff0-435a-9942-66cc40371019",
+      "title": "High-Severity Anomaly: Potential Outlier in 'revenue' (below lower threshold)",
+      "description": "Observed value of 45,000.00 in column 'revenue' (Row 9) is statistically unusual and falls outside the expected IQR boundary [71,500.00, 121,500.00].",
+      "evidence_type": "ANOMALY_EVIDENCE",
+      "strength": 88,
+      "polarity": "support",
+      "supports_pattern_ids": [],
+      "related_finding_ids": [
+        "iqr_4934520a"
+      ],
+      "related_relationship_ids": [],
+      "related_event_ids": [],
+      "columns": [
+        "revenue"
+      ],
+      "source_metadata": {
+        "observed_value": 45000.0,
+        "expected_range": {
+          "lower": 71500.0,
+          "upper": 121500.0
+        },
+        "detected_by": [
+          "IQR"
+        ],
+        "row": 9
+      }
+    },
+    {
+      "evidence_id": "evd_anom_21d315e5",
+      "dataset_id": "35af38ef-0ff0-435a-9942-66cc40371019",
+      "title": "High-Severity Anomaly: Multiple High-Severity Outliers (38 detected)",
+      "description": "Analysis discovered 38 high-severity anomalies across the dataset, suggesting non-uniform distributions or multi-segment data behavior.",
+      "evidence_type": "ANOMALY_EVIDENCE",
+      "strength": 85,
+      "polarity": "support",
+      "supports_pattern_ids": [],
+      "related_finding_ids": [
+        "ins_dense_ce46e876"
+      ],
+      "related_relationship_ids": [],
+      "related_event_ids": [],
+      "columns": [],
+      "source_metadata": {
+        "observed_value": "38 high-severity anomalies",
+        "expected_range": null,
+        "detected_by": [
+          "Density Analysis"
+        ],
+        "row": null
+      }
+    },
+    {
+      "evidence_id": "evd_corr_5e242e7a",
+      "dataset_id": "35af38ef-0ff0-435a-9942-66cc40371019",
+      "title": "Statistical Co-Movement: 'customer_complaints' & 'return_rate' (r = +1.00)",
+      "description": "Empirical evaluation confirmed a very_strong positive linear association between 'customer_complaints' and 'return_rate' (Pearson r = +1.00, N = 30).",
+      "evidence_type": "CORRELATION_EVIDENCE",
+      "strength": 84,
+      "polarity": "support",
+      "supports_pattern_ids": [
+        "pat_corr_6481fc5c",
+        "pat_cross_ea54b85c",
+        "pat_cross_09ffe4c8"
+      ],
+      "related_finding_ids": [
+        "iqr_230114fe",
+        "iqr_4f7e9cc6",
+        "iqr_e82f5a34",
+        "iqr_86294871",
+        "iqr_0692609f"
+      ],
+      "related_relationship_ids": [
+        "rel_corr_2b657ce6"
+      ],
+      "related_event_ids": [],
+      "columns": [
+        "customer_complaints",
+        "return_rate"
+      ],
+      "source_metadata": {
+        "coefficient": 0.999,
+        "method": "pearson",
+        "sample_size": 30
+      }
+    },
+    {
+      "evidence_id": "evd_corr_add96b7e",
+      "dataset_id": "35af38ef-0ff0-435a-9942-66cc40371019",
+      "title": "Statistical Co-Movement: 'price' & 'return_rate' (r = +0.99)",
+      "description": "Empirical evaluation confirmed a very_strong positive linear association between 'price' and 'return_rate' (Pearson r = +0.99, N = 30).",
+      "evidence_type": "CORRELATION_EVIDENCE",
+      "strength": 83,
+      "polarity": "support",
+      "supports_pattern_ids": [
+        "pat_corr_1b1a26c3",
+        "pat_cross_09ffe4c8",
+        "pat_cross_a3a7d4cd"
+      ],
+      "related_finding_ids": [
+        "iqr_83bfbd04",
+        "iqr_1a8d58e9",
+        "iqr_5918dcae",
+        "iqr_31c462e8",
+        "iqr_d1619781"
+      ],
+      "related_relationship_ids": [
+        "rel_corr_0c77156d"
+      ],
+      "related_event_ids": [],
+      "columns": [
+        "price",
+        "return_rate"
+      ],
+      "source_metadata": {
+        "coefficient": 0.992,
+        "method": "pearson",
+        "sample_size": 30
+      }
+    },
+    {
+      "evidence_id": "evd_corr_5147acd8",
+      "dataset_id": "35af38ef-0ff0-435a-9942-66cc40371019",
+      "title": "Statistical Co-Movement: 'price' & 'customer_complaints' (r = +0.99)",
+      "description": "Empirical evaluation confirmed a very_strong positive linear association between 'price' and 'customer_complaints' (Pearson r = +0.99, N = 30).",
+      "evidence_type": "CORRELATION_EVIDENCE",
+      "strength": 83,
+      "polarity": "support",
+      "supports_pattern_ids": [
+        "pat_corr_b68c3966",
+        "pat_cross_ea54b85c",
+        "pat_cross_a3a7d4cd"
+      ],
+      "related_finding_ids": [
+        "iqr_83bfbd04",
+        "iqr_1a8d58e9",
+        "iqr_5918dcae",
+        "iqr_31c462e8",
+        "iqr_d1619781"
+      ],
+      "related_relationship_ids": [
+        "rel_corr_a4cf946c"
+      ],
+      "related_event_ids": [],
+      "columns": [
+        "price",
+        "customer_complaints"
+      ],
+      "source_metadata": {
+        "coefficient": 0.991,
+        "method": "pearson",
+        "sample_size": 30
+      }
+    },
+    {
+      "evidence_id": "evd_corr_5bfed669",
+      "dataset_id": "35af38ef-0ff0-435a-9942-66cc40371019",
+      "title": "Statistical Co-Movement: 'price' & 'revenue' (r = -0.98)",
+      "description": "Empirical evaluation confirmed a very_strong negative linear association between 'price' and 'revenue' (Pearson r = -0.98, N = 30).",
+      "evidence_type": "CORRELATION_EVIDENCE",
+      "strength": 83,
+      "polarity": "support",
+      "supports_pattern_ids": [
+        "pat_corr_271d0129",
+        "pat_cross_fe91e6f2",
+        "pat_cross_a3a7d4cd"
+      ],
+      "related_finding_ids": [
+        "iqr_83bfbd04",
+        "iqr_1a8d58e9",
+        "iqr_5918dcae",
+        "iqr_31c462e8",
+        "iqr_d1619781"
+      ],
+      "related_relationship_ids": [
+        "rel_corr_9dfb6a86"
+      ],
+      "related_event_ids": [],
+      "columns": [
+        "price",
+        "revenue"
+      ],
+      "source_metadata": {
+        "coefficient": -0.979,
+        "method": "pearson",
+        "sample_size": 30
+      }
+    },
+    {
+      "evidence_id": "evd_corr_35fa1745",
+      "dataset_id": "35af38ef-0ff0-435a-9942-66cc40371019",
+      "title": "Statistical Co-Movement: 'revenue' & 'return_rate' (r = -0.98)",
+      "description": "Empirical evaluation confirmed a very_strong negative linear association between 'revenue' and 'return_rate' (Pearson r = -0.98, N = 30).",
+      "evidence_type": "CORRELATION_EVIDENCE",
+      "strength": 83,
+      "polarity": "support",
+      "supports_pattern_ids": [
+        "pat_corr_65d45188",
+        "pat_cross_fe91e6f2",
+        "pat_cross_09ffe4c8"
+      ],
+      "related_finding_ids": [
+        "iqr_c23f5d6f",
+        "iqr_725e7f46",
+        "iqr_b847f2e6",
+        "iqr_2d48240c",
+        "iqr_c924bfd7"
+      ],
+      "related_relationship_ids": [
+        "rel_corr_ce315a07"
+      ],
+      "related_event_ids": [],
+      "columns": [
+        "revenue",
+        "return_rate"
+      ],
+      "source_metadata": {
+        "coefficient": -0.979,
+        "method": "pearson",
+        "sample_size": 30
+      }
+    },
+    {
+      "evidence_id": "evd_corr_e235fc41",
+      "dataset_id": "35af38ef-0ff0-435a-9942-66cc40371019",
+      "title": "Statistical Co-Movement: 'customer_complaints' & 'revenue' (r = -0.98)",
+      "description": "Empirical evaluation confirmed a very_strong negative linear association between 'customer_complaints' and 'revenue' (Pearson r = -0.98, N = 30).",
+      "evidence_type": "CORRELATION_EVIDENCE",
+      "strength": 83,
+      "polarity": "support",
+      "supports_pattern_ids": [
+        "pat_corr_f3e7ff0f",
+        "pat_cross_ea54b85c",
+        "pat_cross_fe91e6f2"
+      ],
+      "related_finding_ids": [
+        "iqr_230114fe",
+        "iqr_4f7e9cc6",
+        "iqr_e82f5a34",
+        "iqr_86294871",
+        "iqr_0692609f"
+      ],
+      "related_relationship_ids": [
+        "rel_corr_a100d392"
+      ],
+      "related_event_ids": [],
+      "columns": [
+        "customer_complaints",
+        "revenue"
+      ],
+      "source_metadata": {
+        "coefficient": -0.978,
+        "method": "pearson",
+        "sample_size": 30
+      }
+    },
+    {
+      "evidence_id": "evd_temp_1d3118b9",
+      "dataset_id": "35af38ef-0ff0-435a-9942-66cc40371019",
+      "title": "Chronological Precedence: Finding: customer_complaints (2026-02-06) preceded Finding: customer_complaints (2026-02-10)",
+      "description": "Anomaly in 'customer_complaints' observed on 2026-02-06 00:00:00 occurred prior to anomaly in 'customer_complaints' on 2026-02-10 00:00:00.",
+      "evidence_type": "TEMPORAL_EVIDENCE",
+      "strength": 78,
+      "polarity": "support",
+      "supports_pattern_ids": [],
+      "related_finding_ids": [
+        "temp_spike_53616398",
+        "temp_spike_b579d013"
+      ],
+      "related_relationship_ids": [
+        "rel_temp_923e6fca"
+      ],
+      "related_event_ids": [],
+      "columns": [],
+      "source_metadata": {
+        "time1": "2026-02-06 00:00:00",
+        "time2": "2026-02-10 00:00:00"
+      }
+    },
+    {
+      "evidence_id": "evd_temp_ce72d525",
+      "dataset_id": "35af38ef-0ff0-435a-9942-66cc40371019",
+      "title": "Chronological Precedence: Finding: return_rate (2026-02-04) preceded Finding: customer_complaints (2026-02-06)",
+      "description": "Anomaly in 'return_rate' observed on 2026-02-04 00:00:00 occurred prior to anomaly in 'customer_complaints' on 2026-02-06 00:00:00.",
+      "evidence_type": "TEMPORAL_EVIDENCE",
+      "strength": 62,
+      "polarity": "support",
+      "supports_pattern_ids": [],
+      "related_finding_ids": [
+        "temp_spike_01f3251f",
+        "temp_spike_53616398"
+      ],
+      "related_relationship_ids": [
+        "rel_temp_063c4f32"
+      ],
+      "related_event_ids": [],
+      "columns": [],
+      "source_metadata": {
+        "time1": "2026-02-04 00:00:00",
+        "time2": "2026-02-06 00:00:00"
+      }
+    },
+    {
+      "evidence_id": "evd_temp_44ff572a",
+      "dataset_id": "35af38ef-0ff0-435a-9942-66cc40371019",
+      "title": "Chronological Precedence: Finding: return_rate (2026-02-03) preceded Finding: customer_complaints (2026-02-03)",
+      "description": "Anomaly in 'return_rate' observed on 2026-02-03 00:00:00 occurred prior to anomaly in 'customer_complaints' on 2026-02-03 00:00:00.",
+      "evidence_type": "TEMPORAL_EVIDENCE",
+      "strength": 58,
+      "polarity": "support",
+      "supports_pattern_ids": [],
+      "related_finding_ids": [
+        "temp_drop_24894e47",
+        "temp_drop_5741c0d0"
+      ],
+      "related_relationship_ids": [
+        "rel_temp_3305e603"
+      ],
+      "related_event_ids": [],
+      "columns": [],
+      "source_metadata": {
+        "time1": "2026-02-03 00:00:00",
+        "time2": "2026-02-03 00:00:00"
+      }
+    },
+    {
+      "evidence_id": "evd_temp_c8ffabeb",
+      "dataset_id": "35af38ef-0ff0-435a-9942-66cc40371019",
+      "title": "Chronological Precedence: Finding: customer_complaints (2026-02-03) preceded Finding: return_rate (2026-02-04)",
+      "description": "Anomaly in 'customer_complaints' observed on 2026-02-03 00:00:00 occurred prior to anomaly in 'return_rate' on 2026-02-04 00:00:00.",
+      "evidence_type": "TEMPORAL_EVIDENCE",
+      "strength": 58,
+      "polarity": "support",
+      "supports_pattern_ids": [],
+      "related_finding_ids": [
+        "temp_drop_5741c0d0",
+        "temp_spike_01f3251f"
+      ],
+      "related_relationship_ids": [
+        "rel_temp_36e861d9"
+      ],
+      "related_event_ids": [],
+      "columns": [],
+      "source_metadata": {
+        "time1": "2026-02-03 00:00:00",
+        "time2": "2026-02-04 00:00:00"
+      }
+    },
+    {
+      "evidence_id": "evd_grp_1f189264",
+      "dataset_id": "35af38ef-0ff0-435a-9942-66cc40371019",
+      "title": "Segmental Disparity: Significant Segment Disparity in 'price' by 'region' (58.4% gap)",
+      "description": "A large performance difference was observed across 'region' segments for metric 'price'. 'North' averaged 79.53, compared to 50.20 for 'South' (a 58.4% disparity).",
+      "evidence_type": "GROUP_DIFFERENCE_EVIDENCE",
+      "strength": 44,
+      "polarity": "support",
+      "supports_pattern_ids": [
+        "pat_grp_ab89c805"
+      ],
+      "related_finding_ids": [
+        "iqr_83bfbd04",
+        "iqr_1a8d58e9",
+        "iqr_5918dcae",
+        "iqr_31c462e8",
+        "iqr_d1619781"
+      ],
+      "related_relationship_ids": [],
+      "related_event_ids": [],
+      "columns": [
+        "region",
+        "price"
+      ],
+      "source_metadata": {
+        "category_column": "region",
+        "metric_column": "price",
+        "highest_group": "North",
+        "highest_mean": 79.53,
+        "lowest_group": "South",
+        "lowest_mean": 50.2,
+        "disparity_percentage": 58.43
+      }
+    }
+  ],
+  "hypotheses": [
+    {
+      "hypothesis_id": "hyp_temp_74861cff",
+      "dataset_id": "35af38ef-0ff0-435a-9942-66cc40371019",
+      "title": "Temporal Transition Association: Finding: customer_complaints (2026-02-10) &rarr; Finding: return_rate (2026-02-10)",
+      "statement": "Candidate explanation: The shift observed in 'Finding: customer_complaints (2026-02-10)' occurred prior to 'Finding: return_rate (2026-02-10)', suggesting a possible chronological progression or downstream operational response.",
+      "status": "candidate",
+      "confidence": 92,
+      "evidence_strength": 95,
+      "supporting_evidence_ids": [
+        "evd_anom_c9fff8c5",
+        "evd_anom_f439885e",
+        "evd_anom_122a1a33",
+        "evd_anom_f2d47135",
+        "evd_anom_0f885857"
+      ],
+      "contradicting_evidence_ids": [],
+      "supporting_pattern_ids": [],
+      "related_relationship_ids": [
+        "rel_temp_8e74b53d"
+      ],
+      "timeline_event_ids": [],
+      "reasoning": "Observed chronological order indicates 'Finding: customer_complaints (2026-02-10)' preceded 'Finding: return_rate (2026-02-10)'. While temporal precedence does not establish causality, the sequence represents a prominent investigative lead.",
+      "primary_columns": []
+    },
+    {
+      "hypothesis_id": "hyp_corr_9f49cc3a",
+      "dataset_id": "35af38ef-0ff0-435a-9942-66cc40371019",
+      "title": "Systemic Coupling between 'customer_complaints' & 'return_rate'",
+      "statement": "Candidate explanation: A strong positive linear association (r = +1.00) suggests that 'customer_complaints' and 'return_rate' share common driving mechanisms or feedback loops.",
+      "status": "candidate",
+      "confidence": 85,
+      "evidence_strength": 100,
+      "supporting_evidence_ids": [
+        "evd_anom_c9fff8c5",
+        "evd_anom_f439885e",
+        "evd_anom_122a1a33",
+        "evd_anom_f2d47135",
+        "evd_anom_0f885857"
+      ],
+      "contradicting_evidence_ids": [],
+      "supporting_pattern_ids": [
+        "pat_corr_6481fc5c"
+      ],
+      "related_relationship_ids": [
+        "rel_corr_2b657ce6"
+      ],
+      "timeline_event_ids": [],
+      "reasoning": "Statistical analysis established high linear alignment (N=30). The variables systematically move in tandem across the dataset.",
+      "primary_columns": [
+        "customer_complaints",
+        "return_rate"
+      ]
+    },
+    {
+      "hypothesis_id": "hyp_corr_15918347",
+      "dataset_id": "35af38ef-0ff0-435a-9942-66cc40371019",
+      "title": "Systemic Coupling between 'price' & 'return_rate'",
+      "statement": "Candidate explanation: A strong positive linear association (r = +0.99) suggests that 'price' and 'return_rate' share common driving mechanisms or feedback loops.",
+      "status": "candidate",
+      "confidence": 84,
+      "evidence_strength": 99,
+      "supporting_evidence_ids": [
+        "evd_anom_93485289",
+        "evd_anom_10b47b76",
+        "evd_anom_fa5c170f",
+        "evd_anom_033d4995",
+        "evd_anom_8fa4f488"
+      ],
+      "contradicting_evidence_ids": [],
+      "supporting_pattern_ids": [
+        "pat_corr_1b1a26c3"
+      ],
+      "related_relationship_ids": [
+        "rel_corr_0c77156d"
+      ],
+      "timeline_event_ids": [],
+      "reasoning": "Statistical analysis established high linear alignment (N=30). The variables systematically move in tandem across the dataset.",
+      "primary_columns": [
+        "price",
+        "return_rate"
+      ]
+    },
+    {
+      "hypothesis_id": "hyp_corr_acf6c90f",
+      "dataset_id": "35af38ef-0ff0-435a-9942-66cc40371019",
+      "title": "Systemic Coupling between 'price' & 'customer_complaints'",
+      "statement": "Candidate explanation: A strong positive linear association (r = +0.99) suggests that 'price' and 'customer_complaints' share common driving mechanisms or feedback loops.",
+      "status": "candidate",
+      "confidence": 84,
+      "evidence_strength": 99,
+      "supporting_evidence_ids": [
+        "evd_anom_93485289",
+        "evd_anom_10b47b76",
+        "evd_anom_fa5c170f",
+        "evd_anom_033d4995",
+        "evd_anom_8fa4f488"
+      ],
+      "contradicting_evidence_ids": [],
+      "supporting_pattern_ids": [
+        "pat_corr_b68c3966"
+      ],
+      "related_relationship_ids": [
+        "rel_corr_a4cf946c"
+      ],
+      "timeline_event_ids": [],
+      "reasoning": "Statistical analysis established high linear alignment (N=30). The variables systematically move in tandem across the dataset.",
+      "primary_columns": [
+        "price",
+        "customer_complaints"
+      ]
+    },
+    {
+      "hypothesis_id": "hyp_corr_1d218db7",
+      "dataset_id": "35af38ef-0ff0-435a-9942-66cc40371019",
+      "title": "Systemic Coupling between 'price' & 'revenue'",
+      "statement": "Candidate explanation: A strong inverse linear association (r = -0.98) suggests that 'price' and 'revenue' share common driving mechanisms or feedback loops.",
+      "status": "candidate",
+      "confidence": 84,
+      "evidence_strength": 98,
+      "supporting_evidence_ids": [
+        "evd_anom_93485289",
+        "evd_anom_10b47b76",
+        "evd_anom_fa5c170f",
+        "evd_anom_033d4995",
+        "evd_anom_8fa4f488"
+      ],
+      "contradicting_evidence_ids": [],
+      "supporting_pattern_ids": [
+        "pat_corr_271d0129"
+      ],
+      "related_relationship_ids": [
+        "rel_corr_9dfb6a86"
+      ],
+      "timeline_event_ids": [],
+      "reasoning": "Statistical analysis established high linear alignment (N=30). The variables systematically move in tandem across the dataset.",
+      "primary_columns": [
+        "price",
+        "revenue"
+      ]
+    },
+    {
+      "hypothesis_id": "hyp_corr_e6773517",
+      "dataset_id": "35af38ef-0ff0-435a-9942-66cc40371019",
+      "title": "Systemic Coupling between 'revenue' & 'return_rate'",
+      "statement": "Candidate explanation: A strong inverse linear association (r = -0.98) suggests that 'revenue' and 'return_rate' share common driving mechanisms or feedback loops.",
+      "status": "candidate",
+      "confidence": 84,
+      "evidence_strength": 98,
+      "supporting_evidence_ids": [
+        "evd_anom_6853fe82",
+        "evd_anom_169d7eef",
+        "evd_anom_e9287e43",
+        "evd_anom_40e13b33",
+        "evd_anom_6427f4b5"
+      ],
+      "contradicting_evidence_ids": [],
+      "supporting_pattern_ids": [
+        "pat_corr_65d45188"
+      ],
+      "related_relationship_ids": [
+        "rel_corr_ce315a07"
+      ],
+      "timeline_event_ids": [],
+      "reasoning": "Statistical analysis established high linear alignment (N=30). The variables systematically move in tandem across the dataset.",
+      "primary_columns": [
+        "revenue",
+        "return_rate"
+      ]
+    },
+    {
+      "hypothesis_id": "hyp_corr_71faddf5",
+      "dataset_id": "35af38ef-0ff0-435a-9942-66cc40371019",
+      "title": "Systemic Coupling between 'customer_complaints' & 'revenue'",
+      "statement": "Candidate explanation: A strong inverse linear association (r = -0.98) suggests that 'customer_complaints' and 'revenue' share common driving mechanisms or feedback loops.",
+      "status": "candidate",
+      "confidence": 84,
+      "evidence_strength": 98,
+      "supporting_evidence_ids": [
+        "evd_anom_c9fff8c5",
+        "evd_anom_f439885e",
+        "evd_anom_122a1a33",
+        "evd_anom_f2d47135",
+        "evd_anom_0f885857"
+      ],
+      "contradicting_evidence_ids": [],
+      "supporting_pattern_ids": [
+        "pat_corr_f3e7ff0f"
+      ],
+      "related_relationship_ids": [
+        "rel_corr_a100d392"
+      ],
+      "timeline_event_ids": [],
+      "reasoning": "Statistical analysis established high linear alignment (N=30). The variables systematically move in tandem across the dataset.",
+      "primary_columns": [
+        "customer_complaints",
+        "revenue"
+      ]
+    },
+    {
+      "hypothesis_id": "hyp_temp_b4718d72",
+      "dataset_id": "35af38ef-0ff0-435a-9942-66cc40371019",
+      "title": "Temporal Transition Association: Finding: customer_complaints (2026-02-06) &rarr; Finding: customer_complaints (2026-02-10)",
+      "statement": "Candidate explanation: The shift observed in 'Finding: customer_complaints (2026-02-06)' occurred prior to 'Finding: customer_complaints (2026-02-10)', suggesting a possible chronological progression or downstream operational response.",
+      "status": "candidate",
+      "confidence": 81,
+      "evidence_strength": 78,
+      "supporting_evidence_ids": [
+        "evd_anom_c9fff8c5",
+        "evd_anom_f439885e",
+        "evd_anom_122a1a33",
+        "evd_anom_f2d47135",
+        "evd_anom_0f885857"
+      ],
+      "contradicting_evidence_ids": [],
+      "supporting_pattern_ids": [],
+      "related_relationship_ids": [
+        "rel_temp_923e6fca"
+      ],
+      "timeline_event_ids": [],
+      "reasoning": "Observed chronological order indicates 'Finding: customer_complaints (2026-02-06)' preceded 'Finding: customer_complaints (2026-02-10)'. While temporal precedence does not establish causality, the sequence represents a prominent investigative lead.",
+      "primary_columns": []
+    },
+    {
+      "hypothesis_id": "hyp_grp_b6a7b13b",
+      "dataset_id": "35af38ef-0ff0-435a-9942-66cc40371019",
+      "title": "Segment-Level Variance Driver: 'region' &rarr; 'customer_complaints'",
+      "statement": "Candidate explanation: Structural differences between 'region' categories may explain the substantial disparity (740.0%) in 'customer_complaints'.",
+      "status": "candidate",
+      "confidence": 81,
+      "evidence_strength": 94,
+      "supporting_evidence_ids": [
+        "evd_anom_c9fff8c5",
+        "evd_anom_f439885e",
+        "evd_anom_122a1a33",
+        "evd_anom_f2d47135",
+        "evd_anom_0f885857"
+      ],
+      "contradicting_evidence_ids": [],
+      "supporting_pattern_ids": [
+        "pat_grp_21303314"
+      ],
+      "related_relationship_ids": [],
+      "timeline_event_ids": [],
+      "reasoning": "Grouping analysis demonstrated significant divergence across categorical segments. Segmental factors (such as regional or operational differences) appear directly associated with outcomes.",
+      "primary_columns": [
+        "region",
+        "customer_complaints"
+      ]
+    },
+    {
+      "hypothesis_id": "hyp_grp_322bd2a5",
+      "dataset_id": "35af38ef-0ff0-435a-9942-66cc40371019",
+      "title": "Segment-Level Variance Driver: 'region' &rarr; 'return_rate'",
+      "statement": "Candidate explanation: Structural differences between 'region' categories may explain the substantial disparity (486.2%) in 'return_rate'.",
+      "status": "candidate",
+      "confidence": 81,
+      "evidence_strength": 94,
+      "supporting_evidence_ids": [
+        "evd_anom_234f3da6",
+        "evd_anom_fcddc433",
+        "evd_anom_3d7f0370",
+        "evd_anom_2d9ac6d9",
+        "evd_anom_c2ef165b"
+      ],
+      "contradicting_evidence_ids": [],
+      "supporting_pattern_ids": [
+        "pat_grp_09a73965"
+      ],
+      "related_relationship_ids": [],
+      "timeline_event_ids": [],
+      "reasoning": "Grouping analysis demonstrated significant divergence across categorical segments. Segmental factors (such as regional or operational differences) appear directly associated with outcomes.",
+      "primary_columns": [
+        "region",
+        "return_rate"
+      ]
+    },
+    {
+      "hypothesis_id": "hyp_temp_ecbba896",
+      "dataset_id": "35af38ef-0ff0-435a-9942-66cc40371019",
+      "title": "Temporal Transition Association: Finding: return_rate (2026-02-04) &rarr; Finding: customer_complaints (2026-02-06)",
+      "statement": "Candidate explanation: The shift observed in 'Finding: return_rate (2026-02-04)' occurred prior to 'Finding: customer_complaints (2026-02-06)', suggesting a possible chronological progression or downstream operational response.",
+      "status": "candidate",
+      "confidence": 70,
+      "evidence_strength": 62,
+      "supporting_evidence_ids": [
+        "evd_anom_c9fff8c5",
+        "evd_anom_f439885e",
+        "evd_anom_122a1a33",
+        "evd_anom_f2d47135",
+        "evd_anom_0f885857"
+      ],
+      "contradicting_evidence_ids": [],
+      "supporting_pattern_ids": [],
+      "related_relationship_ids": [
+        "rel_temp_063c4f32"
+      ],
+      "timeline_event_ids": [],
+      "reasoning": "Observed chronological order indicates 'Finding: return_rate (2026-02-04)' preceded 'Finding: customer_complaints (2026-02-06)'. While temporal precedence does not establish causality, the sequence represents a prominent investigative lead.",
+      "primary_columns": []
+    },
+    {
+      "hypothesis_id": "hyp_temp_4862ad43",
+      "dataset_id": "35af38ef-0ff0-435a-9942-66cc40371019",
+      "title": "Temporal Transition Association: Finding: return_rate (2026-02-03) &rarr; Finding: customer_complaints (2026-02-03)",
+      "statement": "Candidate explanation: The shift observed in 'Finding: return_rate (2026-02-03)' occurred prior to 'Finding: customer_complaints (2026-02-03)', suggesting a possible chronological progression or downstream operational response.",
+      "status": "candidate",
+      "confidence": 68,
+      "evidence_strength": 58,
+      "supporting_evidence_ids": [
+        "evd_anom_c9fff8c5",
+        "evd_anom_f439885e",
+        "evd_anom_122a1a33",
+        "evd_anom_f2d47135",
+        "evd_anom_0f885857"
+      ],
+      "contradicting_evidence_ids": [],
+      "supporting_pattern_ids": [],
+      "related_relationship_ids": [
+        "rel_temp_3305e603"
+      ],
+      "timeline_event_ids": [],
+      "reasoning": "Observed chronological order indicates 'Finding: return_rate (2026-02-03)' preceded 'Finding: customer_complaints (2026-02-03)'. While temporal precedence does not establish causality, the sequence represents a prominent investigative lead.",
+      "primary_columns": []
+    },
+    {
+      "hypothesis_id": "hyp_temp_f8095906",
+      "dataset_id": "35af38ef-0ff0-435a-9942-66cc40371019",
+      "title": "Temporal Transition Association: Finding: customer_complaints (2026-02-03) &rarr; Finding: return_rate (2026-02-04)",
+      "statement": "Candidate explanation: The shift observed in 'Finding: customer_complaints (2026-02-03)' occurred prior to 'Finding: return_rate (2026-02-04)', suggesting a possible chronological progression or downstream operational response.",
+      "status": "candidate",
+      "confidence": 68,
+      "evidence_strength": 58,
+      "supporting_evidence_ids": [
+        "evd_anom_c9fff8c5",
+        "evd_anom_f439885e",
+        "evd_anom_122a1a33",
+        "evd_anom_f2d47135",
+        "evd_anom_0f885857"
+      ],
+      "contradicting_evidence_ids": [],
+      "supporting_pattern_ids": [],
+      "related_relationship_ids": [
+        "rel_temp_36e861d9"
+      ],
+      "timeline_event_ids": [],
+      "reasoning": "Observed chronological order indicates 'Finding: customer_complaints (2026-02-03)' preceded 'Finding: return_rate (2026-02-04)'. While temporal precedence does not establish causality, the sequence represents a prominent investigative lead.",
+      "primary_columns": []
+    },
+    {
+      "hypothesis_id": "hyp_grp_4ef128d1",
+      "dataset_id": "35af38ef-0ff0-435a-9942-66cc40371019",
+      "title": "Segment-Level Variance Driver: 'region' &rarr; 'price'",
+      "statement": "Candidate explanation: Structural differences between 'region' categories may explain the substantial disparity (58.4%) in 'price'.",
+      "status": "candidate",
+      "confidence": 49,
+      "evidence_strength": 44,
+      "supporting_evidence_ids": [
+        "evd_anom_93485289",
+        "evd_anom_10b47b76",
+        "evd_anom_fa5c170f",
+        "evd_anom_033d4995",
+        "evd_anom_8fa4f488"
+      ],
+      "contradicting_evidence_ids": [],
+      "supporting_pattern_ids": [
+        "pat_grp_ab89c805"
+      ],
+      "related_relationship_ids": [],
+      "timeline_event_ids": [],
+      "reasoning": "Grouping analysis demonstrated significant divergence across categorical segments. Segmental factors (such as regional or operational differences) appear directly associated with outcomes.",
+      "primary_columns": [
+        "region",
+        "price"
+      ]
+    }
+  ],
+  "clusters": [
+    {
+      "cluster_id": "clst_8c6685ab",
+      "dataset_id": "35af38ef-0ff0-435a-9942-66cc40371019",
+      "title": "Evidence Cluster around Feature 'customer_complaints'",
+      "summary": "Concentration of 15 evidence items, 5 patterns, and 19 anomalies converging on feature 'customer_complaints'.",
+      "strength": 95,
+      "evidence_ids": [
+        "evd_anom_d6ba3f66",
+        "evd_anom_c4f9ae11",
+        "evd_anom_0f885857",
+        "evd_anom_c9fff8c5",
+        "evd_anom_5d7972fe",
+        "evd_anom_9a0c32f7",
+        "evd_anom_e0c16ae4",
+        "evd_anom_f439885e"
+      ],
+      "finding_ids": [
+        "temp_drop_ba220cbc",
+        "iqr_0692609f",
+        "iqr_86294871",
+        "temp_spike_e9c9b708",
+        "temp_drop_8ce5e872",
+        "iqr_4f7e9cc6",
+        "temp_spike_f6fa5fb5",
+        "temp_spike_baa7abb2"
+      ],
+      "pattern_ids": [
+        "pat_grp_21303314",
+        "pat_corr_b68c3966",
+        "pat_cross_ea54b85c",
+        "pat_corr_f3e7ff0f",
+        "pat_corr_6481fc5c"
+      ],
+      "relationship_ids": [
+        "rel_corr_a100d392",
+        "rel_corr_a4cf946c",
+        "rel_grp_ac22b6dc",
+        "rel_corr_2b657ce6"
+      ],
+      "timeline_event_ids": [
+        "evt_fnd_6aba1840",
+        "evt_fnd_2dd2fb6d",
+        "evt_fnd_a0829531",
+        "evt_fnd_9a601db3",
+        "evt_fnd_51841c23"
+      ],
+      "primary_columns": [
+        "customer_complaints"
+      ]
+    },
+    {
+      "cluster_id": "clst_1cfc6f86",
+      "dataset_id": "35af38ef-0ff0-435a-9942-66cc40371019",
+      "title": "Evidence Cluster around Feature 'return_rate'",
+      "summary": "Concentration of 15 evidence items, 5 patterns, and 20 anomalies converging on feature 'return_rate'.",
+      "strength": 95,
+      "evidence_ids": [
+        "evd_corr_add96b7e",
+        "evd_anom_3c8aaccb",
+        "evd_grp_8a1f174c",
+        "evd_anom_fcddc433",
+        "evd_anom_5c37956d",
+        "evd_anom_234f3da6",
+        "evd_anom_43b7e237",
+        "evd_anom_9a4ebe97"
+      ],
+      "finding_ids": [
+        "iqr_a55d313e",
+        "temp_drop_adc9168b",
+        "temp_drop_66d88e49",
+        "temp_spike_f3af25b6",
+        "iqr_bf6f8348",
+        "temp_spike_693469e3",
+        "iqr_2138a67e",
+        "temp_drop_24894e47"
+      ],
+      "pattern_ids": [
+        "pat_corr_65d45188",
+        "pat_grp_09a73965",
+        "pat_cross_09ffe4c8",
+        "pat_corr_6481fc5c",
+        "pat_corr_1b1a26c3"
+      ],
+      "relationship_ids": [
+        "rel_corr_0c77156d",
+        "rel_corr_ce315a07",
+        "rel_grp_96e872ef",
+        "rel_corr_2b657ce6"
+      ],
+      "timeline_event_ids": [
+        "evt_fnd_415a44af",
+        "evt_fnd_5512a225",
+        "evt_fnd_1b3a8066",
+        "evt_fnd_e6f5535e",
+        "evt_fnd_af13674d"
+      ],
+      "primary_columns": [
+        "return_rate"
+      ]
+    },
+    {
+      "cluster_id": "clst_19893f64",
+      "dataset_id": "35af38ef-0ff0-435a-9942-66cc40371019",
+      "title": "Evidence Cluster around Feature 'revenue'",
+      "summary": "Concentration of 13 evidence items, 4 patterns, and 16 anomalies converging on feature 'revenue'.",
+      "strength": 93,
+      "evidence_ids": [
+        "evd_anom_e9287e43",
+        "evd_anom_6427f4b5",
+        "evd_anom_169d7eef",
+        "evd_anom_6853fe82",
+        "evd_anom_825e2e6a",
+        "evd_corr_e235fc41",
+        "evd_anom_867b6c56",
+        "evd_anom_40e13b33"
+      ],
+      "finding_ids": [
+        "temp_spike_a1dcbf76",
+        "iqr_b847f2e6",
+        "iqr_c23f5d6f",
+        "iqr_725e7f46",
+        "temp_drop_dee82738",
+        "temp_spike_c6024f6d",
+        "temp_spike_c215f677",
+        "iqr_c924bfd7"
+      ],
+      "pattern_ids": [
+        "pat_corr_65d45188",
+        "pat_corr_f3e7ff0f",
+        "pat_cross_fe91e6f2",
+        "pat_corr_271d0129"
+      ],
+      "relationship_ids": [
+        "rel_corr_ce315a07",
+        "rel_corr_a100d392",
+        "rel_corr_9dfb6a86"
+      ],
+      "timeline_event_ids": [
+        "evt_fnd_0e2333d4",
+        "evt_fnd_85584bed",
+        "evt_fnd_16037db0",
+        "evt_fnd_f1274f14",
+        "evt_fnd_7e6ddecf"
+      ],
+      "primary_columns": [
+        "revenue"
+      ]
+    },
+    {
+      "cluster_id": "clst_5043d451",
+      "dataset_id": "35af38ef-0ff0-435a-9942-66cc40371019",
+      "title": "Evidence Cluster around Feature 'price'",
+      "summary": "Concentration of 11 evidence items, 5 patterns, and 18 anomalies converging on feature 'price'.",
+      "strength": 90,
+      "evidence_ids": [
+        "evd_corr_add96b7e",
+        "evd_anom_033d4995",
+        "evd_anom_44693fc6",
+        "evd_grp_1f189264",
+        "evd_anom_10b47b76",
+        "evd_anom_93485289",
+        "evd_corr_5147acd8",
+        "evd_corr_5bfed669"
+      ],
+      "finding_ids": [
+        "cat_rare_b45e0e19",
+        "temp_drop_aa25f67f",
+        "iqr_83bfbd04",
+        "temp_spike_5b9299b1",
+        "iqr_d1619781",
+        "temp_spike_e45257cd",
+        "temp_drop_cedcf402",
+        "iqr_5918dcae"
+      ],
+      "pattern_ids": [
+        "pat_cross_a3a7d4cd",
+        "pat_corr_271d0129",
+        "pat_corr_b68c3966",
+        "pat_grp_ab89c805",
+        "pat_corr_1b1a26c3"
+      ],
+      "relationship_ids": [
+        "rel_corr_0c77156d",
+        "rel_grp_808fddab",
+        "rel_corr_9dfb6a86",
+        "rel_corr_a4cf946c"
+      ],
+      "timeline_event_ids": [
+        "evt_fnd_e626049a",
+        "evt_fnd_12670ce5",
+        "evt_fnd_42006f2d",
+        "evt_fnd_7bceb0dd",
+        "evt_fnd_3de63378"
+      ],
+      "primary_columns": [
+        "price"
+      ]
+    },
+    {
+      "cluster_id": "clst_693420da",
+      "dataset_id": "35af38ef-0ff0-435a-9942-66cc40371019",
+      "title": "Evidence Cluster around Feature 'region'",
+      "summary": "Concentration of 3 evidence items, 3 patterns, and 0 anomalies converging on feature 'region'.",
+      "strength": 77,
+      "evidence_ids": [
+        "evd_grp_1f189264",
+        "evd_grp_99985702",
+        "evd_grp_8a1f174c"
+      ],
+      "finding_ids": [],
+      "pattern_ids": [
+        "pat_grp_21303314",
+        "pat_grp_09a73965",
+        "pat_grp_ab89c805"
+      ],
+      "relationship_ids": [
+        "rel_grp_808fddab",
+        "rel_grp_ac22b6dc",
+        "rel_grp_96e872ef"
+      ],
+      "timeline_event_ids": [],
+      "primary_columns": [
+        "region"
+      ]
+    }
+  ],
+  "threads": [
+    {
+      "thread_id": "thr_2f4afb23",
+      "dataset_id": "35af38ef-0ff0-435a-9942-66cc40371019",
+      "title": "Investigation: Temporal Transition Association: Finding: customer_complaints (2026-02-10) &rarr; Finding: return_rate (2026-02-10)",
+      "priority": 95,
+      "status": "open",
+      "summary": "Candidate explanation: The shift observed in 'Finding: customer_complaints (2026-02-10)' occurred prior to 'Finding: return_rate (2026-02-10)', suggesting a possible chronological progression or downstream operational response. Grounded by 5 empirical evidence item(s), 0 structural pattern(s), and 5 investigative anomalies.",
+      "hypothesis_ids": [
+        "hyp_temp_74861cff"
+      ],
+      "evidence_ids": [
+        "evd_anom_c9fff8c5",
+        "evd_anom_f439885e",
+        "evd_anom_122a1a33",
+        "evd_anom_f2d47135",
+        "evd_anom_0f885857"
+      ],
+      "pattern_ids": [],
+      "finding_ids": [
+        "iqr_230114fe",
+        "iqr_0692609f",
+        "iqr_e82f5a34",
+        "iqr_86294871",
+        "iqr_4f7e9cc6"
+      ],
+      "timeline_event_ids": [
+        "evt_fnd_a0829531",
+        "evt_fnd_956ace10",
+        "evt_fnd_ad1c6f1b",
+        "evt_fnd_494a8ef6",
+        "evt_fnd_2bab731a"
+      ],
+      "primary_columns": []
+    },
+    {
+      "thread_id": "thr_a6f7cfa5",
+      "dataset_id": "35af38ef-0ff0-435a-9942-66cc40371019",
+      "title": "Investigation: Systemic Coupling between 'customer_complaints' & 'return_rate'",
+      "priority": 91,
+      "status": "open",
+      "summary": "Candidate explanation: A strong positive linear association (r = +1.00) suggests that 'customer_complaints' and 'return_rate' share common driving mechanisms or feedback loops. Grounded by 5 empirical evidence item(s), 1 structural pattern(s), and 5 investigative anomalies.",
+      "hypothesis_ids": [
+        "hyp_corr_9f49cc3a"
+      ],
+      "evidence_ids": [
+        "evd_anom_c9fff8c5",
+        "evd_anom_f439885e",
+        "evd_anom_122a1a33",
+        "evd_anom_f2d47135",
+        "evd_anom_0f885857"
+      ],
+      "pattern_ids": [
+        "pat_corr_6481fc5c"
+      ],
+      "finding_ids": [
+        "iqr_230114fe",
+        "iqr_0692609f",
+        "iqr_e82f5a34",
+        "iqr_86294871",
+        "iqr_4f7e9cc6"
+      ],
+      "timeline_event_ids": [
+        "evt_fnd_a0829531",
+        "evt_fnd_956ace10",
+        "evt_fnd_ad1c6f1b",
+        "evt_fnd_494a8ef6",
+        "evt_fnd_2bab731a"
+      ],
+      "primary_columns": [
+        "customer_complaints",
+        "return_rate"
+      ]
+    },
+    {
+      "thread_id": "thr_1ff4d880",
+      "dataset_id": "35af38ef-0ff0-435a-9942-66cc40371019",
+      "title": "Investigation: Systemic Coupling between 'price' & 'return_rate'",
+      "priority": 90,
+      "status": "open",
+      "summary": "Candidate explanation: A strong positive linear association (r = +0.99) suggests that 'price' and 'return_rate' share common driving mechanisms or feedback loops. Grounded by 5 empirical evidence item(s), 1 structural pattern(s), and 5 investigative anomalies.",
+      "hypothesis_ids": [
+        "hyp_corr_15918347"
+      ],
+      "evidence_ids": [
+        "evd_anom_93485289",
+        "evd_anom_10b47b76",
+        "evd_anom_fa5c170f",
+        "evd_anom_033d4995",
+        "evd_anom_8fa4f488"
+      ],
+      "pattern_ids": [
+        "pat_corr_1b1a26c3"
+      ],
+      "finding_ids": [
+        "iqr_83bfbd04",
+        "iqr_d1619781",
+        "iqr_5918dcae",
+        "iqr_31c462e8",
+        "iqr_1a8d58e9"
+      ],
+      "timeline_event_ids": [
+        "evt_fnd_5a122a84",
+        "evt_fnd_bc8ceec1",
+        "evt_fnd_64749378",
+        "evt_fnd_11bade7e",
+        "evt_fnd_12670ce5"
+      ],
+      "primary_columns": [
+        "price",
+        "return_rate"
+      ]
+    },
+    {
+      "thread_id": "thr_8193e274",
+      "dataset_id": "35af38ef-0ff0-435a-9942-66cc40371019",
+      "title": "Investigation: Systemic Coupling between 'price' & 'customer_complaints'",
+      "priority": 90,
+      "status": "open",
+      "summary": "Candidate explanation: A strong positive linear association (r = +0.99) suggests that 'price' and 'customer_complaints' share common driving mechanisms or feedback loops. Grounded by 5 empirical evidence item(s), 1 structural pattern(s), and 5 investigative anomalies.",
+      "hypothesis_ids": [
+        "hyp_corr_acf6c90f"
+      ],
+      "evidence_ids": [
+        "evd_anom_93485289",
+        "evd_anom_10b47b76",
+        "evd_anom_fa5c170f",
+        "evd_anom_033d4995",
+        "evd_anom_8fa4f488"
+      ],
+      "pattern_ids": [
+        "pat_corr_b68c3966"
+      ],
+      "finding_ids": [
+        "iqr_83bfbd04",
+        "iqr_d1619781",
+        "iqr_5918dcae",
+        "iqr_31c462e8",
+        "iqr_1a8d58e9"
+      ],
+      "timeline_event_ids": [
+        "evt_fnd_5a122a84",
+        "evt_fnd_bc8ceec1",
+        "evt_fnd_64749378",
+        "evt_fnd_11bade7e",
+        "evt_fnd_12670ce5"
+      ],
+      "primary_columns": [
+        "price",
+        "customer_complaints"
+      ]
+    },
+    {
+      "thread_id": "thr_d2648bd7",
+      "dataset_id": "35af38ef-0ff0-435a-9942-66cc40371019",
+      "title": "Investigation: Systemic Coupling between 'price' & 'revenue'",
+      "priority": 90,
+      "status": "open",
+      "summary": "Candidate explanation: A strong inverse linear association (r = -0.98) suggests that 'price' and 'revenue' share common driving mechanisms or feedback loops. Grounded by 5 empirical evidence item(s), 1 structural pattern(s), and 5 investigative anomalies.",
+      "hypothesis_ids": [
+        "hyp_corr_1d218db7"
+      ],
+      "evidence_ids": [
+        "evd_anom_93485289",
+        "evd_anom_10b47b76",
+        "evd_anom_fa5c170f",
+        "evd_anom_033d4995",
+        "evd_anom_8fa4f488"
+      ],
+      "pattern_ids": [
+        "pat_corr_271d0129"
+      ],
+      "finding_ids": [
+        "iqr_83bfbd04",
+        "iqr_d1619781",
+        "iqr_5918dcae",
+        "iqr_31c462e8",
+        "iqr_1a8d58e9"
+      ],
+      "timeline_event_ids": [
+        "evt_fnd_5a122a84",
+        "evt_fnd_bc8ceec1",
+        "evt_fnd_64749378",
+        "evt_fnd_11bade7e",
+        "evt_fnd_12670ce5"
+      ],
+      "primary_columns": [
+        "price",
+        "revenue"
+      ]
+    }
+  ],
+  "graph_data": {
+    "nodes": [
+      {
+        "id": "iqr_83bfbd04",
+        "label": "Potential Outlier in 'price' (",
+        "type": "finding",
+        "data": {
+          "severity": "high",
+          "score": 100
+        }
+      },
+      {
+        "id": "iqr_1a8d58e9",
+        "label": "Potential Outlier in 'price' (",
+        "type": "finding",
+        "data": {
+          "severity": "high",
+          "score": 100
+        }
+      },
+      {
+        "id": "iqr_5918dcae",
+        "label": "Potential Outlier in 'price' (",
+        "type": "finding",
+        "data": {
+          "severity": "high",
+          "score": 100
+        }
+      },
+      {
+        "id": "iqr_31c462e8",
+        "label": "Potential Outlier in 'price' (",
+        "type": "finding",
+        "data": {
+          "severity": "high",
+          "score": 100
+        }
+      },
+      {
+        "id": "iqr_d1619781",
+        "label": "Potential Outlier in 'price' (",
+        "type": "finding",
+        "data": {
+          "severity": "high",
+          "score": 100
+        }
+      },
+      {
+        "id": "iqr_8a4766bf",
+        "label": "Potential Outlier in 'price' (",
+        "type": "finding",
+        "data": {
+          "severity": "high",
+          "score": 100
+        }
+      },
+      {
+        "id": "iqr_230114fe",
+        "label": "Potential Outlier in 'customer",
+        "type": "finding",
+        "data": {
+          "severity": "high",
+          "score": 100
+        }
+      },
+      {
+        "id": "iqr_4f7e9cc6",
+        "label": "Potential Outlier in 'customer",
+        "type": "finding",
+        "data": {
+          "severity": "high",
+          "score": 100
+        }
+      },
+      {
+        "id": "iqr_e82f5a34",
+        "label": "Potential Outlier in 'customer",
+        "type": "finding",
+        "data": {
+          "severity": "high",
+          "score": 100
+        }
+      },
+      {
+        "id": "iqr_86294871",
+        "label": "Potential Outlier in 'customer",
+        "type": "finding",
+        "data": {
+          "severity": "high",
+          "score": 100
+        }
+      },
+      {
+        "id": "iqr_0692609f",
+        "label": "Potential Outlier in 'customer",
+        "type": "finding",
+        "data": {
+          "severity": "high",
+          "score": 100
+        }
+      },
+      {
+        "id": "iqr_2feb7790",
+        "label": "Potential Outlier in 'customer",
+        "type": "finding",
+        "data": {
+          "severity": "high",
+          "score": 100
+        }
+      },
+      {
+        "id": "iqr_c23f5d6f",
+        "label": "Potential Outlier in 'revenue'",
+        "type": "finding",
+        "data": {
+          "severity": "high",
+          "score": 100
+        }
+      },
+      {
+        "id": "iqr_725e7f46",
+        "label": "Potential Outlier in 'revenue'",
+        "type": "finding",
+        "data": {
+          "severity": "high",
+          "score": 100
+        }
+      },
+      {
+        "id": "iqr_b847f2e6",
+        "label": "Potential Outlier in 'revenue'",
+        "type": "finding",
+        "data": {
+          "severity": "high",
+          "score": 100
+        }
+      },
+      {
+        "id": "iqr_2d48240c",
+        "label": "Potential Outlier in 'revenue'",
+        "type": "finding",
+        "data": {
+          "severity": "high",
+          "score": 100
+        }
+      },
+      {
+        "id": "iqr_c924bfd7",
+        "label": "Potential Outlier in 'revenue'",
+        "type": "finding",
+        "data": {
+          "severity": "high",
+          "score": 100
+        }
+      },
+      {
+        "id": "iqr_1af02630",
+        "label": "Potential Outlier in 'return_r",
+        "type": "finding",
+        "data": {
+          "severity": "high",
+          "score": 100
+        }
+      },
+      {
+        "id": "iqr_6c7c935a",
+        "label": "Potential Outlier in 'return_r",
+        "type": "finding",
+        "data": {
+          "severity": "high",
+          "score": 100
+        }
+      },
+      {
+        "id": "iqr_2138a67e",
+        "label": "Potential Outlier in 'return_r",
+        "type": "finding",
+        "data": {
+          "severity": "high",
+          "score": 100
+        }
+      },
+      {
+        "id": "iqr_95c541a2",
+        "label": "Potential Outlier in 'return_r",
+        "type": "finding",
+        "data": {
+          "severity": "high",
+          "score": 100
+        }
+      },
+      {
+        "id": "iqr_bf6f8348",
+        "label": "Potential Outlier in 'return_r",
+        "type": "finding",
+        "data": {
+          "severity": "high",
+          "score": 100
+        }
+      },
+      {
+        "id": "iqr_a55d313e",
+        "label": "Potential Outlier in 'return_r",
+        "type": "finding",
+        "data": {
+          "severity": "high",
+          "score": 100
+        }
+      },
+      {
+        "id": "temp_spike_b579d013",
+        "label": "Sudden Metric Spike in 'custom",
+        "type": "finding",
+        "data": {
+          "severity": "high",
+          "score": 95
+        }
+      },
+      {
+        "id": "temp_spike_a93f549c",
+        "label": "Sudden Metric Spike in 'custom",
+        "type": "finding",
+        "data": {
+          "severity": "high",
+          "score": 95
+        }
+      },
+      {
+        "id": "temp_spike_e9c9b708",
+        "label": "Sudden Metric Spike in 'custom",
+        "type": "finding",
+        "data": {
+          "severity": "high",
+          "score": 95
+        }
+      },
+      {
+        "id": "temp_spike_baa7abb2",
+        "label": "Sudden Metric Spike in 'custom",
+        "type": "finding",
+        "data": {
+          "severity": "high",
+          "score": 95
+        }
+      },
+      {
+        "id": "temp_spike_f6fa5fb5",
+        "label": "Sudden Metric Spike in 'custom",
+        "type": "finding",
+        "data": {
+          "severity": "high",
+          "score": 95
+        }
+      },
+      {
+        "id": "temp_spike_c6024f6d",
+        "label": "Sudden Metric Spike in 'revenu",
+        "type": "finding",
+        "data": {
+          "severity": "high",
+          "score": 95
+        }
+      },
+      {
+        "id": "temp_spike_c215f677",
+        "label": "Sudden Metric Spike in 'revenu",
+        "type": "finding",
+        "data": {
+          "severity": "high",
+          "score": 95
+        }
+      },
+      {
+        "id": "temp_spike_a1dcbf76",
+        "label": "Sudden Metric Spike in 'revenu",
+        "type": "finding",
+        "data": {
+          "severity": "high",
+          "score": 95
+        }
+      },
+      {
+        "id": "temp_spike_a6befd25",
+        "label": "Sudden Metric Spike in 'return",
+        "type": "finding",
+        "data": {
+          "severity": "high",
+          "score": 95
+        }
+      },
+      {
+        "id": "temp_spike_f3af25b6",
+        "label": "Sudden Metric Spike in 'return",
+        "type": "finding",
+        "data": {
+          "severity": "high",
+          "score": 95
+        }
+      },
+      {
+        "id": "temp_spike_4fc8e089",
+        "label": "Sudden Metric Spike in 'return",
+        "type": "finding",
+        "data": {
+          "severity": "high",
+          "score": 95
+        }
+      },
+      {
+        "id": "temp_spike_693469e3",
+        "label": "Sudden Metric Spike in 'return",
+        "type": "finding",
+        "data": {
+          "severity": "high",
+          "score": 95
+        }
+      },
+      {
+        "id": "temp_spike_4d58088a",
+        "label": "Sudden Metric Spike in 'return",
+        "type": "finding",
+        "data": {
+          "severity": "high",
+          "score": 95
+        }
+      },
+      {
+        "id": "temp_spike_27f1125d",
+        "label": "Sudden Metric Spike in 'revenu",
+        "type": "finding",
+        "data": {
+          "severity": "high",
+          "score": 93
+        }
+      },
+      {
+        "id": "iqr_4934520a",
+        "label": "Potential Outlier in 'revenue'",
+        "type": "finding",
+        "data": {
+          "severity": "high",
+          "score": 88
+        }
+      },
+      {
+        "id": "temp_spike_0a3a4f86",
+        "label": "Sudden Metric Spike in 'price'",
+        "type": "finding",
+        "data": {
+          "severity": "medium",
+          "score": 78
+        }
+      },
+      {
+        "id": "temp_spike_a602f4e8",
+        "label": "Sudden Metric Spike in 'price'",
+        "type": "finding",
+        "data": {
+          "severity": "medium",
+          "score": 76
+        }
+      },
+      {
+        "id": "temp_spike_e45257cd",
+        "label": "Sudden Metric Spike in 'price'",
+        "type": "finding",
+        "data": {
+          "severity": "medium",
+          "score": 75
+        }
+      },
+      {
+        "id": "temp_spike_48779b3e",
+        "label": "Sudden Metric Spike in 'price'",
+        "type": "finding",
+        "data": {
+          "severity": "medium",
+          "score": 74
+        }
+      },
+      {
+        "id": "temp_drop_46cde304",
+        "label": "Sudden Metric Drop in 'custome",
+        "type": "finding",
+        "data": {
+          "severity": "medium",
+          "score": 73
+        }
+      },
+      {
+        "id": "temp_drop_ba220cbc",
+        "label": "Sudden Metric Drop in 'custome",
+        "type": "finding",
+        "data": {
+          "severity": "medium",
+          "score": 73
+        }
+      },
+      {
+        "id": "temp_drop_8ce5e872",
+        "label": "Sudden Metric Drop in 'custome",
+        "type": "finding",
+        "data": {
+          "severity": "medium",
+          "score": 73
+        }
+      },
+      {
+        "id": "temp_drop_e37a9ea4",
+        "label": "Sudden Metric Drop in 'custome",
+        "type": "finding",
+        "data": {
+          "severity": "medium",
+          "score": 72
+        }
+      },
+      {
+        "id": "temp_drop_9d5439c8",
+        "label": "Sudden Metric Drop in 'custome",
+        "type": "finding",
+        "data": {
+          "severity": "medium",
+          "score": 72
+        }
+      },
+      {
+        "id": "temp_drop_87748cb1",
+        "label": "Sudden Metric Drop in 'return_",
+        "type": "finding",
+        "data": {
+          "severity": "medium",
+          "score": 72
+        }
+      },
+      {
+        "id": "temp_drop_a0aa59aa",
+        "label": "Sudden Metric Drop in 'return_",
+        "type": "finding",
+        "data": {
+          "severity": "medium",
+          "score": 72
+        }
+      },
+      {
+        "id": "temp_drop_3dcba27e",
+        "label": "Sudden Metric Drop in 'return_",
+        "type": "finding",
+        "data": {
+          "severity": "medium",
+          "score": 72
+        }
+      },
+      {
+        "id": "temp_spike_5b9299b1",
+        "label": "Sudden Metric Spike in 'price'",
+        "type": "finding",
+        "data": {
+          "severity": "medium",
+          "score": 71
+        }
+      },
+      {
+        "id": "temp_drop_adc9168b",
+        "label": "Sudden Metric Drop in 'return_",
+        "type": "finding",
+        "data": {
+          "severity": "medium",
+          "score": 71
+        }
+      },
+      {
+        "id": "temp_drop_66d88e49",
+        "label": "Sudden Metric Drop in 'return_",
+        "type": "finding",
+        "data": {
+          "severity": "medium",
+          "score": 71
+        }
+      },
+      {
+        "id": "temp_drop_6a048380",
+        "label": "Sudden Metric Drop in 'revenue",
+        "type": "finding",
+        "data": {
+          "severity": "medium",
+          "score": 68
+        }
+      },
+      {
+        "id": "stat_skew_7e27542c",
+        "label": "Severe Distribution Asymmetry ",
+        "type": "finding",
+        "data": {
+          "severity": "medium",
+          "score": 68
+        }
+      },
+      {
+        "id": "temp_spike_3ab7108e",
+        "label": "Sudden Metric Spike in 'revenu",
+        "type": "finding",
+        "data": {
+          "severity": "medium",
+          "score": 66
+        }
+      },
+      {
+        "id": "temp_drop_7e3555a1",
+        "label": "Sudden Metric Drop in 'revenue",
+        "type": "finding",
+        "data": {
+          "severity": "medium",
+          "score": 66
+        }
+      },
+      {
+        "id": "temp_drop_dee82738",
+        "label": "Sudden Metric Drop in 'revenue",
+        "type": "finding",
+        "data": {
+          "severity": "medium",
+          "score": 65
+        }
+      },
+      {
+        "id": "temp_spike_53616398",
+        "label": "Sudden Metric Spike in 'custom",
+        "type": "finding",
+        "data": {
+          "severity": "medium",
+          "score": 62
+        }
+      },
+      {
+        "id": "temp_drop_24894e47",
+        "label": "Sudden Metric Drop in 'return_",
+        "type": "finding",
+        "data": {
+          "severity": "medium",
+          "score": 62
+        }
+      },
+      {
+        "id": "temp_spike_01f3251f",
+        "label": "Sudden Metric Spike in 'return",
+        "type": "finding",
+        "data": {
+          "severity": "medium",
+          "score": 62
+        }
+      },
+      {
+        "id": "temp_drop_2461e895",
+        "label": "Sudden Metric Drop in 'revenue",
+        "type": "finding",
+        "data": {
+          "severity": "medium",
+          "score": 61
+        }
+      },
+      {
+        "id": "temp_drop_4958be7e",
+        "label": "Sudden Metric Drop in 'price' ",
+        "type": "finding",
+        "data": {
+          "severity": "medium",
+          "score": 60
+        }
+      },
+      {
+        "id": "temp_drop_cedcf402",
+        "label": "Sudden Metric Drop in 'price' ",
+        "type": "finding",
+        "data": {
+          "severity": "medium",
+          "score": 59
+        }
+      },
+      {
+        "id": "temp_drop_65a4949d",
+        "label": "Sudden Metric Drop in 'price' ",
+        "type": "finding",
+        "data": {
+          "severity": "medium",
+          "score": 58
+        }
+      },
+      {
+        "id": "temp_drop_f56e694f",
+        "label": "Sudden Metric Drop in 'price' ",
+        "type": "finding",
+        "data": {
+          "severity": "medium",
+          "score": 58
+        }
+      },
+      {
+        "id": "temp_drop_aa25f67f",
+        "label": "Sudden Metric Drop in 'price' ",
+        "type": "finding",
+        "data": {
+          "severity": "medium",
+          "score": 58
+        }
+      },
+      {
+        "id": "temp_drop_9e13840a",
+        "label": "Sudden Metric Drop in 'revenue",
+        "type": "finding",
+        "data": {
+          "severity": "medium",
+          "score": 58
+        }
+      },
+      {
+        "id": "stat_skew_aef309d3",
+        "label": "Severe Distribution Asymmetry ",
+        "type": "finding",
+        "data": {
+          "severity": "medium",
+          "score": 58
+        }
+      },
+      {
+        "id": "temp_drop_5741c0d0",
+        "label": "Sudden Metric Drop in 'custome",
+        "type": "finding",
+        "data": {
+          "severity": "medium",
+          "score": 55
+        }
+      },
+      {
+        "id": "cat_rare_b45e0e19",
+        "label": "Rare Category '49.0' in 'price",
+        "type": "finding",
+        "data": {
+          "severity": "medium",
+          "score": 51
+        }
+      },
+      {
+        "id": "cat_rare_34237d92",
+        "label": "Rare Category '0.01' in 'retur",
+        "type": "finding",
+        "data": {
+          "severity": "medium",
+          "score": 51
+        }
+      },
+      {
+        "id": "ins_top_9235a1a4",
+        "label": "Primary Anomaly Driver: 'price",
+        "type": "finding",
+        "data": {
+          "severity": "high",
+          "score": 100
+        }
+      },
+      {
+        "id": "ins_dense_ce46e876",
+        "label": "Multiple High-Severity Outlier",
+        "type": "finding",
+        "data": {
+          "severity": "high",
+          "score": 85
+        }
+      },
+      {
+        "id": "pat_corr_6481fc5c",
+        "label": "Strong Positive Association: '",
+        "type": "pattern",
+        "data": {
+          "type": "correlation",
+          "strength": 94
+        }
+      },
+      {
+        "id": "pat_grp_21303314",
+        "label": "Significant Segment Disparity ",
+        "type": "pattern",
+        "data": {
+          "type": "group_difference",
+          "strength": 94
+        }
+      },
+      {
+        "id": "pat_grp_09a73965",
+        "label": "Significant Segment Disparity ",
+        "type": "pattern",
+        "data": {
+          "type": "group_difference",
+          "strength": 94
+        }
+      },
+      {
+        "id": "pat_corr_b68c3966",
+        "label": "Strong Positive Association: '",
+        "type": "pattern",
+        "data": {
+          "type": "correlation",
+          "strength": 93
+        }
+      },
+      {
+        "id": "pat_corr_271d0129",
+        "label": "Strong Negative Association: '",
+        "type": "pattern",
+        "data": {
+          "type": "correlation",
+          "strength": 93
+        }
+      },
+      {
+        "id": "pat_corr_1b1a26c3",
+        "label": "Strong Positive Association: '",
+        "type": "pattern",
+        "data": {
+          "type": "correlation",
+          "strength": 93
+        }
+      },
+      {
+        "id": "pat_corr_65d45188",
+        "label": "Strong Negative Association: '",
+        "type": "pattern",
+        "data": {
+          "type": "correlation",
+          "strength": 93
+        }
+      },
+      {
+        "id": "pat_corr_f3e7ff0f",
+        "label": "Strong Negative Association: '",
+        "type": "pattern",
+        "data": {
+          "type": "correlation",
+          "strength": 92
+        }
+      },
+      {
+        "id": "pat_cross_ea54b85c",
+        "label": "Multi-Observation Anomaly Clus",
+        "type": "pattern",
+        "data": {
+          "type": "cross_finding",
+          "strength": 90
+        }
+      },
+      {
+        "id": "pat_cross_fe91e6f2",
+        "label": "Multi-Observation Anomaly Clus",
+        "type": "pattern",
+        "data": {
+          "type": "cross_finding",
+          "strength": 89
+        }
+      },
+      {
+        "id": "pat_cross_09ffe4c8",
+        "label": "Multi-Observation Anomaly Clus",
+        "type": "pattern",
+        "data": {
+          "type": "cross_finding",
+          "strength": 88
+        }
+      },
+      {
+        "id": "pat_cross_a3a7d4cd",
+        "label": "Multi-Observation Anomaly Clus",
+        "type": "pattern",
+        "data": {
+          "type": "cross_finding",
+          "strength": 85
+        }
+      },
+      {
+        "id": "pat_grp_ab89c805",
+        "label": "Significant Segment Disparity ",
+        "type": "pattern",
+        "data": {
+          "type": "group_difference",
+          "strength": 44
+        }
+      },
+      {
+        "id": "evd_anom_93485289",
+        "label": "High-Severity Anomaly: Potenti",
+        "type": "evidence",
+        "data": {
+          "strength": 100,
+          "polarity": "support"
+        }
+      },
+      {
+        "id": "evd_anom_10b47b76",
+        "label": "High-Severity Anomaly: Potenti",
+        "type": "evidence",
+        "data": {
+          "strength": 100,
+          "polarity": "support"
+        }
+      },
+      {
+        "id": "evd_anom_fa5c170f",
+        "label": "High-Severity Anomaly: Potenti",
+        "type": "evidence",
+        "data": {
+          "strength": 100,
+          "polarity": "support"
+        }
+      },
+      {
+        "id": "evd_anom_033d4995",
+        "label": "High-Severity Anomaly: Potenti",
+        "type": "evidence",
+        "data": {
+          "strength": 100,
+          "polarity": "support"
+        }
+      },
+      {
+        "id": "evd_anom_8fa4f488",
+        "label": "High-Severity Anomaly: Potenti",
+        "type": "evidence",
+        "data": {
+          "strength": 100,
+          "polarity": "support"
+        }
+      },
+      {
+        "id": "evd_anom_44693fc6",
+        "label": "High-Severity Anomaly: Potenti",
+        "type": "evidence",
+        "data": {
+          "strength": 100,
+          "polarity": "support"
+        }
+      },
+      {
+        "id": "evd_anom_c9fff8c5",
+        "label": "High-Severity Anomaly: Potenti",
+        "type": "evidence",
+        "data": {
+          "strength": 100,
+          "polarity": "support"
+        }
+      },
+      {
+        "id": "evd_anom_f439885e",
+        "label": "High-Severity Anomaly: Potenti",
+        "type": "evidence",
+        "data": {
+          "strength": 100,
+          "polarity": "support"
+        }
+      },
+      {
+        "id": "evd_anom_122a1a33",
+        "label": "High-Severity Anomaly: Potenti",
+        "type": "evidence",
+        "data": {
+          "strength": 100,
+          "polarity": "support"
+        }
+      },
+      {
+        "id": "evd_anom_f2d47135",
+        "label": "High-Severity Anomaly: Potenti",
+        "type": "evidence",
+        "data": {
+          "strength": 100,
+          "polarity": "support"
+        }
+      },
+      {
+        "id": "evd_anom_0f885857",
+        "label": "High-Severity Anomaly: Potenti",
+        "type": "evidence",
+        "data": {
+          "strength": 100,
+          "polarity": "support"
+        }
+      },
+      {
+        "id": "evd_anom_e0c16ae4",
+        "label": "High-Severity Anomaly: Potenti",
+        "type": "evidence",
+        "data": {
+          "strength": 100,
+          "polarity": "support"
+        }
+      },
+      {
+        "id": "evd_anom_6853fe82",
+        "label": "High-Severity Anomaly: Potenti",
+        "type": "evidence",
+        "data": {
+          "strength": 100,
+          "polarity": "support"
+        }
+      },
+      {
+        "id": "evd_anom_169d7eef",
+        "label": "High-Severity Anomaly: Potenti",
+        "type": "evidence",
+        "data": {
+          "strength": 100,
+          "polarity": "support"
+        }
+      },
+      {
+        "id": "evd_anom_e9287e43",
+        "label": "High-Severity Anomaly: Potenti",
+        "type": "evidence",
+        "data": {
+          "strength": 100,
+          "polarity": "support"
+        }
+      },
+      {
+        "id": "evd_anom_40e13b33",
+        "label": "High-Severity Anomaly: Potenti",
+        "type": "evidence",
+        "data": {
+          "strength": 100,
+          "polarity": "support"
+        }
+      },
+      {
+        "id": "evd_anom_6427f4b5",
+        "label": "High-Severity Anomaly: Potenti",
+        "type": "evidence",
+        "data": {
+          "strength": 100,
+          "polarity": "support"
+        }
+      },
+      {
+        "id": "evd_anom_234f3da6",
+        "label": "High-Severity Anomaly: Potenti",
+        "type": "evidence",
+        "data": {
+          "strength": 100,
+          "polarity": "support"
+        }
+      },
+      {
+        "id": "evd_anom_fcddc433",
+        "label": "High-Severity Anomaly: Potenti",
+        "type": "evidence",
+        "data": {
+          "strength": 100,
+          "polarity": "support"
+        }
+      },
+      {
+        "id": "evd_anom_3d7f0370",
+        "label": "High-Severity Anomaly: Potenti",
+        "type": "evidence",
+        "data": {
+          "strength": 100,
+          "polarity": "support"
+        }
+      },
+      {
+        "id": "evd_anom_2d9ac6d9",
+        "label": "High-Severity Anomaly: Potenti",
+        "type": "evidence",
+        "data": {
+          "strength": 100,
+          "polarity": "support"
+        }
+      },
+      {
+        "id": "evd_anom_c2ef165b",
+        "label": "High-Severity Anomaly: Potenti",
+        "type": "evidence",
+        "data": {
+          "strength": 100,
+          "polarity": "support"
+        }
+      },
+      {
+        "id": "evd_anom_5c37956d",
+        "label": "High-Severity Anomaly: Potenti",
+        "type": "evidence",
+        "data": {
+          "strength": 100,
+          "polarity": "support"
+        }
+      },
+      {
+        "id": "evd_anom_f2754b7a",
+        "label": "High-Severity Anomaly: Primary",
+        "type": "evidence",
+        "data": {
+          "strength": 100,
+          "polarity": "support"
+        }
+      },
+      {
+        "id": "evd_temp_2152f00c",
+        "label": "Chronological Precedence: Find",
+        "type": "evidence",
+        "data": {
+          "strength": 95,
+          "polarity": "support"
+        }
+      },
+      {
+        "id": "evd_anom_d6ba3f66",
+        "label": "High-Severity Anomaly: Sudden ",
+        "type": "evidence",
+        "data": {
+          "strength": 95,
+          "polarity": "support"
+        }
+      },
+      {
+        "id": "evd_anom_638e6c37",
+        "label": "High-Severity Anomaly: Sudden ",
+        "type": "evidence",
+        "data": {
+          "strength": 95,
+          "polarity": "support"
+        }
+      },
+      {
+        "id": "evd_anom_5d7972fe",
+        "label": "High-Severity Anomaly: Sudden ",
+        "type": "evidence",
+        "data": {
+          "strength": 95,
+          "polarity": "support"
+        }
+      },
+      {
+        "id": "evd_anom_c4f9ae11",
+        "label": "High-Severity Anomaly: Sudden ",
+        "type": "evidence",
+        "data": {
+          "strength": 95,
+          "polarity": "support"
+        }
+      },
+      {
+        "id": "evd_anom_9a0c32f7",
+        "label": "High-Severity Anomaly: Sudden ",
+        "type": "evidence",
+        "data": {
+          "strength": 95,
+          "polarity": "support"
+        }
+      },
+      {
+        "id": "evd_anom_825e2e6a",
+        "label": "High-Severity Anomaly: Sudden ",
+        "type": "evidence",
+        "data": {
+          "strength": 95,
+          "polarity": "support"
+        }
+      },
+      {
+        "id": "evd_anom_75b1df82",
+        "label": "High-Severity Anomaly: Sudden ",
+        "type": "evidence",
+        "data": {
+          "strength": 95,
+          "polarity": "support"
+        }
+      },
+      {
+        "id": "evd_anom_d76ddd5c",
+        "label": "High-Severity Anomaly: Sudden ",
+        "type": "evidence",
+        "data": {
+          "strength": 95,
+          "polarity": "support"
+        }
+      },
+      {
+        "id": "evd_anom_43b7e237",
+        "label": "High-Severity Anomaly: Sudden ",
+        "type": "evidence",
+        "data": {
+          "strength": 95,
+          "polarity": "support"
+        }
+      },
+      {
+        "id": "evd_anom_3c8aaccb",
+        "label": "High-Severity Anomaly: Sudden ",
+        "type": "evidence",
+        "data": {
+          "strength": 95,
+          "polarity": "support"
+        }
+      },
+      {
+        "id": "evd_anom_9a4ebe97",
+        "label": "High-Severity Anomaly: Sudden ",
+        "type": "evidence",
+        "data": {
+          "strength": 95,
+          "polarity": "support"
+        }
+      },
+      {
+        "id": "evd_anom_bca31a4d",
+        "label": "High-Severity Anomaly: Sudden ",
+        "type": "evidence",
+        "data": {
+          "strength": 95,
+          "polarity": "support"
+        }
+      },
+      {
+        "id": "evd_anom_7f82cfb5",
+        "label": "High-Severity Anomaly: Sudden ",
+        "type": "evidence",
+        "data": {
+          "strength": 95,
+          "polarity": "support"
+        }
+      },
+      {
+        "id": "evd_grp_99985702",
+        "label": "Segmental Disparity: Significa",
+        "type": "evidence",
+        "data": {
+          "strength": 94,
+          "polarity": "support"
+        }
+      },
+      {
+        "id": "evd_grp_8a1f174c",
+        "label": "Segmental Disparity: Significa",
+        "type": "evidence",
+        "data": {
+          "strength": 94,
+          "polarity": "support"
+        }
+      },
+      {
+        "id": "evd_anom_867b6c56",
+        "label": "High-Severity Anomaly: Sudden ",
+        "type": "evidence",
+        "data": {
+          "strength": 93,
+          "polarity": "support"
+        }
+      },
+      {
+        "id": "evd_anom_80ff54e8",
+        "label": "High-Severity Anomaly: Potenti",
+        "type": "evidence",
+        "data": {
+          "strength": 88,
+          "polarity": "support"
+        }
+      },
+      {
+        "id": "evd_anom_21d315e5",
+        "label": "High-Severity Anomaly: Multipl",
+        "type": "evidence",
+        "data": {
+          "strength": 85,
+          "polarity": "support"
+        }
+      },
+      {
+        "id": "evd_corr_5e242e7a",
+        "label": "Statistical Co-Movement: 'cust",
+        "type": "evidence",
+        "data": {
+          "strength": 84,
+          "polarity": "support"
+        }
+      },
+      {
+        "id": "evd_corr_add96b7e",
+        "label": "Statistical Co-Movement: 'pric",
+        "type": "evidence",
+        "data": {
+          "strength": 83,
+          "polarity": "support"
+        }
+      },
+      {
+        "id": "evd_corr_5147acd8",
+        "label": "Statistical Co-Movement: 'pric",
+        "type": "evidence",
+        "data": {
+          "strength": 83,
+          "polarity": "support"
+        }
+      },
+      {
+        "id": "evd_corr_5bfed669",
+        "label": "Statistical Co-Movement: 'pric",
+        "type": "evidence",
+        "data": {
+          "strength": 83,
+          "polarity": "support"
+        }
+      },
+      {
+        "id": "evd_corr_35fa1745",
+        "label": "Statistical Co-Movement: 'reve",
+        "type": "evidence",
+        "data": {
+          "strength": 83,
+          "polarity": "support"
+        }
+      },
+      {
+        "id": "evd_corr_e235fc41",
+        "label": "Statistical Co-Movement: 'cust",
+        "type": "evidence",
+        "data": {
+          "strength": 83,
+          "polarity": "support"
+        }
+      },
+      {
+        "id": "evd_temp_1d3118b9",
+        "label": "Chronological Precedence: Find",
+        "type": "evidence",
+        "data": {
+          "strength": 78,
+          "polarity": "support"
+        }
+      },
+      {
+        "id": "evd_temp_ce72d525",
+        "label": "Chronological Precedence: Find",
+        "type": "evidence",
+        "data": {
+          "strength": 62,
+          "polarity": "support"
+        }
+      },
+      {
+        "id": "evd_temp_44ff572a",
+        "label": "Chronological Precedence: Find",
+        "type": "evidence",
+        "data": {
+          "strength": 58,
+          "polarity": "support"
+        }
+      },
+      {
+        "id": "evd_temp_c8ffabeb",
+        "label": "Chronological Precedence: Find",
+        "type": "evidence",
+        "data": {
+          "strength": 58,
+          "polarity": "support"
+        }
+      },
+      {
+        "id": "evd_grp_1f189264",
+        "label": "Segmental Disparity: Significa",
+        "type": "evidence",
+        "data": {
+          "strength": 44,
+          "polarity": "support"
+        }
+      },
+      {
+        "id": "hyp_temp_74861cff",
+        "label": "Temporal Transition Associatio",
+        "type": "hypothesis",
+        "data": {
+          "confidence": 92
+        }
+      },
+      {
+        "id": "hyp_corr_9f49cc3a",
+        "label": "Systemic Coupling between 'cus",
+        "type": "hypothesis",
+        "data": {
+          "confidence": 85
+        }
+      },
+      {
+        "id": "hyp_corr_15918347",
+        "label": "Systemic Coupling between 'pri",
+        "type": "hypothesis",
+        "data": {
+          "confidence": 84
+        }
+      },
+      {
+        "id": "hyp_corr_acf6c90f",
+        "label": "Systemic Coupling between 'pri",
+        "type": "hypothesis",
+        "data": {
+          "confidence": 84
+        }
+      },
+      {
+        "id": "hyp_corr_1d218db7",
+        "label": "Systemic Coupling between 'pri",
+        "type": "hypothesis",
+        "data": {
+          "confidence": 84
+        }
+      },
+      {
+        "id": "hyp_corr_e6773517",
+        "label": "Systemic Coupling between 'rev",
+        "type": "hypothesis",
+        "data": {
+          "confidence": 84
+        }
+      },
+      {
+        "id": "hyp_corr_71faddf5",
+        "label": "Systemic Coupling between 'cus",
+        "type": "hypothesis",
+        "data": {
+          "confidence": 84
+        }
+      },
+      {
+        "id": "hyp_temp_b4718d72",
+        "label": "Temporal Transition Associatio",
+        "type": "hypothesis",
+        "data": {
+          "confidence": 81
+        }
+      },
+      {
+        "id": "hyp_grp_b6a7b13b",
+        "label": "Segment-Level Variance Driver:",
+        "type": "hypothesis",
+        "data": {
+          "confidence": 81
+        }
+      },
+      {
+        "id": "hyp_grp_322bd2a5",
+        "label": "Segment-Level Variance Driver:",
+        "type": "hypothesis",
+        "data": {
+          "confidence": 81
+        }
+      },
+      {
+        "id": "hyp_temp_ecbba896",
+        "label": "Temporal Transition Associatio",
+        "type": "hypothesis",
+        "data": {
+          "confidence": 70
+        }
+      },
+      {
+        "id": "hyp_temp_4862ad43",
+        "label": "Temporal Transition Associatio",
+        "type": "hypothesis",
+        "data": {
+          "confidence": 68
+        }
+      },
+      {
+        "id": "hyp_temp_f8095906",
+        "label": "Temporal Transition Associatio",
+        "type": "hypothesis",
+        "data": {
+          "confidence": 68
+        }
+      },
+      {
+        "id": "hyp_grp_4ef128d1",
+        "label": "Segment-Level Variance Driver:",
+        "type": "hypothesis",
+        "data": {
+          "confidence": 49
+        }
+      },
+      {
+        "id": "evt_fnd_7bceb0dd",
+        "label": "Rare Category '49.0' in 'price",
+        "type": "event",
+        "data": {
+          "importance": 48
+        }
+      },
+      {
+        "id": "evt_fnd_86d0ed1b",
+        "label": "Rare Category '0.01' in 'retur",
+        "type": "event",
+        "data": {
+          "importance": 48
+        }
+      },
+      {
+        "id": "evt_fnd_af13674d",
+        "label": "Sudden Metric Drop in 'return_",
+        "type": "event",
+        "data": {
+          "importance": 53
+        }
+      },
+      {
+        "id": "evt_fnd_0213a7b3",
+        "label": "Sudden Metric Drop in 'custome",
+        "type": "event",
+        "data": {
+          "importance": 50
+        }
+      },
+      {
+        "id": "evt_fnd_b44e5682",
+        "label": "Sudden Metric Spike in 'return",
+        "type": "event",
+        "data": {
+          "importance": 53
+        }
+      },
+      {
+        "id": "evt_fnd_87343a63",
+        "label": "Sudden Metric Spike in 'custom",
+        "type": "event",
+        "data": {
+          "importance": 53
+        }
+      },
+      {
+        "id": "evt_fnd_5a122a84",
+        "label": "Potential Outlier in 'price' (",
+        "type": "event",
+        "data": {
+          "importance": 85
+        }
+      },
+      {
+        "id": "evt_fnd_a0829531",
+        "label": "Potential Outlier in 'customer",
+        "type": "event",
+        "data": {
+          "importance": 85
+        }
+      },
+      {
+        "id": "evt_fnd_782752bd",
+        "label": "Potential Outlier in 'return_r",
+        "type": "event",
+        "data": {
+          "importance": 85
+        }
+      },
+      {
+        "id": "evt_fnd_0e2333d4",
+        "label": "Potential Outlier in 'revenue'",
+        "type": "event",
+        "data": {
+          "importance": 80
+        }
+      },
+      {
+        "id": "evt_fnd_3de63378",
+        "label": "Primary Anomaly Driver: 'price",
+        "type": "event",
+        "data": {
+          "importance": 85
+        }
+      },
+      {
+        "id": "evt_fnd_3f81d38b",
+        "label": "Sudden Metric Spike in 'custom",
+        "type": "event",
+        "data": {
+          "importance": 83
+        }
+      },
+      {
+        "id": "evt_fnd_4d227248",
+        "label": "Sudden Metric Spike in 'return",
+        "type": "event",
+        "data": {
+          "importance": 83
+        }
+      },
+      {
+        "id": "evt_fnd_6aba1840",
+        "label": "Sudden Metric Drop in 'custome",
+        "type": "event",
+        "data": {
+          "importance": 57
+        }
+      },
+      {
+        "id": "evt_fnd_30ab251d",
+        "label": "Sudden Metric Spike in 'price'",
+        "type": "event",
+        "data": {
+          "importance": 57
+        }
+      },
+      {
+        "id": "evt_fnd_d0b8f051",
+        "label": "Sudden Metric Drop in 'return_",
+        "type": "event",
+        "data": {
+          "importance": 57
+        }
+      },
+      {
+        "id": "evt_fnd_9d6cb5c2",
+        "label": "Sudden Metric Spike in 'revenu",
+        "type": "event",
+        "data": {
+          "importance": 55
+        }
+      },
+      {
+        "id": "evt_fnd_42006f2d",
+        "label": "Sudden Metric Drop in 'price' ",
+        "type": "event",
+        "data": {
+          "importance": 51
+        }
+      },
+      {
+        "id": "evt_fnd_de66bca2",
+        "label": "Sudden Metric Drop in 'revenue",
+        "type": "event",
+        "data": {
+          "importance": 51
+        }
+      },
+      {
+        "id": "evt_fnd_bc8ceec1",
+        "label": "Potential Outlier in 'price' (",
+        "type": "event",
+        "data": {
+          "importance": 85
+        }
+      },
+      {
+        "id": "evt_fnd_956ace10",
+        "label": "Potential Outlier in 'customer",
+        "type": "event",
+        "data": {
+          "importance": 85
+        }
+      },
+      {
+        "id": "evt_fnd_cbaf582b",
+        "label": "Potential Outlier in 'revenue'",
+        "type": "event",
+        "data": {
+          "importance": 85
+        }
+      },
+      {
+        "id": "evt_fnd_43afdbff",
+        "label": "Potential Outlier in 'return_r",
+        "type": "event",
+        "data": {
+          "importance": 85
+        }
+      },
+      {
+        "id": "evt_fnd_02b843c6",
+        "label": "Sudden Metric Spike in 'custom",
+        "type": "event",
+        "data": {
+          "importance": 83
+        }
+      },
+      {
+        "id": "evt_fnd_7ba9ab15",
+        "label": "Sudden Metric Spike in 'return",
+        "type": "event",
+        "data": {
+          "importance": 83
+        }
+      },
+      {
+        "id": "evt_fnd_20010fd4",
+        "label": "Sudden Metric Spike in 'price'",
+        "type": "event",
+        "data": {
+          "importance": 58
+        }
+      },
+      {
+        "id": "evt_fnd_f1274f14",
+        "label": "Sudden Metric Drop in 'revenue",
+        "type": "event",
+        "data": {
+          "importance": 52
+        }
+      },
+      {
+        "id": "evt_fnd_64749378",
+        "label": "Potential Outlier in 'price' (",
+        "type": "event",
+        "data": {
+          "importance": 85
+        }
+      },
+      {
+        "id": "evt_fnd_ad1c6f1b",
+        "label": "Potential Outlier in 'customer",
+        "type": "event",
+        "data": {
+          "importance": 85
+        }
+      },
+      {
+        "id": "evt_fnd_f2600cdb",
+        "label": "Potential Outlier in 'revenue'",
+        "type": "event",
+        "data": {
+          "importance": 85
+        }
+      },
+      {
+        "id": "evt_fnd_5512a225",
+        "label": "Potential Outlier in 'return_r",
+        "type": "event",
+        "data": {
+          "importance": 85
+        }
+      },
+      {
+        "id": "evt_fnd_2dd2fb6d",
+        "label": "Sudden Metric Spike in 'custom",
+        "type": "event",
+        "data": {
+          "importance": 83
+        }
+      },
+      {
+        "id": "evt_fnd_c0fc9913",
+        "label": "Sudden Metric Spike in 'return",
+        "type": "event",
+        "data": {
+          "importance": 83
+        }
+      },
+      {
+        "id": "evt_fnd_7533f636",
+        "label": "Sudden Metric Spike in 'revenu",
+        "type": "event",
+        "data": {
+          "importance": 82
+        }
+      },
+      {
+        "id": "evt_fnd_d8a67d47",
+        "label": "Sudden Metric Spike in 'price'",
+        "type": "event",
+        "data": {
+          "importance": 59
+        }
+      },
+      {
+        "id": "evt_fnd_fe5195a1",
+        "label": "Sudden Metric Drop in 'custome",
+        "type": "event",
+        "data": {
+          "importance": 57
+        }
+      },
+      {
+        "id": "evt_fnd_e6f5535e",
+        "label": "Sudden Metric Drop in 'return_",
+        "type": "event",
+        "data": {
+          "importance": 57
+        }
+      },
+      {
+        "id": "evt_fnd_f112bb74",
+        "label": "Sudden Metric Drop in 'revenue",
+        "type": "event",
+        "data": {
+          "importance": 55
+        }
+      },
+      {
+        "id": "evt_fnd_e52fa253",
+        "label": "Sudden Metric Drop in 'price' ",
+        "type": "event",
+        "data": {
+          "importance": 51
+        }
+      },
+      {
+        "id": "evt_fnd_11bade7e",
+        "label": "Potential Outlier in 'price' (",
+        "type": "event",
+        "data": {
+          "importance": 85
+        }
+      },
+      {
+        "id": "evt_fnd_494a8ef6",
+        "label": "Potential Outlier in 'customer",
+        "type": "event",
+        "data": {
+          "importance": 85
+        }
+      },
+      {
+        "id": "evt_fnd_16037db0",
+        "label": "Potential Outlier in 'revenue'",
+        "type": "event",
+        "data": {
+          "importance": 85
+        }
+      },
+      {
+        "id": "evt_fnd_56c3c02b",
+        "label": "Potential Outlier in 'return_r",
+        "type": "event",
+        "data": {
+          "importance": 85
+        }
+      },
+      {
+        "id": "evt_fnd_89930e2c",
+        "label": "Sudden Metric Spike in 'custom",
+        "type": "event",
+        "data": {
+          "importance": 83
+        }
+      },
+      {
+        "id": "evt_fnd_7e6ddecf",
+        "label": "Sudden Metric Spike in 'revenu",
+        "type": "event",
+        "data": {
+          "importance": 83
+        }
+      },
+      {
+        "id": "evt_fnd_f784e1b7",
+        "label": "Sudden Metric Spike in 'return",
+        "type": "event",
+        "data": {
+          "importance": 83
+        }
+      },
+      {
+        "id": "evt_fnd_d0b5ea4f",
+        "label": "Sudden Metric Spike in 'price'",
+        "type": "event",
+        "data": {
+          "importance": 59
+        }
+      },
+      {
+        "id": "evt_fnd_27742f23",
+        "label": "Sudden Metric Drop in 'custome",
+        "type": "event",
+        "data": {
+          "importance": 58
+        }
+      },
+      {
+        "id": "evt_fnd_1b3a8066",
+        "label": "Sudden Metric Drop in 'return_",
+        "type": "event",
+        "data": {
+          "importance": 57
+        }
+      },
+      {
+        "id": "evt_fnd_5f88a9bc",
+        "label": "Sudden Metric Drop in 'revenue",
+        "type": "event",
+        "data": {
+          "importance": 54
+        }
+      },
+      {
+        "id": "evt_fnd_82cfeabf",
+        "label": "Sudden Metric Drop in 'price' ",
+        "type": "event",
+        "data": {
+          "importance": 52
+        }
+      },
+      {
+        "id": "evt_fnd_12670ce5",
+        "label": "Potential Outlier in 'price' (",
+        "type": "event",
+        "data": {
+          "importance": 85
+        }
+      },
+      {
+        "id": "evt_fnd_2bab731a",
+        "label": "Potential Outlier in 'customer",
+        "type": "event",
+        "data": {
+          "importance": 85
+        }
+      },
+      {
+        "id": "evt_fnd_0dc93e9f",
+        "label": "Potential Outlier in 'revenue'",
+        "type": "event",
+        "data": {
+          "importance": 85
+        }
+      },
+      {
+        "id": "evt_fnd_415a44af",
+        "label": "Potential Outlier in 'return_r",
+        "type": "event",
+        "data": {
+          "importance": 85
+        }
+      },
+      {
+        "id": "evt_fnd_51841c23",
+        "label": "Sudden Metric Spike in 'custom",
+        "type": "event",
+        "data": {
+          "importance": 83
+        }
+      },
+      {
+        "id": "evt_fnd_85584bed",
+        "label": "Sudden Metric Spike in 'revenu",
+        "type": "event",
+        "data": {
+          "importance": 83
+        }
+      },
+      {
+        "id": "evt_fnd_f707c92e",
+        "label": "Sudden Metric Spike in 'return",
+        "type": "event",
+        "data": {
+          "importance": 83
+        }
+      },
+      {
+        "id": "evt_fnd_e626049a",
+        "label": "Sudden Metric Spike in 'price'",
+        "type": "event",
+        "data": {
+          "importance": 60
+        }
+      },
+      {
+        "id": "evt_fnd_42edb16c",
+        "label": "Sudden Metric Drop in 'custome",
+        "type": "event",
+        "data": {
+          "importance": 58
+        }
+      },
+      {
+        "id": "evt_fnd_31071a4d",
+        "label": "Sudden Metric Drop in 'return_",
+        "type": "event",
+        "data": {
+          "importance": 57
+        }
+      },
+      {
+        "id": "evt_fnd_d77df698",
+        "label": "Sudden Metric Drop in 'revenue",
+        "type": "event",
+        "data": {
+          "importance": 56
+        }
+      },
+      {
+        "id": "evt_fnd_f158ebd2",
+        "label": "Sudden Metric Drop in 'price' ",
+        "type": "event",
+        "data": {
+          "importance": 51
+        }
+      },
+      {
+        "id": "evt_fnd_ba7df9c1",
+        "label": "Potential Outlier in 'price' (",
+        "type": "event",
+        "data": {
+          "importance": 85
+        }
+      },
+      {
+        "id": "evt_fnd_e434d6a1",
+        "label": "Potential Outlier in 'customer",
+        "type": "event",
+        "data": {
+          "importance": 85
+        }
+      },
+      {
+        "id": "evt_fnd_b7bdd4d1",
+        "label": "Potential Outlier in 'revenue'",
+        "type": "event",
+        "data": {
+          "importance": 85
+        }
+      },
+      {
+        "id": "evt_fnd_3911ce96",
+        "label": "Potential Outlier in 'return_r",
+        "type": "event",
+        "data": {
+          "importance": 85
+        }
+      },
+      {
+        "id": "evt_fnd_4164b5b0",
+        "label": "Sudden Metric Spike in 'revenu",
+        "type": "event",
+        "data": {
+          "importance": 83
+        }
+      },
+      {
+        "id": "evt_fnd_9a601db3",
+        "label": "Sudden Metric Drop in 'custome",
+        "type": "event",
+        "data": {
+          "importance": 58
+        }
+      },
+      {
+        "id": "evt_fnd_e50e5bfd",
+        "label": "Sudden Metric Drop in 'return_",
+        "type": "event",
+        "data": {
+          "importance": 57
+        }
+      },
+      {
+        "id": "evt_fnd_7480d9d5",
+        "label": "Sudden Metric Drop in 'price' ",
+        "type": "event",
+        "data": {
+          "importance": 52
+        }
+      }
+    ],
+    "edges": [
+      {
+        "id": "edge_b35a6fbc",
+        "source": "iqr_83bfbd04",
+        "target": "evd_anom_93485289",
+        "label": "DERIVED_FROM",
+        "strength": null
+      },
+      {
+        "id": "edge_bacd0abf",
+        "source": "iqr_1a8d58e9",
+        "target": "evd_anom_10b47b76",
+        "label": "DERIVED_FROM",
+        "strength": null
+      },
+      {
+        "id": "edge_b893b5b6",
+        "source": "iqr_5918dcae",
+        "target": "evd_anom_fa5c170f",
+        "label": "DERIVED_FROM",
+        "strength": null
+      },
+      {
+        "id": "edge_6becce0d",
+        "source": "iqr_31c462e8",
+        "target": "evd_anom_033d4995",
+        "label": "DERIVED_FROM",
+        "strength": null
+      },
+      {
+        "id": "edge_67624ca9",
+        "source": "iqr_d1619781",
+        "target": "evd_anom_8fa4f488",
+        "label": "DERIVED_FROM",
+        "strength": null
+      },
+      {
+        "id": "edge_aa2f1843",
+        "source": "iqr_8a4766bf",
+        "target": "evd_anom_44693fc6",
+        "label": "DERIVED_FROM",
+        "strength": null
+      },
+      {
+        "id": "edge_c62f33a8",
+        "source": "iqr_230114fe",
+        "target": "evd_anom_c9fff8c5",
+        "label": "DERIVED_FROM",
+        "strength": null
+      },
+      {
+        "id": "edge_a09ac363",
+        "source": "iqr_4f7e9cc6",
+        "target": "evd_anom_f439885e",
+        "label": "DERIVED_FROM",
+        "strength": null
+      },
+      {
+        "id": "edge_a29e6691",
+        "source": "iqr_e82f5a34",
+        "target": "evd_anom_122a1a33",
+        "label": "DERIVED_FROM",
+        "strength": null
+      },
+      {
+        "id": "edge_37532b8b",
+        "source": "iqr_86294871",
+        "target": "evd_anom_f2d47135",
+        "label": "DERIVED_FROM",
+        "strength": null
+      },
+      {
+        "id": "edge_99ce8aa9",
+        "source": "iqr_0692609f",
+        "target": "evd_anom_0f885857",
+        "label": "DERIVED_FROM",
+        "strength": null
+      },
+      {
+        "id": "edge_c40196bc",
+        "source": "iqr_2feb7790",
+        "target": "evd_anom_e0c16ae4",
+        "label": "DERIVED_FROM",
+        "strength": null
+      },
+      {
+        "id": "edge_255b8852",
+        "source": "iqr_c23f5d6f",
+        "target": "evd_anom_6853fe82",
+        "label": "DERIVED_FROM",
+        "strength": null
+      },
+      {
+        "id": "edge_456cb3d7",
+        "source": "iqr_725e7f46",
+        "target": "evd_anom_169d7eef",
+        "label": "DERIVED_FROM",
+        "strength": null
+      },
+      {
+        "id": "edge_61e90147",
+        "source": "iqr_b847f2e6",
+        "target": "evd_anom_e9287e43",
+        "label": "DERIVED_FROM",
+        "strength": null
+      },
+      {
+        "id": "edge_abb17254",
+        "source": "iqr_2d48240c",
+        "target": "evd_anom_40e13b33",
+        "label": "DERIVED_FROM",
+        "strength": null
+      },
+      {
+        "id": "edge_3232a2d6",
+        "source": "iqr_c924bfd7",
+        "target": "evd_anom_6427f4b5",
+        "label": "DERIVED_FROM",
+        "strength": null
+      },
+      {
+        "id": "edge_6f2387d4",
+        "source": "iqr_1af02630",
+        "target": "evd_anom_234f3da6",
+        "label": "DERIVED_FROM",
+        "strength": null
+      },
+      {
+        "id": "edge_ade29e13",
+        "source": "iqr_6c7c935a",
+        "target": "evd_anom_fcddc433",
+        "label": "DERIVED_FROM",
+        "strength": null
+      },
+      {
+        "id": "edge_3053471f",
+        "source": "iqr_2138a67e",
+        "target": "evd_anom_3d7f0370",
+        "label": "DERIVED_FROM",
+        "strength": null
+      },
+      {
+        "id": "edge_6d41b047",
+        "source": "iqr_95c541a2",
+        "target": "evd_anom_2d9ac6d9",
+        "label": "DERIVED_FROM",
+        "strength": null
+      },
+      {
+        "id": "edge_b4a7bcd4",
+        "source": "iqr_bf6f8348",
+        "target": "evd_anom_c2ef165b",
+        "label": "DERIVED_FROM",
+        "strength": null
+      },
+      {
+        "id": "edge_958ca525",
+        "source": "iqr_a55d313e",
+        "target": "evd_anom_5c37956d",
+        "label": "DERIVED_FROM",
+        "strength": null
+      },
+      {
+        "id": "edge_9a7cc33e",
+        "source": "ins_top_9235a1a4",
+        "target": "evd_anom_f2754b7a",
+        "label": "DERIVED_FROM",
+        "strength": null
+      },
+      {
+        "id": "edge_ffa62fec",
+        "source": "temp_spike_b579d013",
+        "target": "evd_temp_2152f00c",
+        "label": "DERIVED_FROM",
+        "strength": null
+      },
+      {
+        "id": "edge_b1cde10b",
+        "source": "temp_spike_a6befd25",
+        "target": "evd_temp_2152f00c",
+        "label": "DERIVED_FROM",
+        "strength": null
+      },
+      {
+        "id": "edge_278fd096",
+        "source": "temp_spike_b579d013",
+        "target": "evd_anom_d6ba3f66",
+        "label": "DERIVED_FROM",
+        "strength": null
+      },
+      {
+        "id": "edge_f7ae511c",
+        "source": "temp_spike_a93f549c",
+        "target": "evd_anom_638e6c37",
+        "label": "DERIVED_FROM",
+        "strength": null
+      },
+      {
+        "id": "edge_4615f647",
+        "source": "temp_spike_e9c9b708",
+        "target": "evd_anom_5d7972fe",
+        "label": "DERIVED_FROM",
+        "strength": null
+      },
+      {
+        "id": "edge_fdaad60b",
+        "source": "temp_spike_baa7abb2",
+        "target": "evd_anom_c4f9ae11",
+        "label": "DERIVED_FROM",
+        "strength": null
+      },
+      {
+        "id": "edge_31dd5cf2",
+        "source": "temp_spike_f6fa5fb5",
+        "target": "evd_anom_9a0c32f7",
+        "label": "DERIVED_FROM",
+        "strength": null
+      },
+      {
+        "id": "edge_abc42108",
+        "source": "temp_spike_c6024f6d",
+        "target": "evd_anom_825e2e6a",
+        "label": "DERIVED_FROM",
+        "strength": null
+      },
+      {
+        "id": "edge_b6a34ccd",
+        "source": "temp_spike_c215f677",
+        "target": "evd_anom_75b1df82",
+        "label": "DERIVED_FROM",
+        "strength": null
+      },
+      {
+        "id": "edge_db3e4e1d",
+        "source": "temp_spike_a1dcbf76",
+        "target": "evd_anom_d76ddd5c",
+        "label": "DERIVED_FROM",
+        "strength": null
+      },
+      {
+        "id": "edge_a9513718",
+        "source": "temp_spike_a6befd25",
+        "target": "evd_anom_43b7e237",
+        "label": "DERIVED_FROM",
+        "strength": null
+      },
+      {
+        "id": "edge_deab06b3",
+        "source": "temp_spike_f3af25b6",
+        "target": "evd_anom_3c8aaccb",
+        "label": "DERIVED_FROM",
+        "strength": null
+      },
+      {
+        "id": "edge_6651301a",
+        "source": "temp_spike_4fc8e089",
+        "target": "evd_anom_9a4ebe97",
+        "label": "DERIVED_FROM",
+        "strength": null
+      },
+      {
+        "id": "edge_0097bc03",
+        "source": "temp_spike_693469e3",
+        "target": "evd_anom_bca31a4d",
+        "label": "DERIVED_FROM",
+        "strength": null
+      },
+      {
+        "id": "edge_da303e04",
+        "source": "temp_spike_4d58088a",
+        "target": "evd_anom_7f82cfb5",
+        "label": "DERIVED_FROM",
+        "strength": null
+      },
+      {
+        "id": "edge_9764ae2c",
+        "source": "iqr_230114fe",
+        "target": "evd_grp_99985702",
+        "label": "DERIVED_FROM",
+        "strength": null
+      },
+      {
+        "id": "edge_9f3a5a32",
+        "source": "iqr_4f7e9cc6",
+        "target": "evd_grp_99985702",
+        "label": "DERIVED_FROM",
+        "strength": null
+      },
+      {
+        "id": "edge_0be75213",
+        "source": "iqr_e82f5a34",
+        "target": "evd_grp_99985702",
+        "label": "DERIVED_FROM",
+        "strength": null
+      },
+      {
+        "id": "edge_7dab3dc5",
+        "source": "iqr_86294871",
+        "target": "evd_grp_99985702",
+        "label": "DERIVED_FROM",
+        "strength": null
+      },
+      {
+        "id": "edge_a6c1a763",
+        "source": "iqr_0692609f",
+        "target": "evd_grp_99985702",
+        "label": "DERIVED_FROM",
+        "strength": null
+      },
+      {
+        "id": "edge_63a22c8e",
+        "source": "evd_grp_99985702",
+        "target": "pat_grp_21303314",
+        "label": "SUPPORTS",
+        "strength": null
+      },
+      {
+        "id": "edge_12c4e298",
+        "source": "iqr_1af02630",
+        "target": "evd_grp_8a1f174c",
+        "label": "DERIVED_FROM",
+        "strength": null
+      },
+      {
+        "id": "edge_b701fd52",
+        "source": "iqr_6c7c935a",
+        "target": "evd_grp_8a1f174c",
+        "label": "DERIVED_FROM",
+        "strength": null
+      },
+      {
+        "id": "edge_bf62ad75",
+        "source": "iqr_2138a67e",
+        "target": "evd_grp_8a1f174c",
+        "label": "DERIVED_FROM",
+        "strength": null
+      },
+      {
+        "id": "edge_093dc0f4",
+        "source": "iqr_95c541a2",
+        "target": "evd_grp_8a1f174c",
+        "label": "DERIVED_FROM",
+        "strength": null
+      },
+      {
+        "id": "edge_b80dd76e",
+        "source": "iqr_bf6f8348",
+        "target": "evd_grp_8a1f174c",
+        "label": "DERIVED_FROM",
+        "strength": null
+      },
+      {
+        "id": "edge_df1b57f4",
+        "source": "evd_grp_8a1f174c",
+        "target": "pat_grp_09a73965",
+        "label": "SUPPORTS",
+        "strength": null
+      },
+      {
+        "id": "edge_1468965c",
+        "source": "temp_spike_27f1125d",
+        "target": "evd_anom_867b6c56",
+        "label": "DERIVED_FROM",
+        "strength": null
+      },
+      {
+        "id": "edge_dfbec6aa",
+        "source": "iqr_4934520a",
+        "target": "evd_anom_80ff54e8",
+        "label": "DERIVED_FROM",
+        "strength": null
+      },
+      {
+        "id": "edge_8a2572c0",
+        "source": "ins_dense_ce46e876",
+        "target": "evd_anom_21d315e5",
+        "label": "DERIVED_FROM",
+        "strength": null
+      },
+      {
+        "id": "edge_ff52e305",
+        "source": "iqr_230114fe",
+        "target": "evd_corr_5e242e7a",
+        "label": "DERIVED_FROM",
+        "strength": null
+      },
+      {
+        "id": "edge_6e8fa5ff",
+        "source": "iqr_4f7e9cc6",
+        "target": "evd_corr_5e242e7a",
+        "label": "DERIVED_FROM",
+        "strength": null
+      },
+      {
+        "id": "edge_505bc0b8",
+        "source": "iqr_e82f5a34",
+        "target": "evd_corr_5e242e7a",
+        "label": "DERIVED_FROM",
+        "strength": null
+      },
+      {
+        "id": "edge_54db9a0f",
+        "source": "iqr_86294871",
+        "target": "evd_corr_5e242e7a",
+        "label": "DERIVED_FROM",
+        "strength": null
+      },
+      {
+        "id": "edge_4dc36156",
+        "source": "iqr_0692609f",
+        "target": "evd_corr_5e242e7a",
+        "label": "DERIVED_FROM",
+        "strength": null
+      },
+      {
+        "id": "edge_226bc2bc",
+        "source": "evd_corr_5e242e7a",
+        "target": "pat_corr_6481fc5c",
+        "label": "SUPPORTS",
+        "strength": null
+      },
+      {
+        "id": "edge_b48119e4",
+        "source": "evd_corr_5e242e7a",
+        "target": "pat_cross_ea54b85c",
+        "label": "SUPPORTS",
+        "strength": null
+      },
+      {
+        "id": "edge_3310bb7c",
+        "source": "evd_corr_5e242e7a",
+        "target": "pat_cross_09ffe4c8",
+        "label": "SUPPORTS",
+        "strength": null
+      },
+      {
+        "id": "edge_5625b7bd",
+        "source": "iqr_83bfbd04",
+        "target": "evd_corr_add96b7e",
+        "label": "DERIVED_FROM",
+        "strength": null
+      },
+      {
+        "id": "edge_611e8a3a",
+        "source": "iqr_1a8d58e9",
+        "target": "evd_corr_add96b7e",
+        "label": "DERIVED_FROM",
+        "strength": null
+      },
+      {
+        "id": "edge_73dda951",
+        "source": "iqr_5918dcae",
+        "target": "evd_corr_add96b7e",
+        "label": "DERIVED_FROM",
+        "strength": null
+      },
+      {
+        "id": "edge_da8e211e",
+        "source": "iqr_31c462e8",
+        "target": "evd_corr_add96b7e",
+        "label": "DERIVED_FROM",
+        "strength": null
+      },
+      {
+        "id": "edge_3fdbfc1c",
+        "source": "iqr_d1619781",
+        "target": "evd_corr_add96b7e",
+        "label": "DERIVED_FROM",
+        "strength": null
+      },
+      {
+        "id": "edge_7c10c628",
+        "source": "evd_corr_add96b7e",
+        "target": "pat_corr_1b1a26c3",
+        "label": "SUPPORTS",
+        "strength": null
+      },
+      {
+        "id": "edge_614bb882",
+        "source": "evd_corr_add96b7e",
+        "target": "pat_cross_09ffe4c8",
+        "label": "SUPPORTS",
+        "strength": null
+      },
+      {
+        "id": "edge_f56cdaec",
+        "source": "evd_corr_add96b7e",
+        "target": "pat_cross_a3a7d4cd",
+        "label": "SUPPORTS",
+        "strength": null
+      },
+      {
+        "id": "edge_5152be7a",
+        "source": "iqr_83bfbd04",
+        "target": "evd_corr_5147acd8",
+        "label": "DERIVED_FROM",
+        "strength": null
+      },
+      {
+        "id": "edge_e2a5d2a2",
+        "source": "iqr_1a8d58e9",
+        "target": "evd_corr_5147acd8",
+        "label": "DERIVED_FROM",
+        "strength": null
+      },
+      {
+        "id": "edge_198b39ef",
+        "source": "iqr_5918dcae",
+        "target": "evd_corr_5147acd8",
+        "label": "DERIVED_FROM",
+        "strength": null
+      },
+      {
+        "id": "edge_8505461b",
+        "source": "iqr_31c462e8",
+        "target": "evd_corr_5147acd8",
+        "label": "DERIVED_FROM",
+        "strength": null
+      },
+      {
+        "id": "edge_7d801a75",
+        "source": "iqr_d1619781",
+        "target": "evd_corr_5147acd8",
+        "label": "DERIVED_FROM",
+        "strength": null
+      },
+      {
+        "id": "edge_bffa9bea",
+        "source": "evd_corr_5147acd8",
+        "target": "pat_corr_b68c3966",
+        "label": "SUPPORTS",
+        "strength": null
+      },
+      {
+        "id": "edge_02b67ac6",
+        "source": "evd_corr_5147acd8",
+        "target": "pat_cross_ea54b85c",
+        "label": "SUPPORTS",
+        "strength": null
+      },
+      {
+        "id": "edge_d89ae410",
+        "source": "evd_corr_5147acd8",
+        "target": "pat_cross_a3a7d4cd",
+        "label": "SUPPORTS",
+        "strength": null
+      },
+      {
+        "id": "edge_8059fd57",
+        "source": "iqr_83bfbd04",
+        "target": "evd_corr_5bfed669",
+        "label": "DERIVED_FROM",
+        "strength": null
+      },
+      {
+        "id": "edge_a14adb34",
+        "source": "iqr_1a8d58e9",
+        "target": "evd_corr_5bfed669",
+        "label": "DERIVED_FROM",
+        "strength": null
+      },
+      {
+        "id": "edge_641a77d7",
+        "source": "iqr_5918dcae",
+        "target": "evd_corr_5bfed669",
+        "label": "DERIVED_FROM",
+        "strength": null
+      },
+      {
+        "id": "edge_80739af4",
+        "source": "iqr_31c462e8",
+        "target": "evd_corr_5bfed669",
+        "label": "DERIVED_FROM",
+        "strength": null
+      },
+      {
+        "id": "edge_6b53cccc",
+        "source": "iqr_d1619781",
+        "target": "evd_corr_5bfed669",
+        "label": "DERIVED_FROM",
+        "strength": null
+      },
+      {
+        "id": "edge_4c931d69",
+        "source": "evd_corr_5bfed669",
+        "target": "pat_corr_271d0129",
+        "label": "SUPPORTS",
+        "strength": null
+      },
+      {
+        "id": "edge_8e02fc04",
+        "source": "evd_corr_5bfed669",
+        "target": "pat_cross_fe91e6f2",
+        "label": "SUPPORTS",
+        "strength": null
+      },
+      {
+        "id": "edge_44c79987",
+        "source": "evd_corr_5bfed669",
+        "target": "pat_cross_a3a7d4cd",
+        "label": "SUPPORTS",
+        "strength": null
+      },
+      {
+        "id": "edge_cd035c9b",
+        "source": "iqr_c23f5d6f",
+        "target": "evd_corr_35fa1745",
+        "label": "DERIVED_FROM",
+        "strength": null
+      },
+      {
+        "id": "edge_99801696",
+        "source": "iqr_725e7f46",
+        "target": "evd_corr_35fa1745",
+        "label": "DERIVED_FROM",
+        "strength": null
+      },
+      {
+        "id": "edge_6ecaec9c",
+        "source": "iqr_b847f2e6",
+        "target": "evd_corr_35fa1745",
+        "label": "DERIVED_FROM",
+        "strength": null
+      },
+      {
+        "id": "edge_19a539bd",
+        "source": "iqr_2d48240c",
+        "target": "evd_corr_35fa1745",
+        "label": "DERIVED_FROM",
+        "strength": null
+      },
+      {
+        "id": "edge_07043a53",
+        "source": "iqr_c924bfd7",
+        "target": "evd_corr_35fa1745",
+        "label": "DERIVED_FROM",
+        "strength": null
+      },
+      {
+        "id": "edge_59f3e04f",
+        "source": "evd_corr_35fa1745",
+        "target": "pat_corr_65d45188",
+        "label": "SUPPORTS",
+        "strength": null
+      },
+      {
+        "id": "edge_0d3ea1ff",
+        "source": "evd_corr_35fa1745",
+        "target": "pat_cross_fe91e6f2",
+        "label": "SUPPORTS",
+        "strength": null
+      },
+      {
+        "id": "edge_00730646",
+        "source": "evd_corr_35fa1745",
+        "target": "pat_cross_09ffe4c8",
+        "label": "SUPPORTS",
+        "strength": null
+      },
+      {
+        "id": "edge_853abaf7",
+        "source": "iqr_230114fe",
+        "target": "evd_corr_e235fc41",
+        "label": "DERIVED_FROM",
+        "strength": null
+      },
+      {
+        "id": "edge_fa150fd5",
+        "source": "iqr_4f7e9cc6",
+        "target": "evd_corr_e235fc41",
+        "label": "DERIVED_FROM",
+        "strength": null
+      },
+      {
+        "id": "edge_0690e381",
+        "source": "iqr_e82f5a34",
+        "target": "evd_corr_e235fc41",
+        "label": "DERIVED_FROM",
+        "strength": null
+      },
+      {
+        "id": "edge_ce1ca332",
+        "source": "iqr_86294871",
+        "target": "evd_corr_e235fc41",
+        "label": "DERIVED_FROM",
+        "strength": null
+      },
+      {
+        "id": "edge_b5ec9b83",
+        "source": "iqr_0692609f",
+        "target": "evd_corr_e235fc41",
+        "label": "DERIVED_FROM",
+        "strength": null
+      },
+      {
+        "id": "edge_713ccd65",
+        "source": "evd_corr_e235fc41",
+        "target": "pat_corr_f3e7ff0f",
+        "label": "SUPPORTS",
+        "strength": null
+      },
+      {
+        "id": "edge_9a3568db",
+        "source": "evd_corr_e235fc41",
+        "target": "pat_cross_ea54b85c",
+        "label": "SUPPORTS",
+        "strength": null
+      },
+      {
+        "id": "edge_b9d7f0a8",
+        "source": "evd_corr_e235fc41",
+        "target": "pat_cross_fe91e6f2",
+        "label": "SUPPORTS",
+        "strength": null
+      },
+      {
+        "id": "edge_2caa5625",
+        "source": "temp_spike_53616398",
+        "target": "evd_temp_1d3118b9",
+        "label": "DERIVED_FROM",
+        "strength": null
+      },
+      {
+        "id": "edge_469f5549",
+        "source": "temp_spike_b579d013",
+        "target": "evd_temp_1d3118b9",
+        "label": "DERIVED_FROM",
+        "strength": null
+      },
+      {
+        "id": "edge_f4ac5b38",
+        "source": "temp_spike_01f3251f",
+        "target": "evd_temp_ce72d525",
+        "label": "DERIVED_FROM",
+        "strength": null
+      },
+      {
+        "id": "edge_3a7dfb98",
+        "source": "temp_spike_53616398",
+        "target": "evd_temp_ce72d525",
+        "label": "DERIVED_FROM",
+        "strength": null
+      },
+      {
+        "id": "edge_58189633",
+        "source": "temp_drop_24894e47",
+        "target": "evd_temp_44ff572a",
+        "label": "DERIVED_FROM",
+        "strength": null
+      },
+      {
+        "id": "edge_d788ffc7",
+        "source": "temp_drop_5741c0d0",
+        "target": "evd_temp_44ff572a",
+        "label": "DERIVED_FROM",
+        "strength": null
+      },
+      {
+        "id": "edge_d484229d",
+        "source": "temp_drop_5741c0d0",
+        "target": "evd_temp_c8ffabeb",
+        "label": "DERIVED_FROM",
+        "strength": null
+      },
+      {
+        "id": "edge_7577b968",
+        "source": "temp_spike_01f3251f",
+        "target": "evd_temp_c8ffabeb",
+        "label": "DERIVED_FROM",
+        "strength": null
+      },
+      {
+        "id": "edge_05d8b65e",
+        "source": "iqr_83bfbd04",
+        "target": "evd_grp_1f189264",
+        "label": "DERIVED_FROM",
+        "strength": null
+      },
+      {
+        "id": "edge_1565e779",
+        "source": "iqr_1a8d58e9",
+        "target": "evd_grp_1f189264",
+        "label": "DERIVED_FROM",
+        "strength": null
+      },
+      {
+        "id": "edge_e7bddbc6",
+        "source": "iqr_5918dcae",
+        "target": "evd_grp_1f189264",
+        "label": "DERIVED_FROM",
+        "strength": null
+      },
+      {
+        "id": "edge_0fc62549",
+        "source": "iqr_31c462e8",
+        "target": "evd_grp_1f189264",
+        "label": "DERIVED_FROM",
+        "strength": null
+      },
+      {
+        "id": "edge_ffd08042",
+        "source": "iqr_d1619781",
+        "target": "evd_grp_1f189264",
+        "label": "DERIVED_FROM",
+        "strength": null
+      },
+      {
+        "id": "edge_133fc5fb",
+        "source": "evd_grp_1f189264",
+        "target": "pat_grp_ab89c805",
+        "label": "SUPPORTS",
+        "strength": null
+      },
+      {
+        "id": "edge_dde77f4f",
+        "source": "evd_anom_c9fff8c5",
+        "target": "hyp_temp_74861cff",
+        "label": "SUPPORTS",
+        "strength": null
+      },
+      {
+        "id": "edge_e198f064",
+        "source": "evd_anom_f439885e",
+        "target": "hyp_temp_74861cff",
+        "label": "SUPPORTS",
+        "strength": null
+      },
+      {
+        "id": "edge_ae791554",
+        "source": "evd_anom_122a1a33",
+        "target": "hyp_temp_74861cff",
+        "label": "SUPPORTS",
+        "strength": null
+      },
+      {
+        "id": "edge_210a2de5",
+        "source": "evd_anom_f2d47135",
+        "target": "hyp_temp_74861cff",
+        "label": "SUPPORTS",
+        "strength": null
+      },
+      {
+        "id": "edge_94b03938",
+        "source": "evd_anom_0f885857",
+        "target": "hyp_temp_74861cff",
+        "label": "SUPPORTS",
+        "strength": null
+      },
+      {
+        "id": "edge_d5f6edbe",
+        "source": "evd_anom_c9fff8c5",
+        "target": "hyp_corr_9f49cc3a",
+        "label": "SUPPORTS",
+        "strength": null
+      },
+      {
+        "id": "edge_9debaffd",
+        "source": "evd_anom_f439885e",
+        "target": "hyp_corr_9f49cc3a",
+        "label": "SUPPORTS",
+        "strength": null
+      },
+      {
+        "id": "edge_bd36aca0",
+        "source": "evd_anom_122a1a33",
+        "target": "hyp_corr_9f49cc3a",
+        "label": "SUPPORTS",
+        "strength": null
+      },
+      {
+        "id": "edge_649e5a79",
+        "source": "evd_anom_f2d47135",
+        "target": "hyp_corr_9f49cc3a",
+        "label": "SUPPORTS",
+        "strength": null
+      },
+      {
+        "id": "edge_185c57c7",
+        "source": "evd_anom_0f885857",
+        "target": "hyp_corr_9f49cc3a",
+        "label": "SUPPORTS",
+        "strength": null
+      },
+      {
+        "id": "edge_d7b3bdf0",
+        "source": "pat_corr_6481fc5c",
+        "target": "hyp_corr_9f49cc3a",
+        "label": "SUPPORTS",
+        "strength": null
+      },
+      {
+        "id": "edge_94f1d076",
+        "source": "evd_anom_93485289",
+        "target": "hyp_corr_15918347",
+        "label": "SUPPORTS",
+        "strength": null
+      },
+      {
+        "id": "edge_5252d4af",
+        "source": "evd_anom_10b47b76",
+        "target": "hyp_corr_15918347",
+        "label": "SUPPORTS",
+        "strength": null
+      },
+      {
+        "id": "edge_3f9ea332",
+        "source": "evd_anom_fa5c170f",
+        "target": "hyp_corr_15918347",
+        "label": "SUPPORTS",
+        "strength": null
+      },
+      {
+        "id": "edge_a1d52e3a",
+        "source": "evd_anom_033d4995",
+        "target": "hyp_corr_15918347",
+        "label": "SUPPORTS",
+        "strength": null
+      },
+      {
+        "id": "edge_4b14857c",
+        "source": "evd_anom_8fa4f488",
+        "target": "hyp_corr_15918347",
+        "label": "SUPPORTS",
+        "strength": null
+      },
+      {
+        "id": "edge_3559965c",
+        "source": "pat_corr_1b1a26c3",
+        "target": "hyp_corr_15918347",
+        "label": "SUPPORTS",
+        "strength": null
+      },
+      {
+        "id": "edge_ea3ec1a1",
+        "source": "evd_anom_93485289",
+        "target": "hyp_corr_acf6c90f",
+        "label": "SUPPORTS",
+        "strength": null
+      },
+      {
+        "id": "edge_a8a17081",
+        "source": "evd_anom_10b47b76",
+        "target": "hyp_corr_acf6c90f",
+        "label": "SUPPORTS",
+        "strength": null
+      },
+      {
+        "id": "edge_08e8d812",
+        "source": "evd_anom_fa5c170f",
+        "target": "hyp_corr_acf6c90f",
+        "label": "SUPPORTS",
+        "strength": null
+      },
+      {
+        "id": "edge_e9aebff9",
+        "source": "evd_anom_033d4995",
+        "target": "hyp_corr_acf6c90f",
+        "label": "SUPPORTS",
+        "strength": null
+      },
+      {
+        "id": "edge_951fd7d1",
+        "source": "evd_anom_8fa4f488",
+        "target": "hyp_corr_acf6c90f",
+        "label": "SUPPORTS",
+        "strength": null
+      },
+      {
+        "id": "edge_65fad870",
+        "source": "pat_corr_b68c3966",
+        "target": "hyp_corr_acf6c90f",
+        "label": "SUPPORTS",
+        "strength": null
+      },
+      {
+        "id": "edge_a91e44f1",
+        "source": "evd_anom_93485289",
+        "target": "hyp_corr_1d218db7",
+        "label": "SUPPORTS",
+        "strength": null
+      },
+      {
+        "id": "edge_d82ac9df",
+        "source": "evd_anom_10b47b76",
+        "target": "hyp_corr_1d218db7",
+        "label": "SUPPORTS",
+        "strength": null
+      },
+      {
+        "id": "edge_9df3adae",
+        "source": "evd_anom_fa5c170f",
+        "target": "hyp_corr_1d218db7",
+        "label": "SUPPORTS",
+        "strength": null
+      },
+      {
+        "id": "edge_35fb4ea3",
+        "source": "evd_anom_033d4995",
+        "target": "hyp_corr_1d218db7",
+        "label": "SUPPORTS",
+        "strength": null
+      },
+      {
+        "id": "edge_7e2d81ba",
+        "source": "evd_anom_8fa4f488",
+        "target": "hyp_corr_1d218db7",
+        "label": "SUPPORTS",
+        "strength": null
+      },
+      {
+        "id": "edge_2c9ec735",
+        "source": "pat_corr_271d0129",
+        "target": "hyp_corr_1d218db7",
+        "label": "SUPPORTS",
+        "strength": null
+      },
+      {
+        "id": "edge_363afdb7",
+        "source": "evd_anom_6853fe82",
+        "target": "hyp_corr_e6773517",
+        "label": "SUPPORTS",
+        "strength": null
+      },
+      {
+        "id": "edge_f80c95d2",
+        "source": "evd_anom_169d7eef",
+        "target": "hyp_corr_e6773517",
+        "label": "SUPPORTS",
+        "strength": null
+      },
+      {
+        "id": "edge_731b5095",
+        "source": "evd_anom_e9287e43",
+        "target": "hyp_corr_e6773517",
+        "label": "SUPPORTS",
+        "strength": null
+      },
+      {
+        "id": "edge_f026f8ed",
+        "source": "evd_anom_40e13b33",
+        "target": "hyp_corr_e6773517",
+        "label": "SUPPORTS",
+        "strength": null
+      },
+      {
+        "id": "edge_c67f9461",
+        "source": "evd_anom_6427f4b5",
+        "target": "hyp_corr_e6773517",
+        "label": "SUPPORTS",
+        "strength": null
+      },
+      {
+        "id": "edge_908abaf2",
+        "source": "pat_corr_65d45188",
+        "target": "hyp_corr_e6773517",
+        "label": "SUPPORTS",
+        "strength": null
+      },
+      {
+        "id": "edge_9ca7f98f",
+        "source": "evd_anom_c9fff8c5",
+        "target": "hyp_corr_71faddf5",
+        "label": "SUPPORTS",
+        "strength": null
+      },
+      {
+        "id": "edge_27e6d6d8",
+        "source": "evd_anom_f439885e",
+        "target": "hyp_corr_71faddf5",
+        "label": "SUPPORTS",
+        "strength": null
+      },
+      {
+        "id": "edge_317f3d58",
+        "source": "evd_anom_122a1a33",
+        "target": "hyp_corr_71faddf5",
+        "label": "SUPPORTS",
+        "strength": null
+      },
+      {
+        "id": "edge_50d6d7eb",
+        "source": "evd_anom_f2d47135",
+        "target": "hyp_corr_71faddf5",
+        "label": "SUPPORTS",
+        "strength": null
+      },
+      {
+        "id": "edge_cbcedfff",
+        "source": "evd_anom_0f885857",
+        "target": "hyp_corr_71faddf5",
+        "label": "SUPPORTS",
+        "strength": null
+      },
+      {
+        "id": "edge_c52b3453",
+        "source": "pat_corr_f3e7ff0f",
+        "target": "hyp_corr_71faddf5",
+        "label": "SUPPORTS",
+        "strength": null
+      },
+      {
+        "id": "edge_2e95b820",
+        "source": "evd_anom_c9fff8c5",
+        "target": "hyp_temp_b4718d72",
+        "label": "SUPPORTS",
+        "strength": null
+      },
+      {
+        "id": "edge_6b8df71e",
+        "source": "evd_anom_f439885e",
+        "target": "hyp_temp_b4718d72",
+        "label": "SUPPORTS",
+        "strength": null
+      },
+      {
+        "id": "edge_b6013935",
+        "source": "evd_anom_122a1a33",
+        "target": "hyp_temp_b4718d72",
+        "label": "SUPPORTS",
+        "strength": null
+      },
+      {
+        "id": "edge_a00c4595",
+        "source": "evd_anom_f2d47135",
+        "target": "hyp_temp_b4718d72",
+        "label": "SUPPORTS",
+        "strength": null
+      },
+      {
+        "id": "edge_a1c9c4b1",
+        "source": "evd_anom_0f885857",
+        "target": "hyp_temp_b4718d72",
+        "label": "SUPPORTS",
+        "strength": null
+      },
+      {
+        "id": "edge_b2b1ddd1",
+        "source": "evd_anom_c9fff8c5",
+        "target": "hyp_grp_b6a7b13b",
+        "label": "SUPPORTS",
+        "strength": null
+      },
+      {
+        "id": "edge_7f52920a",
+        "source": "evd_anom_f439885e",
+        "target": "hyp_grp_b6a7b13b",
+        "label": "SUPPORTS",
+        "strength": null
+      },
+      {
+        "id": "edge_9c393198",
+        "source": "evd_anom_122a1a33",
+        "target": "hyp_grp_b6a7b13b",
+        "label": "SUPPORTS",
+        "strength": null
+      },
+      {
+        "id": "edge_7933bb79",
+        "source": "evd_anom_f2d47135",
+        "target": "hyp_grp_b6a7b13b",
+        "label": "SUPPORTS",
+        "strength": null
+      },
+      {
+        "id": "edge_80cc08b4",
+        "source": "evd_anom_0f885857",
+        "target": "hyp_grp_b6a7b13b",
+        "label": "SUPPORTS",
+        "strength": null
+      },
+      {
+        "id": "edge_8180bfbc",
+        "source": "pat_grp_21303314",
+        "target": "hyp_grp_b6a7b13b",
+        "label": "SUPPORTS",
+        "strength": null
+      },
+      {
+        "id": "edge_47e877bf",
+        "source": "evd_anom_234f3da6",
+        "target": "hyp_grp_322bd2a5",
+        "label": "SUPPORTS",
+        "strength": null
+      },
+      {
+        "id": "edge_3ae28bd4",
+        "source": "evd_anom_fcddc433",
+        "target": "hyp_grp_322bd2a5",
+        "label": "SUPPORTS",
+        "strength": null
+      },
+      {
+        "id": "edge_a2045e82",
+        "source": "evd_anom_3d7f0370",
+        "target": "hyp_grp_322bd2a5",
+        "label": "SUPPORTS",
+        "strength": null
+      },
+      {
+        "id": "edge_a13ccafc",
+        "source": "evd_anom_2d9ac6d9",
+        "target": "hyp_grp_322bd2a5",
+        "label": "SUPPORTS",
+        "strength": null
+      },
+      {
+        "id": "edge_aa733cf9",
+        "source": "evd_anom_c2ef165b",
+        "target": "hyp_grp_322bd2a5",
+        "label": "SUPPORTS",
+        "strength": null
+      },
+      {
+        "id": "edge_497d1f36",
+        "source": "pat_grp_09a73965",
+        "target": "hyp_grp_322bd2a5",
+        "label": "SUPPORTS",
+        "strength": null
+      },
+      {
+        "id": "edge_a9f46d2d",
+        "source": "evd_anom_c9fff8c5",
+        "target": "hyp_temp_ecbba896",
+        "label": "SUPPORTS",
+        "strength": null
+      },
+      {
+        "id": "edge_f738407e",
+        "source": "evd_anom_f439885e",
+        "target": "hyp_temp_ecbba896",
+        "label": "SUPPORTS",
+        "strength": null
+      },
+      {
+        "id": "edge_e80537d2",
+        "source": "evd_anom_122a1a33",
+        "target": "hyp_temp_ecbba896",
+        "label": "SUPPORTS",
+        "strength": null
+      },
+      {
+        "id": "edge_f9123518",
+        "source": "evd_anom_f2d47135",
+        "target": "hyp_temp_ecbba896",
+        "label": "SUPPORTS",
+        "strength": null
+      },
+      {
+        "id": "edge_e04bcf59",
+        "source": "evd_anom_0f885857",
+        "target": "hyp_temp_ecbba896",
+        "label": "SUPPORTS",
+        "strength": null
+      },
+      {
+        "id": "edge_4be34bb4",
+        "source": "evd_anom_c9fff8c5",
+        "target": "hyp_temp_4862ad43",
+        "label": "SUPPORTS",
+        "strength": null
+      },
+      {
+        "id": "edge_a3abba08",
+        "source": "evd_anom_f439885e",
+        "target": "hyp_temp_4862ad43",
+        "label": "SUPPORTS",
+        "strength": null
+      },
+      {
+        "id": "edge_0edc35bb",
+        "source": "evd_anom_122a1a33",
+        "target": "hyp_temp_4862ad43",
+        "label": "SUPPORTS",
+        "strength": null
+      },
+      {
+        "id": "edge_b05fafcd",
+        "source": "evd_anom_f2d47135",
+        "target": "hyp_temp_4862ad43",
+        "label": "SUPPORTS",
+        "strength": null
+      },
+      {
+        "id": "edge_2c6080e4",
+        "source": "evd_anom_0f885857",
+        "target": "hyp_temp_4862ad43",
+        "label": "SUPPORTS",
+        "strength": null
+      },
+      {
+        "id": "edge_60630248",
+        "source": "evd_anom_c9fff8c5",
+        "target": "hyp_temp_f8095906",
+        "label": "SUPPORTS",
+        "strength": null
+      },
+      {
+        "id": "edge_04dab3b2",
+        "source": "evd_anom_f439885e",
+        "target": "hyp_temp_f8095906",
+        "label": "SUPPORTS",
+        "strength": null
+      },
+      {
+        "id": "edge_4a28a81c",
+        "source": "evd_anom_122a1a33",
+        "target": "hyp_temp_f8095906",
+        "label": "SUPPORTS",
+        "strength": null
+      },
+      {
+        "id": "edge_917b5a2c",
+        "source": "evd_anom_f2d47135",
+        "target": "hyp_temp_f8095906",
+        "label": "SUPPORTS",
+        "strength": null
+      },
+      {
+        "id": "edge_c62ca7d6",
+        "source": "evd_anom_0f885857",
+        "target": "hyp_temp_f8095906",
+        "label": "SUPPORTS",
+        "strength": null
+      },
+      {
+        "id": "edge_a965d98a",
+        "source": "evd_anom_93485289",
+        "target": "hyp_grp_4ef128d1",
+        "label": "SUPPORTS",
+        "strength": null
+      },
+      {
+        "id": "edge_4e713020",
+        "source": "evd_anom_10b47b76",
+        "target": "hyp_grp_4ef128d1",
+        "label": "SUPPORTS",
+        "strength": null
+      },
+      {
+        "id": "edge_35c5c8d2",
+        "source": "evd_anom_fa5c170f",
+        "target": "hyp_grp_4ef128d1",
+        "label": "SUPPORTS",
+        "strength": null
+      },
+      {
+        "id": "edge_181ad072",
+        "source": "evd_anom_033d4995",
+        "target": "hyp_grp_4ef128d1",
+        "label": "SUPPORTS",
+        "strength": null
+      },
+      {
+        "id": "edge_f989c78b",
+        "source": "evd_anom_8fa4f488",
+        "target": "hyp_grp_4ef128d1",
+        "label": "SUPPORTS",
+        "strength": null
+      },
+      {
+        "id": "edge_3d7ef3e6",
+        "source": "pat_grp_ab89c805",
+        "target": "hyp_grp_4ef128d1",
+        "label": "SUPPORTS",
+        "strength": null
+      }
+    ]
+  },
+  "analyzed_at": "2026-09-16T09:39:34.197857+00:00",
+  "duration_ms": 30.85
+}
