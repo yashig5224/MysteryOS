@@ -1,4 +1,5 @@
 import { apiGet, apiPostFormData, apiDelete } from "@/lib/api";
+import { apiCache } from "@/services/apiCache";
 import {
   DatasetMetadata,
   DatasetProfile,
@@ -13,7 +14,9 @@ export const datasetService = {
   async uploadDataset(file: File): Promise<DatasetResponse> {
     const formData = new FormData();
     formData.append("file", file);
-    return apiPostFormData<DatasetResponse>("/datasets/upload", formData);
+    const res = await apiPostFormData<DatasetResponse>("/datasets/upload", formData);
+    apiCache.clear();
+    return res;
   },
 
   /**
@@ -27,14 +30,22 @@ export const datasetService = {
    * Get metadata for a specific dataset.
    */
   async getDataset(datasetId: string): Promise<DatasetMetadata> {
-    return apiGet<DatasetMetadata>(`/datasets/${datasetId}`);
+    const cached = apiCache.get<DatasetMetadata>(datasetId, "metadata");
+    if (cached) return cached;
+    const res = await apiGet<DatasetMetadata>(`/datasets/${datasetId}`);
+    apiCache.set(datasetId, "metadata", res);
+    return res;
   },
 
   /**
    * Get full statistical and quality profile for a dataset.
    */
   async getDatasetProfile(datasetId: string): Promise<DatasetProfile> {
-    return apiGet<DatasetProfile>(`/datasets/${datasetId}/profile`);
+    const cached = apiCache.get<DatasetProfile>(datasetId, "profile");
+    if (cached) return cached;
+    const res = await apiGet<DatasetProfile>(`/datasets/${datasetId}/profile`);
+    apiCache.set(datasetId, "profile", res);
+    return res;
   },
 
   /**
@@ -45,15 +56,23 @@ export const datasetService = {
     limit: number = 50,
     offset: number = 0
   ): Promise<DatasetPreview> {
-    return apiGet<DatasetPreview>(
+    const endpoint = `preview?limit=${limit}&offset=${offset}`;
+    const cached = apiCache.get<DatasetPreview>(datasetId, endpoint);
+    if (cached) return cached;
+    const res = await apiGet<DatasetPreview>(
       `/datasets/${datasetId}/preview?limit=${limit}&offset=${offset}`
     );
+    apiCache.set(datasetId, endpoint, res);
+    return res;
   },
 
   /**
    * Delete a dataset by ID.
    */
   async deleteDataset(datasetId: string): Promise<{ message: string; id: string }> {
-    return apiDelete<{ message: string; id: string }>(`/datasets/${datasetId}`);
+    const res = await apiDelete<{ message: string; id: string }>(`/datasets/${datasetId}`);
+    apiCache.invalidate(datasetId);
+    return res;
   },
 };
+

@@ -21,12 +21,13 @@ body {
   margin: 0;
   background-color: #f8fafc;
   color: #0f172a;
-  font-size: 1.125rem; /* 18px base — significantly larger */
-  line-height: 1.65;
+  font-size: 1rem; /* base 16px for compact UI */
+  line-height: 1.5;
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
 
 /* ------------------------------------------------------------------ */
 /* Crisp SaaS Panel Utilities                                         */
@@ -54,25 +55,36 @@ body {
 /* ------------------------------------------------------------------ */
 /* Chart container utility — makes SVG charts the dominant visual      */
 /* ------------------------------------------------------------------ */
-.chart-container { position: relative; width: 100%; border-radius: 0.75rem; border: 1px solid #e2e8f0; background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%); overflow: hidden; padding: 1.5rem; }
-.chart-container-lg { min-height: 20rem; }
-/* New smaller chart container */
-.chart-container-sm { min-height: 12rem; }
+/* Chart containers — responsive, SVG drives actual height */
+.chart-container {
   position: relative;
   width: 100%;
   border-radius: 0.75rem;
   border: 1px solid #e2e8f0;
-  background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+  background: #ffffff;
   overflow: hidden;
-  padding: 1.5rem;
+  padding: 0.75rem;
 }
 
+/* sm: standard chart — SVG sets its own height via minHeight on the element */
+.chart-container-sm {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* lg: main/primary chart, slightly taller */
 .chart-container-lg {
-  min-height: 20rem; /* 320px */
+  position: relative;
+  width: 100%;
+  overflow: hidden;
 }
 
+/* xl: was 416px — replaced with same as lg, do not use viewport-height */
 .chart-container-xl {
-  min-height: 26rem; /* 416px */
+  position: relative;
+  width: 100%;
+  overflow: hidden;
 }
 
 /* ------------------------------------------------------------------ */
@@ -88,9 +100,7 @@ body {
 
 .kpi-figure-lg { font-size: 3.25rem; }
 /* New smaller KPI figure utility */
-.kpi-figure-sm { font-size: 2rem; font-weight: 800; line-height: 1.1; }
-  font-size: 3.25rem;
-}
+.kpi-figure-sm { font-size: 1.5rem; font-weight: 800; line-height: 1.1; }
 
 .kpi-label {
   font-size: 0.75rem;
@@ -109,7 +119,7 @@ body {
 /* Section heading utility                                             */
 /* ------------------------------------------------------------------ */
 .section-heading {
-  font-size: 1.375rem;
+  font-size: 1.125rem; /* reduced from 1.375rem */
   font-weight: 700;
   letter-spacing: -0.01em;
   color: #0f172a;

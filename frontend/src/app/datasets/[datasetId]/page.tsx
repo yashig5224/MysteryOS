@@ -51,9 +51,25 @@ import { CorrelationVisualizer } from "@/components/patterns/CorrelationVisualiz
 import { TimelineView } from "@/components/patterns/TimelineView";
 import { RelationshipList } from "@/components/patterns/RelationshipList";
 import { EvidenceHypothesisMatrix } from "@/components/evidence/EvidenceHypothesisMatrix";
+import dynamic from "next/dynamic";
 import { HypothesisDetailModal } from "@/components/evidence/HypothesisDetailModal";
 import { InvestigationThreadModal } from "@/components/evidence/InvestigationThreadModal";
-import { KnowledgeGraphWorkspace } from "@/components/graph/KnowledgeGraphWorkspace";
+
+const KnowledgeGraphWorkspace = dynamic(
+  () => import("@/components/graph/KnowledgeGraphWorkspace").then((mod) => mod.KnowledgeGraphWorkspace),
+  {
+    loading: () => (
+      <div className="flex h-96 items-center justify-center rounded-lg border border-slate-200 bg-white p-8 text-center">
+        <div className="flex flex-col items-center gap-2 text-slate-600">
+          <div className="h-6 w-6 animate-spin rounded-full border-2 border-teal-700 border-t-transparent" />
+          <p className="text-xs font-mono">Loading Knowledge Graph Workspace...</p>
+        </div>
+      </div>
+    ),
+    ssr: false,
+  }
+);
+
 
 interface DatasetDetailPageProps {
   params: Promise<{ datasetId: string }>;
@@ -1355,116 +1371,195 @@ export default function DatasetDetailPage({ params }: DatasetDetailPageProps) {
 
         {/* TAB 1: OVERVIEW */}
         {activeTab === "overview" && (
-          <div className="space-y-8">
-            <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
-              <Card className="p-5 bg-white border-slate-200 shadow-sm space-y-1">
-                <p className="text-xs font-mono text-slate-600 uppercase tracking-wider font-semibold">Total Records</p>
-                <p className="text-3xl font-extrabold text-slate-900 font-mono tracking-tight">{profile.row_count.toLocaleString()}</p>
-                <p className="text-xs text-slate-500 font-mono">Rows indexed</p>
+          <div className="space-y-6">
+            <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">
+              <Card className="px-3.5 py-3 bg-white border-slate-200 shadow-sm space-y-1">
+                <p className="kpi-label font-mono font-semibold">Total Records</p>
+                <p className="text-xl font-bold text-slate-900 font-mono tracking-tight">{profile.row_count.toLocaleString()}</p>
+                <p className="kpi-sublabel font-mono text-[11px]">Rows indexed</p>
               </Card>
 
-              <Card className="p-5 bg-white border-slate-200 shadow-sm space-y-1">
-                <p className="text-xs font-mono text-slate-600 uppercase tracking-wider font-semibold">Total Columns</p>
-                <p className="text-3xl font-extrabold text-slate-900 font-mono tracking-tight">{profile.column_count}</p>
-                <p className="text-xs text-slate-500 font-mono">Features detected</p>
+              <Card className="px-3.5 py-3 bg-white border-slate-200 shadow-sm space-y-1">
+                <p className="kpi-label font-mono font-semibold">Total Columns</p>
+                <p className="text-xl font-bold text-slate-900 font-mono tracking-tight">{profile.column_count}</p>
+                <p className="kpi-sublabel font-mono text-[11px]">Features detected</p>
               </Card>
 
-              <Card className="p-5 bg-white border-slate-200 shadow-sm space-y-1">
-                <p className="text-xs font-mono text-slate-600 uppercase tracking-wider font-semibold">Health Score</p>
-                <p className="text-3xl font-extrabold text-teal-800 font-mono tracking-tight">{profile.quality.overall_score}%</p>
-                <p className="text-xs text-slate-500 font-mono">Grade {profile.quality.grade}</p>
+              <Card className="px-3.5 py-3 bg-white border-slate-200 shadow-sm space-y-1">
+                <p className="kpi-label font-mono font-semibold">Health Score</p>
+                <p className="text-xl font-bold text-teal-800 font-mono tracking-tight">{profile.quality.overall_score}%</p>
+                <p className="kpi-sublabel font-mono text-[11px]">Grade {profile.quality.grade}</p>
               </Card>
 
-              <Card className="p-5 bg-white border-slate-200 shadow-sm space-y-1">
-                <p className="text-xs font-mono text-slate-600 uppercase tracking-wider font-semibold">Duplicate Rows</p>
-                <p className="text-3xl font-extrabold text-slate-900 font-mono tracking-tight">{profile.duplicate_rows}</p>
-                <p className="text-xs text-slate-500 font-mono">{profile.duplicate_percentage}% duplicates</p>
+              <Card className="px-3.5 py-3 bg-white border-slate-200 shadow-sm space-y-1">
+                <p className="kpi-label font-mono font-semibold">Duplicate Rows</p>
+                <p className="text-xl font-bold text-slate-900 font-mono tracking-tight">{profile.duplicate_rows}</p>
+                <p className="kpi-sublabel font-mono text-[11px]">{profile.duplicate_percentage}% duplicates</p>
               </Card>
 
-              <Card className="p-5 bg-white border-slate-200 shadow-sm space-y-1">
-                <p className="text-xs font-mono text-slate-600 uppercase tracking-wider font-semibold">Missing Ratio</p>
-                <p className="text-3xl font-extrabold text-slate-900 font-mono tracking-tight">{profile.quality.missing_percentage}%</p>
-                <p className="text-xs text-slate-500 font-mono">Global cell nulls</p>
+              <Card className="px-3.5 py-3 bg-white border-slate-200 shadow-sm space-y-1">
+                <p className="kpi-label font-mono font-semibold">Missing Ratio</p>
+                <p className="text-xl font-bold text-slate-900 font-mono tracking-tight">{profile.quality.missing_percentage}%</p>
+                <p className="kpi-sublabel font-mono text-[11px]">Global cell nulls</p>
               </Card>
 
-              <Card className="p-5 bg-white border-slate-200 shadow-sm space-y-1">
-                <p className="text-xs font-mono text-slate-600 uppercase tracking-wider font-semibold">Format</p>
-                <p className="text-3xl font-extrabold text-slate-900 font-mono tracking-tight">{metadata.file_type.toUpperCase()}</p>
-                <p className="text-xs text-slate-500 font-mono">{formatFileSize(metadata.size_bytes)}</p>
+              <Card className="px-3.5 py-3 bg-white border-slate-200 shadow-sm space-y-1">
+                <p className="kpi-label font-mono font-semibold">Format</p>
+                <p className="text-xl font-bold text-slate-900 font-mono tracking-tight">{metadata.file_type.toUpperCase()}</p>
+                <p className="kpi-sublabel font-mono text-[11px]">{formatFileSize(metadata.size_bytes)}</p>
               </Card>
             </div>
 
-            {/* Visual Anomaly Outlier Distribution Preview on Overview */}
-            {columnsWithOutliers.length > 0 && (
-              <div className="space-y-3">
-                <h3 className="text-lg font-bold text-slate-900 font-mono uppercase tracking-tight">
-                  Primary Anomaly Outlier Distribution
-                </h3>
-                <AnomalyChart
-                  columnName={columnsWithOutliers[0]}
-                  columnProfile={profile.columns.find((c) => c.name === columnsWithOutliers[0])}
-                  findings={analysis?.findings || []}
-                />
+            {/* ──── LEVEL 2: COMPACT MEANINGFUL VISUALIZATIONS ──── */}
+            {((columnsWithOutliers.length > 0) || (patterns && patterns.timeline && patterns.timeline.length > 0)) && (
+              <div className="space-y-2">
+                <div className="flex items-center justify-between">
+                  <h3 className="text-xs font-semibold text-slate-800 uppercase tracking-wider font-mono">
+                    Visual Signals &amp; Trajectory
+                  </h3>
+                  <span className="text-[11px] text-slate-500 font-mono">
+                    Dual analytical indicators &bull; Compact inspection view
+                  </span>
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 items-start">
+                  {columnsWithOutliers.length > 0 && (
+                    <div className={!(patterns && patterns.timeline && patterns.timeline.length > 0) ? "md:col-span-2" : ""}>
+                      <AnomalyChart
+                        columnName={columnsWithOutliers[0]}
+                        columnProfile={profile.columns.find((c) => c.name === columnsWithOutliers[0])}
+                        findings={analysis?.findings || []}
+                      />
+                    </div>
+                  )}
+
+                  {patterns && patterns.timeline && patterns.timeline.length > 0 && (
+                    <div className={columnsWithOutliers.length === 0 ? "md:col-span-2" : ""}>
+                      <TrendTimeSeriesChart
+                        title="Temporal Sequence & Milestones"
+                        timelineEvents={patterns.timeline}
+                      />
+                    </div>
+                  )}
+                </div>
               </div>
             )}
 
-            {/* Visual Time Series Sequence Chart if timeline exists */}
-            {patterns && patterns.timeline && patterns.timeline.length > 0 && (
-              <TrendTimeSeriesChart
-                title="Investigation Temporal Sequence & Milestone Graph"
-                timelineEvents={patterns.timeline}
-              />
-            )}
+            {/* ──── LEVEL 3: INSIGHT / DISTRIBUTION / TREND ANALYSIS ──── */}
+            <div className="space-y-2">
+              <div className="flex items-center justify-between">
+                <h3 className="text-xs font-semibold text-slate-800 uppercase tracking-wider font-mono">
+                  Synthesized Insights &amp; Structural Distribution
+                </h3>
+                {analysis && analysis.findings && analysis.findings.length > 0 && (
+                  <button
+                    onClick={() => setActiveTab("analysis")}
+                    className="text-[11px] text-teal-800 hover:text-teal-900 font-mono font-semibold"
+                  >
+                    View all {analysis.findings.length} findings &rarr;
+                  </button>
+                )}
+              </div>
 
-
-            <div className="grid grid-cols-1 gap-6 lg:grid-cols-12">
-              <Card className="lg:col-span-6 p-6 bg-white border-slate-200 shadow-sm">
-                <CardHeader className="px-0 pt-0 pb-4">
-                  <CardTitle className="text-sm font-semibold text-slate-900">
-                    Inferred Semantic Roles
-                  </CardTitle>
-                </CardHeader>
-                <CardContent className="px-0 pb-0 space-y-4">
-                  <div className="space-y-2">
-                    <div className="flex items-center justify-between text-xs">
-                      <span className="text-slate-600">Identifier / Primary Keys:</span>
-                      <span className="font-semibold text-slate-900">
-                        {profile.likely_id_columns.length > 0 ? profile.likely_id_columns.join(", ") : "None detected"}
-                      </span>
-                    </div>
-                    <div className="flex items-center justify-between text-xs">
-                      <span className="text-slate-600">Temporal Series (Dates):</span>
-                      <span className="font-semibold text-slate-900">
-                        {profile.temporal_columns.length > 0 ? profile.temporal_columns.join(", ") : "None detected"}
-                      </span>
-                    </div>
-                    <div className="flex items-center justify-between text-xs">
+              <div className="grid grid-cols-1 gap-4 lg:grid-cols-12">
+                {/* Column Structure & Distribution */}
+                <Card className="lg:col-span-4 p-4 bg-white border-slate-200 shadow-sm space-y-3">
+                  <CardHeader className="px-0 pt-0 pb-2 border-b border-slate-100">
+                    <CardTitle className="text-xs font-bold text-slate-900 uppercase font-mono tracking-wider">
+                      Feature Distribution
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent className="px-0 pb-0 space-y-2 text-xs">
+                    <div className="flex items-center justify-between">
                       <span className="text-slate-600">Numerical Metrics:</span>
-                      <span className="font-semibold text-slate-900">{profile.numeric_columns.length} columns</span>
+                      <span className="font-semibold text-slate-900 font-mono">{profile.numeric_columns.length} columns</span>
                     </div>
-                    <div className="flex items-center justify-between text-xs">
+                    <div className="flex items-center justify-between">
                       <span className="text-slate-600">Categorical Dimensions:</span>
-                      <span className="font-semibold text-slate-900">{profile.categorical_columns.length} columns</span>
+                      <span className="font-semibold text-slate-900 font-mono">{profile.categorical_columns.length} columns</span>
                     </div>
-                  </div>
-                </CardContent>
-              </Card>
+                    <div className="flex items-center justify-between">
+                      <span className="text-slate-600">Temporal Series:</span>
+                      <span className="font-semibold text-slate-900 font-mono">{profile.temporal_columns.length} detected</span>
+                    </div>
+                    <div className="flex items-center justify-between">
+                      <span className="text-slate-600">Identifier Keys:</span>
+                      <span className="font-semibold text-slate-900 font-mono">{profile.likely_id_columns.length} identified</span>
+                    </div>
+                  </CardContent>
+                </Card>
 
-              <Card className="lg:col-span-6 p-6 bg-white border-slate-200 shadow-sm">
-                <CardHeader className="px-0 pt-0 pb-4">
-                  <CardTitle className="text-sm font-semibold text-slate-900">
-                    Investigative Quality Observations
-                  </CardTitle>
-                </CardHeader>
-                <CardContent className="px-0 pb-0 space-y-2.5">
-                  {profile.quality.observations.map((obs, idx) => (
-                    <div key={idx} className="flex items-start space-x-2 text-xs text-slate-700">
-                      <span className="font-mono text-teal-700 font-bold">&bull;</span>
-                      <span>{obs}</span>
-                    </div>
-                  ))}
-                </CardContent>
-              </Card>
+                {/* Key Investigative Insights / High Priority Anomalies */}
+                <Card className="lg:col-span-5 p-4 bg-white border-slate-200 shadow-sm space-y-3">
+                  <CardHeader className="px-0 pt-0 pb-2 border-b border-slate-100">
+                    <CardTitle className="text-xs font-bold text-slate-900 uppercase font-mono tracking-wider">
+                      Top Detected Anomalies &amp; Trends
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent className="px-0 pb-0 space-y-2">
+                    {analysis && analysis.findings && analysis.findings.length > 0 ? (
+                      analysis.findings.slice(0, 3).map((f) => (
+                        <div
+                          key={f.finding_id}
+                          onClick={() => {
+                            setSelectedFinding(f);
+                            setActiveTab("analysis");
+                          }}
+                          className="flex items-start justify-between gap-2 p-1.5 rounded hover:bg-slate-50 cursor-pointer transition-colors border border-transparent hover:border-slate-200"
+                        >
+                          <div className="space-y-0.5 truncate">
+                            <div className="flex items-center space-x-1.5">
+                              {getSeverityBadge(f.severity)}
+                              <span className="text-xs font-semibold text-slate-900 truncate">{f.title}</span>
+                            </div>
+                            <p className="text-[11px] text-slate-500 truncate">{f.description}</p>
+                          </div>
+                          <span className="text-[10px] font-mono text-teal-800 font-bold shrink-0 self-center">
+                            Score: {f.score}
+                          </span>
+                        </div>
+                      ))
+                    ) : (
+                      <p className="text-xs text-slate-500 py-2">No critical anomalies identified.</p>
+                    )}
+                  </CardContent>
+                </Card>
+
+                {/* Quality Health Observations */}
+                <Card className="lg:col-span-3 p-4 bg-white border-slate-200 shadow-sm space-y-3">
+                  <CardHeader className="px-0 pt-0 pb-2 border-b border-slate-100">
+                    <CardTitle className="text-xs font-bold text-slate-900 uppercase font-mono tracking-wider">
+                      Data Integrity
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent className="px-0 pb-0 space-y-2">
+                    {profile.quality.observations.slice(0, 3).map((obs, idx) => (
+                      <div key={idx} className="flex items-start space-x-1.5 text-xs text-slate-700">
+                        <span className="font-mono text-teal-700 font-bold text-[11px]">&bull;</span>
+                        <span className="text-[11px] leading-snug">{obs}</span>
+                      </div>
+                    ))}
+                  </CardContent>
+                </Card>
+              </div>
+            </div>
+
+            {/* ──── LEVEL 4: DETAILED DATA ACCESS CALLOUT ──── */}
+            <div className="flex items-center justify-between p-3.5 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+              <div className="flex items-center space-x-2.5">
+                <span className="font-mono font-bold text-slate-800 uppercase text-[11px]">Dataset Tabular View</span>
+                <span className="text-slate-400">&bull;</span>
+                <span className="text-slate-600">
+                  {profile.row_count.toLocaleString()} rows &bull; {profile.column_count} features ready for inspection
+                </span>
+              </div>
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={() => setActiveTab("preview")}
+                className="text-xs h-7 px-3 bg-white"
+              >
+                Inspect Raw Data Grid &rarr;
+              </Button>
             </div>
           </div>
         )}

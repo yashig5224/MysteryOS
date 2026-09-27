@@ -26,7 +26,7 @@ export function Header({
     >
       <div className="space-y-1.5">
         <div className="flex items-center space-x-4">
-          <h1 className="text-2xl font-extrabold tracking-tight text-slate-900 sm:text-3xl">
+          <h1 className="text-xl font-extrabold tracking-tight text-slate-900 sm:text-2xl">
             {title}
           </h1>
           {badge && <div>{badge}</div>}

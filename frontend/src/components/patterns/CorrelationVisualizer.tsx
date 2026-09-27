@@ -35,14 +35,14 @@ export function CorrelationVisualizer({ correlations }: CorrelationVisualizerPro
   });
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-5">
       {/* Visual Header */}
       <div className="flex items-center justify-between border-b border-slate-100 pb-4">
         <div>
-          <h3 className="text-2xl font-extrabold text-slate-900 tracking-tight uppercase">
+          <h3 className="text-base font-bold text-slate-900 tracking-tight uppercase">
             Discovered Numerical Associations ({correlations.length} Pairings)
           </h3>
-          <p className="text-base text-slate-600 mt-1">
+          <p className="text-sm text-slate-600 mt-1">
             Interactive pairwise correlation selector and 2D feature scatter plot analyzer
           </p>
         </div>
@@ -99,26 +99,26 @@ export function CorrelationVisualizer({ correlations }: CorrelationVisualizerPro
           </div>
         </div>
 
-        {/* 2D Interactive Scatter Plot Canvas — DOMINANT */}
+        {/* 2D Interactive Scatter Plot Canvas */}
         <div className="lg:col-span-8">
-          <Card className="p-8 bg-white border-slate-200 shadow-sm space-y-6">
-            <div className="flex items-center justify-between border-b border-slate-100 pb-5">
-              <div className="space-y-1">
-                <span className="text-xl font-extrabold text-slate-900 block">
+          <Card className="p-4 bg-white border-slate-200 shadow-sm space-y-3">
+            <div className="flex items-center justify-between border-b border-slate-100 pb-2.5">
+              <div className="space-y-0.5">
+                <span className="text-sm font-bold text-slate-900 block font-mono">
                   {selectedPair.var1} <span className="text-slate-400 font-normal">vs</span> {selectedPair.var2}
                 </span>
-                <span className="text-base text-slate-600">
-                  {isPositive ? "Positive Co-movement" : "Inverse Relationship"} &bull; {selectedPair.sample_size.toLocaleString()} samples evaluated
+                <span className="text-xs text-slate-500 font-mono">
+                  {isPositive ? "Positive Co-movement" : "Inverse Relationship"} &bull; {selectedPair.sample_size.toLocaleString()} samples
                 </span>
               </div>
-              <Badge variant={isPositive ? "success" : "warning"} size="md" className="font-mono text-sm px-4 py-1.5">
+              <Badge variant={isPositive ? "success" : "warning"} size="sm" className="font-mono text-xs px-2.5 py-0.5">
                 Pearson r = {selectedPair.coefficient > 0 ? `+${selectedPair.coefficient.toFixed(2)}` : selectedPair.coefficient.toFixed(2)}
               </Badge>
             </div>
 
-            {/* SVG Scatter Plot — MUCH TALLER */}
-            <div className="chart-container chart-container-xl">
-              <svg className="h-full w-full overflow-visible" viewBox="0 0 100 100" preserveAspectRatio="none" style={{ minHeight: "380px" }}>
+            {/* SVG Scatter Plot */}
+            <div className="chart-container !p-1.5">
+              <svg className="w-full block overflow-visible" viewBox="0 0 100 100" preserveAspectRatio="none" style={{ minHeight: "200px", maxHeight: "230px" }}>
                 {/* Grid Lines */}
                 <line x1="10" y1="20" x2="90" y2="20" stroke="#e2e8f0" strokeWidth="1" strokeDasharray="4,4" />
                 <line x1="10" y1="50" x2="90" y2="50" stroke="#e2e8f0" strokeWidth="1" strokeDasharray="4,4" />
@@ -131,29 +131,29 @@ export function CorrelationVisualizer({ correlations }: CorrelationVisualizerPro
                   x2="90"
                   y2={isPositive ? "15" : "85"}
                   stroke={isPositive ? "#0f766e" : "#d97706"}
-                  strokeWidth="3.5"
+                  strokeWidth="3"
                   strokeDasharray="6,5"
                 />
 
-                {/* Sample Scatter Points — LARGER */}
+                {/* Sample Scatter Points */}
                 {scatterPoints.map((pt, i) => (
                   <circle
                     key={i}
                     cx={`${pt.xPct}%`}
                     cy={`${pt.yPct}%`}
-                    r="7"
+                    r="5"
                     fill={isPositive ? "#0f766e" : "#d97706"}
                     stroke="#ffffff"
-                    strokeWidth="2"
+                    strokeWidth="1.5"
                     opacity="0.9"
                   />
                 ))}
               </svg>
             </div>
 
-            <div className="flex justify-between items-center text-sm font-mono text-slate-700 pt-3 border-t border-slate-100">
-              <span>X-Axis Feature: <strong className="text-slate-900">{selectedPair.var1}</strong></span>
-              <span>Y-Axis Feature: <strong className="text-slate-900">{selectedPair.var2}</strong></span>
+            <div className="flex justify-between items-center text-[11px] font-mono text-slate-600 pt-2 border-t border-slate-100">
+              <span>X-Axis: <strong className="text-slate-900">{selectedPair.var1}</strong></span>
+              <span>Y-Axis: <strong className="text-slate-900">{selectedPair.var2}</strong></span>
             </div>
           </Card>
         </div>

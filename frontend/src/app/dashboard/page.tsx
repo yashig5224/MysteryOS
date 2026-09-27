@@ -52,10 +52,10 @@ export default function DashboardPage() {
         }
       />
 
-      <PageContainer className="py-10 space-y-10">
+      <PageContainer className="py-4 space-y-4">
         {/* ──── KPI Metric Overview ──── */}
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          <Card className="p-8 bg-white border-slate-200 shadow-sm space-y-2">
+          <Card className="p-4 bg-white border-slate-200 shadow-sm space-y-2">
             <span className="kpi-label block">Indexed Datasets</span>
             <div className="kpi-figure-sm text-slate-900">
               {datasets.length}
@@ -63,7 +63,7 @@ export default function DashboardPage() {
             <p className="kpi-sublabel">Active investigation targets</p>
           </Card>
 
-          <Card className="p-8 bg-white border-slate-200 shadow-sm space-y-2">
+          <Card className="p-4 bg-white border-slate-200 shadow-sm space-y-2">
             <span className="kpi-label block">Total Records Indexed</span>
             <div className="kpi-figure-sm text-slate-900">
               {totalRows.toLocaleString()}
@@ -71,7 +71,7 @@ export default function DashboardPage() {
             <p className="kpi-sublabel">Across {totalCols} detected features</p>
           </Card>
 
-          <Card className="p-8 bg-white border-slate-200 shadow-sm space-y-2">
+          <Card className="p-4 bg-white border-slate-200 shadow-sm space-y-2">
             <span className="kpi-label block">Avg Data Health Score</span>
             <div className="kpi-figure-sm text-teal-800">
               {avgHealth}/100
@@ -79,7 +79,7 @@ export default function DashboardPage() {
             <p className="kpi-sublabel">Global tabular data readiness</p>
           </Card>
 
-          <Card className="p-8 bg-white border-slate-200 shadow-sm space-y-2">
+          <Card className="p-4 bg-white border-slate-200 shadow-sm space-y-2">
             <span className="kpi-label block">Pipeline Engines</span>
             <div className="kpi-figure-sm text-slate-900">
               7 / 7
@@ -90,13 +90,13 @@ export default function DashboardPage() {
 
         {/* ──── Dataset Health Overview Chart ──── */}
         {!loading && datasets.length > 0 && (
-          <Card className="p-8 bg-white border-slate-200 shadow-sm space-y-6">
+          <Card className="p-4 bg-white border-slate-200 shadow-sm space-y-4">
             <div className="border-b border-slate-100 pb-4">
               <h2 className="section-heading">Dataset Health Distribution</h2>
               <p className="section-subheading mt-1">Quality scores across all ingested datasets</p>
             </div>
-            <div className="chart-container chart-container-lg">
-              <svg className="w-full overflow-visible" viewBox="0 0 100 50" preserveAspectRatio="none" style={{ minHeight: "180px" }}>
+            <div className="chart-container">
+              <svg className="w-full block overflow-visible" viewBox="0 0 100 50" preserveAspectRatio="none" style={{ minHeight: "200px" }}>
                 {/* Grid */}
                 <line x1="5" y1="10" x2="95" y2="10" stroke="#e2e8f0" strokeWidth="0.5" strokeDasharray="3,3" />
                 <line x1="5" y1="25" x2="95" y2="25" stroke="#e2e8f0" strokeWidth="0.5" strokeDasharray="3,3" />
@@ -135,7 +135,7 @@ export default function DashboardPage() {
         )}
 
         {/* ──── Ingested Datasets Section ──── */}
-        <div className="space-y-6">
+        <div className="space-y-4">
           <div className="flex items-center justify-between">
             <div>
               <h2 className="section-heading">Active Investigation Workspaces</h2>
@@ -171,7 +171,7 @@ export default function DashboardPage() {
               {datasets.slice(0, 6).map((ds) => (
                 <Card
                   key={ds.id}
-                  className="p-6 bg-white border-slate-200 hover:border-teal-600 hover:shadow-md transition-all shadow-sm flex flex-col justify-between space-y-5"
+                  className="p-4 bg-white border-slate-200 hover:border-teal-600 hover:shadow-md transition-all shadow-sm flex flex-col justify-between space-y-4"
                 >
                   <div className="space-y-3">
                     <div className="flex items-center justify-between">
@@ -208,7 +208,7 @@ export default function DashboardPage() {
         </div>
 
         {/* ──── Engine Architecture Overview ──── */}
-        <Card className="p-8 bg-white border-slate-200 shadow-sm space-y-6">
+        <Card className="p-4 bg-white border-slate-200 shadow-sm space-y-5">
           <div className="border-b border-slate-100 pb-4">
             <h3 className="section-heading uppercase tracking-wider font-mono">
               MysteryOS Pipeline Architecture
