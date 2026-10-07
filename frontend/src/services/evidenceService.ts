@@ -24,9 +24,11 @@ export const evidenceService = {
   async getEvidenceSummary(datasetId: string): Promise<EvidenceSummary> {
     const cached = apiCache.get<EvidenceSummary>(datasetId, "evidence");
     if (cached) return cached;
-    const res = await apiGet<EvidenceSummary>(`/datasets/${datasetId}/evidence`);
-    apiCache.set(datasetId, "evidence", res);
-    return res;
+    return apiCache.dedupe<EvidenceSummary>(`${datasetId}:evidence`, async () => {
+      const res = await apiGet<EvidenceSummary>(`/datasets/${datasetId}/evidence`);
+      apiCache.set(datasetId, "evidence", res);
+      return res;
+    });
   },
 
   /**
@@ -35,9 +37,11 @@ export const evidenceService = {
   async getHypotheses(datasetId: string): Promise<Hypothesis[]> {
     const cached = apiCache.get<Hypothesis[]>(datasetId, "hypotheses");
     if (cached) return cached;
-    const res = await apiGet<Hypothesis[]>(`/datasets/${datasetId}/hypotheses`);
-    apiCache.set(datasetId, "hypotheses", res);
-    return res;
+    return apiCache.dedupe<Hypothesis[]>(`${datasetId}:hypotheses`, async () => {
+      const res = await apiGet<Hypothesis[]>(`/datasets/${datasetId}/hypotheses`);
+      apiCache.set(datasetId, "hypotheses", res);
+      return res;
+    });
   },
 
   /**
@@ -46,9 +50,11 @@ export const evidenceService = {
   async getInvestigations(datasetId: string): Promise<InvestigationThread[]> {
     const cached = apiCache.get<InvestigationThread[]>(datasetId, "investigations");
     if (cached) return cached;
-    const res = await apiGet<InvestigationThread[]>(`/datasets/${datasetId}/investigations`);
-    apiCache.set(datasetId, "investigations", res);
-    return res;
+    return apiCache.dedupe<InvestigationThread[]>(`${datasetId}:investigations`, async () => {
+      const res = await apiGet<InvestigationThread[]>(`/datasets/${datasetId}/investigations`);
+      apiCache.set(datasetId, "investigations", res);
+      return res;
+    });
   },
 
   /**
@@ -57,9 +63,11 @@ export const evidenceService = {
   async getClusters(datasetId: string): Promise<EvidenceCluster[]> {
     const cached = apiCache.get<EvidenceCluster[]>(datasetId, "clusters");
     if (cached) return cached;
-    const res = await apiGet<EvidenceCluster[]>(`/datasets/${datasetId}/evidence/clusters`);
-    apiCache.set(datasetId, "clusters", res);
-    return res;
+    return apiCache.dedupe<EvidenceCluster[]>(`${datasetId}:clusters`, async () => {
+      const res = await apiGet<EvidenceCluster[]>(`/datasets/${datasetId}/evidence/clusters`);
+      apiCache.set(datasetId, "clusters", res);
+      return res;
+    });
   },
 
   /**

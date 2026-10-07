@@ -7,7 +7,17 @@ import {
   ChevronLeft,
   ChevronRight,
 } from "lucide-react";
-import { InvestigationAssistant } from "@/components/investigation/InvestigationAssistant";
+import { FindingDetailModal } from "@/components/analysis/FindingDetailModal";
+import { AnomalyChart } from "@/components/analysis/AnomalyChart";
+import { TrendTimeSeriesChart } from "@/components/analysis/TrendTimeSeriesChart";
+import { ColumnAlgorithmStats } from "@/components/analysis/ColumnAlgorithmStats";
+import { PatternDetailModal } from "@/components/patterns/PatternDetailModal";
+import { CorrelationVisualizer } from "@/components/patterns/CorrelationVisualizer";
+import { TimelineView } from "@/components/patterns/TimelineView";
+import { RelationshipList } from "@/components/patterns/RelationshipList";
+import dynamic from "next/dynamic";
+import { HypothesisDetailModal } from "@/components/evidence/HypothesisDetailModal";
+import { InvestigationThreadModal } from "@/components/evidence/InvestigationThreadModal";
 import { InvestigationSource } from "@/types/investigation";
 import { datasetService } from "@/services/datasetService";
 import { analysisService } from "@/services/analysisService";
@@ -43,17 +53,6 @@ import {
   TableHead,
   TableCell,
 } from "@/components/ui/table";
-import { FindingDetailModal } from "@/components/analysis/FindingDetailModal";
-import { AnomalyChart } from "@/components/analysis/AnomalyChart";
-import { TrendTimeSeriesChart } from "@/components/analysis/TrendTimeSeriesChart";
-import { PatternDetailModal } from "@/components/patterns/PatternDetailModal";
-import { CorrelationVisualizer } from "@/components/patterns/CorrelationVisualizer";
-import { TimelineView } from "@/components/patterns/TimelineView";
-import { RelationshipList } from "@/components/patterns/RelationshipList";
-import { EvidenceHypothesisMatrix } from "@/components/evidence/EvidenceHypothesisMatrix";
-import dynamic from "next/dynamic";
-import { HypothesisDetailModal } from "@/components/evidence/HypothesisDetailModal";
-import { InvestigationThreadModal } from "@/components/evidence/InvestigationThreadModal";
 
 const KnowledgeGraphWorkspace = dynamic(
   () => import("@/components/graph/KnowledgeGraphWorkspace").then((mod) => mod.KnowledgeGraphWorkspace),
@@ -68,6 +67,26 @@ const KnowledgeGraphWorkspace = dynamic(
     ),
     ssr: false,
   }
+);
+
+const InvestigationAssistant = dynamic(
+  () => import("@/components/investigation/InvestigationAssistant").then((mod) => mod.InvestigationAssistant),
+  {
+    loading: () => (
+      <div className="flex h-96 items-center justify-center rounded-lg border border-slate-200 bg-white p-8 text-center">
+        <div className="flex flex-col items-center gap-2 text-slate-600">
+          <div className="h-6 w-6 animate-spin rounded-full border-2 border-teal-700 border-t-transparent" />
+          <p className="text-xs font-mono">Loading AI Investigation Assistant...</p>
+        </div>
+      </div>
+    ),
+    ssr: false,
+  }
+);
+
+const EvidenceHypothesisMatrix = dynamic(
+  () => import("@/components/evidence/EvidenceHypothesisMatrix").then((mod) => mod.EvidenceHypothesisMatrix),
+  { ssr: false }
 );
 
 
@@ -136,23 +155,12 @@ export default function DatasetDetailPage({ params }: DatasetDetailPageProps) {
         setProfile(profileData);
         setPreview(previewData);
 
-        // Try loading cached analysis
-        try {
-          const cachedAnalysis = await analysisService.getAnalysis(datasetId);
-          setAnalysis(cachedAnalysis);
-        } catch {}
-
-        // Try loading cached patterns
-        try {
-          const cachedPatterns = await patternService.getPatterns(datasetId);
-          setPatterns(cachedPatterns);
-        } catch {}
-
-        // Try loading cached evidence & hypotheses
-        try {
-          const cachedEvidence = await evidenceService.getEvidenceSummary(datasetId);
-          setEvidenceSummary(cachedEvidence);
-        } catch {}
+        // Fetch analytical summaries in parallel in background without blocking initial render
+        Promise.allSettled([
+          analysisService.getAnalysis(datasetId).then(setAnalysis).catch(() => {}),
+          patternService.getPatterns(datasetId).then(setPatterns).catch(() => {}),
+          evidenceService.getEvidenceSummary(datasetId).then(setEvidenceSummary).catch(() => {}),
+        ]);
       } catch (err: any) {
         setError(err?.detail || err?.message || "Failed to load dataset details.");
       } finally {
@@ -1768,92 +1776,12 @@ export default function DatasetDetailPage({ params }: DatasetDetailPageProps) {
 
         {/* TAB 5: STATISTICS */}
         {activeTab === "statistics" && (
-          <div className="space-y-8">
-            {profile.columns.some((c) => c.numeric_stats) && (
-              <div className="space-y-3">
-                <h3 className="text-sm font-semibold text-slate-900">
-                  Numerical Distributions &amp; Moments
-                </h3>
-                <div className="overflow-x-auto rounded-lg border border-slate-200 bg-white shadow-sm">
-                  <Table>
-                    <TableHeader>
-                      <TableRow className="border-slate-200 bg-slate-50 hover:bg-slate-50">
-                        <TableHead className="text-xs text-slate-900 font-semibold">Feature</TableHead>
-                        <TableHead className="text-xs text-slate-900 font-semibold">Mean</TableHead>
-                        <TableHead className="text-xs text-slate-900 font-semibold">Median</TableHead>
-                        <TableHead className="text-xs text-slate-900 font-semibold">Min</TableHead>
-                        <TableHead className="text-xs text-slate-900 font-semibold">25% (Q1)</TableHead>
-                        <TableHead className="text-xs text-slate-900 font-semibold">75% (Q3)</TableHead>
-                        <TableHead className="text-xs text-slate-900 font-semibold">Max</TableHead>
-                        <TableHead className="text-xs text-slate-900 font-semibold">Std Dev</TableHead>
-                        <TableHead className="text-xs text-slate-900 font-semibold">Zero Count</TableHead>
-                      </TableRow>
-                    </TableHeader>
-                    <TableBody>
-                      {profile.columns
-                        .filter((c) => c.numeric_stats)
-                        .map((col) => {
-                          const s = col.numeric_stats!;
-                          return (
-                            <TableRow key={col.name} className="border-slate-100 hover:bg-slate-50/60 font-mono text-xs">
-                              <TableCell className="font-sans font-semibold text-slate-900">{col.name}</TableCell>
-                              <TableCell className="text-slate-700">{s.mean ?? "-"}</TableCell>
-                              <TableCell className="text-slate-700">{s.median ?? "-"}</TableCell>
-                              <TableCell className="text-slate-700">{s.min ?? "-"}</TableCell>
-                              <TableCell className="text-slate-600">{s.q25 ?? "-"}</TableCell>
-                              <TableCell className="text-slate-600">{s.q75 ?? "-"}</TableCell>
-                              <TableCell className="text-slate-700">{s.max ?? "-"}</TableCell>
-                              <TableCell className="text-slate-600">{s.std ?? "-"}</TableCell>
-                              <TableCell className="text-slate-600">{s.zeros_count}</TableCell>
-                            </TableRow>
-                          );
-                        })}
-                    </TableBody>
-                  </Table>
-                </div>
-              </div>
-            )}
-
-            {profile.columns.some((c) => c.categorical_stats) && (
-              <div className="space-y-4">
-                <h3 className="text-sm font-semibold text-slate-900">
-                  Categorical Frequency Distributions
-                </h3>
-
-                <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-                  {profile.columns
-                    .filter((c) => c.categorical_stats)
-                    .map((col) => {
-                      const cat = col.categorical_stats!;
-                      return (
-                        <Card key={col.name} className="p-5 bg-white border-slate-200 shadow-sm space-y-3">
-                          <div className="flex items-center justify-between border-b border-slate-100 pb-2">
-                            <span className="font-semibold text-sm text-slate-900">{col.name}</span>
-                            <Badge variant="outline" size="sm">
-                              {cat.cardinality} distinct values
-                            </Badge>
-                          </div>
-                          <div className="space-y-2.5 pt-1">
-                            {cat.top_values.map((v, i) => (
-                              <div key={i} className="space-y-1">
-                                <div className="flex justify-between text-xs">
-                                  <span className="font-mono text-slate-700 truncate max-w-[200px]">
-                                    {v.value || '"" (empty)'}
-                                  </span>
-                                  <span className="text-slate-600 font-mono text-[11px]">
-                                    {v.count} ({v.percentage}%)
-                                  </span>
-                                </div>
-                                <Progress value={v.percentage} variant="secondary" />
-                              </div>
-                            ))}
-                          </div>
-                        </Card>
-                      );
-                    })}
-                </div>
-              </div>
-            )}
+          <div className="space-y-6">
+            <ColumnAlgorithmStats
+              profile={profile}
+              analysis={analysis}
+              patterns={patterns}
+            />
           </div>
         )}
       </PageContainer>

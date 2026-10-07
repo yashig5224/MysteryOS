@@ -18,9 +18,11 @@ export const patternService = {
   async getPatterns(datasetId: string): Promise<PatternSummary> {
     const cached = apiCache.get<PatternSummary>(datasetId, "patterns");
     if (cached) return cached;
-    const res = await apiGet<PatternSummary>(`/datasets/${datasetId}/patterns`);
-    apiCache.set(datasetId, "patterns", res);
-    return res;
+    return apiCache.dedupe<PatternSummary>(`${datasetId}:patterns`, async () => {
+      const res = await apiGet<PatternSummary>(`/datasets/${datasetId}/patterns`);
+      apiCache.set(datasetId, "patterns", res);
+      return res;
+    });
   },
 
   /**
@@ -29,9 +31,11 @@ export const patternService = {
   async getRelationships(datasetId: string): Promise<Relationship[]> {
     const cached = apiCache.get<Relationship[]>(datasetId, "relationships");
     if (cached) return cached;
-    const res = await apiGet<Relationship[]>(`/datasets/${datasetId}/relationships`);
-    apiCache.set(datasetId, "relationships", res);
-    return res;
+    return apiCache.dedupe<Relationship[]>(`${datasetId}:relationships`, async () => {
+      const res = await apiGet<Relationship[]>(`/datasets/${datasetId}/relationships`);
+      apiCache.set(datasetId, "relationships", res);
+      return res;
+    });
   },
 
   /**
@@ -40,9 +44,11 @@ export const patternService = {
   async getTimeline(datasetId: string): Promise<TimelineEvent[]> {
     const cached = apiCache.get<TimelineEvent[]>(datasetId, "timeline");
     if (cached) return cached;
-    const res = await apiGet<TimelineEvent[]>(`/datasets/${datasetId}/timeline`);
-    apiCache.set(datasetId, "timeline", res);
-    return res;
+    return apiCache.dedupe<TimelineEvent[]>(`${datasetId}:timeline`, async () => {
+      const res = await apiGet<TimelineEvent[]>(`/datasets/${datasetId}/timeline`);
+      apiCache.set(datasetId, "timeline", res);
+      return res;
+    });
   },
 };
 

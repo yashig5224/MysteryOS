@@ -16,18 +16,30 @@ from app.config import settings
 
 app = FastAPI(title="MysteryOS API", version="0.1.0")
 
+frontend_origins = [
+    settings.frontend_url.rstrip("/"),
+    "https://mystery-os-taupe.vercel.app",
+    "http://localhost:3000",
+    "http://127.0.0.1:3000",
+    "http://localhost:3001",
+]
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[
-        settings.frontend_url,
-        "http://localhost:3000",
-        "http://127.0.0.1:3000",
-        "http://localhost:3001",
-    ],
+    allow_origins=frontend_origins,
+    allow_origin_regex=r"https://.*\.vercel\.app",
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+@app.get("/")
+def root():
+    return {"status": "ok", "service": "mysteryos", "message": "MysteryOS API is running"}
+
+@app.get("/health")
+def root_health():
+    return {"status": "ok", "service": "mysteryos"}
 
 app.include_router(health_router, prefix="/api")
 app.include_router(investigations_router, prefix="/api")
@@ -39,3 +51,4 @@ app.include_router(graph_router, prefix="/api")
 app.include_router(copilot_router, prefix="/api")
 app.include_router(hypotheses_router, prefix="/api")
 app.include_router(reports_router, prefix="/api")
+

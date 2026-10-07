@@ -1,4 +1,13 @@
-const API_URL = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:8000/api";
+const rawApiUrl = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:8000/api";
+const cleanApiUrl = rawApiUrl.endsWith("/") ? rawApiUrl.slice(0, -1) : rawApiUrl;
+
+function buildUrl(path: string): string {
+  const normalizedPath = path.startsWith("/") ? path : `/${path}`;
+  if (cleanApiUrl.endsWith("/api") && normalizedPath.startsWith("/api/")) {
+    return `${cleanApiUrl}${normalizedPath.slice(4)}`;
+  }
+  return `${cleanApiUrl}${normalizedPath}`;
+}
 
 export class ApiRequestError extends Error {
   status: number;
@@ -31,7 +40,7 @@ async function handleResponse<T>(response: Response): Promise<T> {
 }
 
 export async function apiGet<T>(path: string): Promise<T> {
-  const response = await fetch(`${API_URL}${path}`, {
+  const response = await fetch(buildUrl(path), {
     method: "GET",
     headers: {
       Accept: "application/json",
@@ -41,7 +50,7 @@ export async function apiGet<T>(path: string): Promise<T> {
 }
 
 export async function apiPost<T>(path: string, data?: any): Promise<T> {
-  const response = await fetch(`${API_URL}${path}`, {
+  const response = await fetch(buildUrl(path), {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -53,7 +62,7 @@ export async function apiPost<T>(path: string, data?: any): Promise<T> {
 }
 
 export async function apiPostFormData<T>(path: string, formData: FormData): Promise<T> {
-  const response = await fetch(`${API_URL}${path}`, {
+  const response = await fetch(buildUrl(path), {
     method: "POST",
     body: formData,
   });
@@ -61,7 +70,7 @@ export async function apiPostFormData<T>(path: string, formData: FormData): Prom
 }
 
 export async function apiDelete<T>(path: string): Promise<T> {
-  const response = await fetch(`${API_URL}${path}`, {
+  const response = await fetch(buildUrl(path), {
     method: "DELETE",
     headers: {
       Accept: "application/json",
@@ -70,5 +79,6 @@ export async function apiDelete<T>(path: string): Promise<T> {
   return handleResponse<T>(response);
 }
 
-export { API_URL };
+export const API_URL = cleanApiUrl;
+
 

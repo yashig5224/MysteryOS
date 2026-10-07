@@ -23,6 +23,7 @@ const DEFAULT_TTL_MS = 5 * 60 * 1000;
 
 class ApiCache {
   private store = new Map<string, CacheEntry<unknown>>();
+  private inFlight = new Map<string, Promise<any>>();
 
   private key(datasetId: string, endpoint: string): string {
     return `${datasetId}:${endpoint}`;
@@ -50,11 +51,28 @@ class ApiCache {
     return this.get(datasetId, endpoint, ttlMs) !== null;
   }
 
+  /**
+   * Deduplicate concurrent in-flight requests for the exact same key.
+   */
+  async dedupe<T>(key: string, fetcher: () => Promise<T>): Promise<T> {
+    if (this.inFlight.has(key)) {
+      return this.inFlight.get(key) as Promise<T>;
+    }
+    const promise = fetcher().finally(() => {
+      this.inFlight.delete(key);
+    });
+    this.inFlight.set(key, promise);
+    return promise;
+  }
+
   /** Remove every cached entry for a specific dataset (e.g. after re-analysis). */
   invalidate(datasetId: string): void {
     const prefix = `${datasetId}:`;
     for (const k of this.store.keys()) {
       if (k.startsWith(prefix)) this.store.delete(k);
+    }
+    for (const k of this.inFlight.keys()) {
+      if (k.startsWith(prefix)) this.inFlight.delete(k);
     }
   }
 

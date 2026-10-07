@@ -18,9 +18,11 @@ export const analysisService = {
   async getAnalysis(datasetId: string): Promise<AnalysisSummary> {
     const cached = apiCache.get<AnalysisSummary>(datasetId, "analysis");
     if (cached) return cached;
-    const res = await apiGet<AnalysisSummary>(`/datasets/${datasetId}/analysis`);
-    apiCache.set(datasetId, "analysis", res);
-    return res;
+    return apiCache.dedupe<AnalysisSummary>(`${datasetId}:analysis`, async () => {
+      const res = await apiGet<AnalysisSummary>(`/datasets/${datasetId}/analysis`);
+      apiCache.set(datasetId, "analysis", res);
+      return res;
+    });
   },
 
   /**
@@ -29,9 +31,11 @@ export const analysisService = {
   async getAnomalies(datasetId: string): Promise<AnalysisFinding[]> {
     const cached = apiCache.get<AnalysisFinding[]>(datasetId, "anomalies");
     if (cached) return cached;
-    const res = await apiGet<AnalysisFinding[]>(`/datasets/${datasetId}/anomalies`);
-    apiCache.set(datasetId, "anomalies", res);
-    return res;
+    return apiCache.dedupe<AnalysisFinding[]>(`${datasetId}:anomalies`, async () => {
+      const res = await apiGet<AnalysisFinding[]>(`/datasets/${datasetId}/anomalies`);
+      apiCache.set(datasetId, "anomalies", res);
+      return res;
+    });
   },
 
   /**
@@ -40,9 +44,11 @@ export const analysisService = {
   async getInsights(datasetId: string): Promise<AnalysisFinding[]> {
     const cached = apiCache.get<AnalysisFinding[]>(datasetId, "insights");
     if (cached) return cached;
-    const res = await apiGet<AnalysisFinding[]>(`/datasets/${datasetId}/insights`);
-    apiCache.set(datasetId, "insights", res);
-    return res;
+    return apiCache.dedupe<AnalysisFinding[]>(`${datasetId}:insights`, async () => {
+      const res = await apiGet<AnalysisFinding[]>(`/datasets/${datasetId}/insights`);
+      apiCache.set(datasetId, "insights", res);
+      return res;
+    });
   },
 };
 

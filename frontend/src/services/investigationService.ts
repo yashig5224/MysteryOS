@@ -27,9 +27,11 @@ export const investigationService = {
   async getSummary(datasetId: string): Promise<InvestigationSummary> {
     const cached = apiCache.get<InvestigationSummary>(datasetId, "inv-summary");
     if (cached) return cached;
-    const res = await apiGet<InvestigationSummary>(`/datasets/${datasetId}/investigation/summary`);
-    apiCache.set(datasetId, "inv-summary", res);
-    return res;
+    return apiCache.dedupe<InvestigationSummary>(`${datasetId}:inv-summary`, async () => {
+      const res = await apiGet<InvestigationSummary>(`/datasets/${datasetId}/investigation/summary`);
+      apiCache.set(datasetId, "inv-summary", res);
+      return res;
+    });
   },
 
   /**
@@ -38,9 +40,11 @@ export const investigationService = {
   async getSuggestedQuestions(datasetId: string): Promise<SuggestedQuestion[]> {
     const cached = apiCache.get<SuggestedQuestion[]>(datasetId, "suggested-questions");
     if (cached) return cached;
-    const res = await apiGet<SuggestedQuestion[]>(`/datasets/${datasetId}/investigation/suggested-questions`);
-    apiCache.set(datasetId, "suggested-questions", res);
-    return res;
+    return apiCache.dedupe<SuggestedQuestion[]>(`${datasetId}:suggested-questions`, async () => {
+      const res = await apiGet<SuggestedQuestion[]>(`/datasets/${datasetId}/investigation/suggested-questions`);
+      apiCache.set(datasetId, "suggested-questions", res);
+      return res;
+    });
   },
 
   /**
@@ -49,9 +53,11 @@ export const investigationService = {
   async getHistory(datasetId: string): Promise<InvestigationHistoryResponse> {
     const cached = apiCache.get<InvestigationHistoryResponse>(datasetId, "history");
     if (cached) return cached;
-    const res = await apiGet<InvestigationHistoryResponse>(`/datasets/${datasetId}/investigation/history`);
-    apiCache.set(datasetId, "history", res);
-    return res;
+    return apiCache.dedupe<InvestigationHistoryResponse>(`${datasetId}:history`, async () => {
+      const res = await apiGet<InvestigationHistoryResponse>(`/datasets/${datasetId}/investigation/history`);
+      apiCache.set(datasetId, "history", res);
+      return res;
+    });
   },
 
   /**
